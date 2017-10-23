@@ -1,0 +1,103 @@
+/* Top Nav */
+.topLine {
+  height: 10px;
+  background-color: #A23A99;
+}
+
+
+.pageHeader {
+  position: fixed;
+  width: 100%;
+  padding-left: 170px;
+  background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Flogo.svg?1502313014500) no-repeat;
+  background-color: #A23A99;
+  z-index: 999;
+}
+
+.topNavigation {
+  list-style: none;
+}
+
+.topNavigation li {
+  display:inline;
+}
+
+.topNavigation__link {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 15px;
+}
+
+.topNavigation__link--active {
+  color: #A23A99;
+  background-color: rgba(255,255,255,.85);
+}
+
+/* Bottom Nav */
+.bottomMenu {
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+  width: 100%;
+  padding: 1rem .2rem;
+  background-color: #fff;
+  border-width: 1px 0;
+  list-style: none;
+  text-align: center;
+  z-index: 999;
+}
+
+.bottomMenu li {
+  display:inline;
+}
+
+.bottomMenu__link {
+  display: inline-block;
+  text-decoration: none;
+  color: #A23A99;
+  padding: 7px 13px;
+  font-weight: bold;
+  border: 2px solid #A23A99;
+  margin-left: -6px;
+  font-size: 14px;
+}
+
+.bottomMenu__link--active {
+  color: #fff;
+  background-color: #A23A99;
+}
+
+/* sub Nav */
+.subMenu {
+  position: fixed;
+  top: 10px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  width: 100%;
+  padding: 1rem .2rem;
+  background-color: #fff;
+  border-width: 1px 0;
+  list-style: none;
+  text-align: center;
+  z-index: 999;
+}
+
+.subMenu li {
+  display:inline;
+}
+
+.subMenu__link {
+  display: inline-block;
+  text-decoration: none;
+  color: #A23A99;
+  padding: 7px 13px;
+  font-weight: bold;
+  border: 2px solid #A23A99;
+  margin-left: -6px;
+  font-size: 14px;
+}
+
+.subMenu__link--active {
+  color: #fff;
+  background-color: #A23A99;
+}

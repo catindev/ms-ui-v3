@@ -1,1 +1,45 @@
-<h1>Leads</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Лиды</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/common/styles.css">
+    <link rel="stylesheet" href="/static/common/navigation.css">
+    <link rel="stylesheet" href="/static/leads/styles.css">
+</head>
+
+<body>
+    <div class="topLine onlyMobile"></div>
+
+    <ul class="subMenu onlyMobile">
+        <li><a class="subMenu__link subMenu__link--active">Горячие</a></li>
+        <li><a class="subMenu__link">Холодные</a></li>
+    </ul>
+    <div class="pageHeader">
+        <ul class="topNavigation onlyDesktop">
+            <li><a class="topNavigation__link topNavigation__link--active">Новые</a></li>
+            <li><a class="topNavigation__link topNavigation__link" 
+              href="/customers/cold">
+              Холодные лиды
+            </a></li>
+            <li><a href="/my" class="topNavigation__link">Мои клиенты</a></li>
+            <li><a href="#" class="topNavigation__link">Недавние</a></li>
+        </ul>
+    </div>
+    <div class="list">
+        <h1 class="pageTitle">Новые клиенты</h1>
+        <div id="leadsList" class="preloader"></div>
+    </div>
+    <ul class="bottomMenu onlyMobile">
+        <li><a class="bottomMenu__link bottomMenu__link--active">Новые</a></li>
+        <li><a href="/my" class="bottomMenu__link">Мои клиенты</a></li>
+        <li><a href="/closed" class="bottomMenu__link">Недавние</a></li>
+    </ul>
+    <script src="static/common/script.js"></script>
+    <script src="static/leads/script.js"></script>
+</body>
+
+</html>
