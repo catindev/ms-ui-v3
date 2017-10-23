@@ -1,9 +1,4 @@
 /* Top Nav */
-.topLine {
-  height: 10px;
-  background-color: #A23A99;
-}
-
 
 .pageHeader {
   position: fixed;
@@ -71,7 +66,8 @@
 /* sub Nav */
 .subMenu {
   position: fixed;
-  top: 10px;
+  top: 0;
+  border-top: 10px solid #A23A99;
   border-bottom: 1px solid rgba(0,0,0,.1);
   width: 100%;
   padding: 1rem .2rem;
