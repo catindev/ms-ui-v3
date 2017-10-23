@@ -27,7 +27,10 @@
         .then(({ items }) => {
             leadsList.classList.remove('preloader');
             leadsList.classList.add('list__content');
-            leadsList.innerHTML = items.map(leadHTML).join('')
+            leadsList.innerHTML = false ?
+                items.map(leadHTML).join('')
+                :
+                `<div class="emptyList">Клиентов нет 🤷‍</div>`
         })
         .catch(error => {
             console.error('Error:',error.message)
