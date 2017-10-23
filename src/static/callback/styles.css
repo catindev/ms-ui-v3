@@ -1,0 +1,8 @@
+.callbackLayout {
+    display: none;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.75) url('/static/callback/preloader.gif') center center no-repeat;
+}
