@@ -1,0 +1,28 @@
+* {
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', 'Segoe WP', 'Helvetica Neue', 'Lucida Grande', Verdana, Tahoma, Arial, sans-serif !important;
+    color: #353B3F;
+}
+
+.onlyDesktop {
+  display: none;
+}
+
+/* Grid */
+.row { width: 100%; display: table; table-layout: fixed; }
+.col { display: table-cell; }
+
+
+@media screen and (min-width:1024px) {
+  
+  .onlyMobile {
+    display: none;
+  }
+  
+  .onlyDesktop {
+    display: block;
+  }  
+  
+}
