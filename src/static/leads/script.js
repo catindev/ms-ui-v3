@@ -27,7 +27,7 @@
         .then(({ items }) => {
             leadsList.classList.remove('preloader');
             leadsList.classList.add('list__content');
-            leadsList.innerHTML = false ?
+            leadsList.innerHTML = items.length > 0 ?
                 items.map(leadHTML).join('')
                 :
                 `<div class="emptyList">Клиентов нет 🤷‍</div>`
