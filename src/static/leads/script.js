@@ -7,7 +7,7 @@
 
         return `
           <div class="row lead">
-              <div class="col callbackButton"></div>
+              <div class="col callbackButton" customer="${ _id }"></div>
               <div class="col">
                   <a class="name" href="/customer/${ _id }/edit">${ name }</a>
                   <div class="row info">${ status }</div>
