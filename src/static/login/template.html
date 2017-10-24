@@ -13,16 +13,20 @@
 <body>
     <form id="loginForm">
         <h1>Вход в Майндсейлс</h1>
-        <div class="formGroup">
+        <div class="message" id="errorMessage"></div>
+        <div class="message" id="infoMessage">
+            СМС с одноразовым паролем отправлена. Пароль будет действовать ешё 3 минуты
+        </div>
+        <div class="formGroup" id="phoneNumber">
           <label>Номер телефона</label>
           <input type="number" name="login"/>
         </div>
-        <div class="formGroup">
-          <label>Пароль</label>
-          <input type="password" name="password"/>
+        <div class="formGroup" id="smsCode" style="display: none">
+          <label>Код из сообщения</label>
+          <input type="text" name="code"/>
         </div> 
 
-        <button>Войти</button>       
+        <button id="theButton">Отправить СМС с паролем</button>       
     </form>
     <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
