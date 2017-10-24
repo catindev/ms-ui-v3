@@ -19,11 +19,9 @@
 
     fetch(Config.API_HOST + "/customers/leads?token=" + getCookie('msid'))
         .then(response => response.json())
-        .then(response => {
-            if (response.status !== 200) throw Error(response.message);
-            return response;
-        })
+        .then(checkResponse)
         .then(({ items }) => {
+            if (!items) return false
             leadsList.classList.remove('preloader');
             leadsList.classList.add('list__content');
             leadsList.innerHTML = items.length > 0 ?

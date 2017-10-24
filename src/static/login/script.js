@@ -1,6 +1,5 @@
 (function() {
-
-
+    
     loginForm.addEventListener("submit", function(event) {
         event.preventDefault()
 
@@ -30,10 +29,7 @@
                 body
             })
             .then(response => response.json())
-            .then(jsonResponse => {
-                if (jsonResponse.status !== 200) throw Error(jsonResponse.message)
-                return jsonResponse
-            })
+            .then(checkResponse)
             .then(({ token }) => {
                 if (code.value === '') {                   
                     theButton.innerText = 'Войти'                    

@@ -8,3 +8,14 @@ function getCookie(name) {
   var parts = value.split("; " + name + "=");
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
+
+function checkResponse( response ) {
+  console.log(response)
+  if (response.status === 403) {
+    document.cookie = 'msid=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+    window.location.reload()
+    return false
+  }
+  if (response.status !== 200) throw Error(response.message)
+  return response
+}
