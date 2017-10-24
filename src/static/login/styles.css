@@ -25,6 +25,7 @@ label {
 }
 
 input {
+    -webkit-appearance: none;
     display: block;
     width: 100%;
     padding: 9px 7px;
