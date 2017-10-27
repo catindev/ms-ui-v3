@@ -33,7 +33,7 @@
 .bottomMenu {
   position: fixed;
   bottom: 0;
-  border-top: 1px solid rgba(0,0,0,.025);
+  border-top: 1px solid rgba(0,0,0,.05);
   width: 100%;
   background-color: #fff;
   border-width: 1px 0;
