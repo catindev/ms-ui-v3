@@ -35,12 +35,17 @@
   bottom: 0;
   border-top: 1px solid rgba(0,0,0,.1);
   width: 100%;
-  padding: 1rem .2rem;
   background-color: #fff;
   border-width: 1px 0;
   list-style: none;
   text-align: center;
   z-index: 999;
+}
+
+.bottomMenu li:not(:first-child):before {
+  content: '|';
+  margin: 0 8px;
+  color: rgba(0,0,0,.25);
 }
 
 .bottomMenu li {
@@ -50,17 +55,13 @@
 .bottomMenu__link {
   display: inline-block;
   text-decoration: none;
-  color: #A23A99;
-  padding: 7px 13px;
   font-weight: bold;
-  border: 2px solid #A23A99;
-  margin-left: -6px;
-  font-size: 14px;
+  font-size: 15px;
+  padding: 15px 5px;
 }
 
 .bottomMenu__link--active {
-  color: #fff;
-  background-color: #A23A99;
+  color: #A23A99;
 }
 
 /* sub Nav */
