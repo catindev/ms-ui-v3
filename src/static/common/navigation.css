@@ -72,19 +72,19 @@
 .bottomMenu {
   position: fixed;
   bottom: 0;
-  border-top: 1px solid rgba(0,0,0,.05);
+  /*border-top: 1px solid rgba(0,0,0,.05);*/
   width: 100%;
-  background-color: #fff;
-  border-width: 1px 0;
+  background-color: #A23A99;
   list-style: none;
   text-align: center;
   z-index: 999;
+  padding: 7px 0;
 }
 
 .bottomMenu li:not(:first-child):before {
-  content: '|';
+  content: '';
   margin: 0 8px;
-  color: rgba(0,0,0,.25);
+  color: rgba(255,255,255,.25);
 }
 
 .bottomMenu li {
@@ -96,11 +96,14 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
-  padding: 15px 0px;  
+  padding: 10px 10px; 
+  color: #fff; 
 }
 
 .bottomMenu__link--active {
-  color: #A23A99;
+  /*color: #A23A99;*/
+  border: 2px solid rgba(255,255,255, .7);
+  border-radius: 4px;
 }
 
 @media screen and (min-device-width : 375px) {
@@ -118,7 +121,7 @@
   border-top: 10px solid #A23A99;
   border-bottom: 1px solid rgba(0,0,0,.1);
   width: 100%;
-  padding: 1rem .2rem;
+  padding: 10px 0;
   background-color: #fff;
   list-style: none;
   text-align: center;
