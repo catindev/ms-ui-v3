@@ -112,6 +112,42 @@
   }
 }
 
+/* test */
+
+.buttonGroup {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.buttonGroup__button {
+  display: inline-block;
+  text-decoration: none;
+  color: #A23A99;
+  padding: 8px 14px;
+  font-weight: bold;
+  border: 2px solid #A23A99;
+  border-radius: 4px;
+  margin-left: -2px;
+  font-size: 14px;
+}
+
+.buttonGroup__button--active {
+  color: #fff;
+  background-color: #A23A99;
+}
+
+.buttonGroup__button:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.buttonGroup__button:first-child {
+    margin-left: 0;
+}
+
+
 
 /* Мобильник, переключалка в хэдер */
 .subMenu {
