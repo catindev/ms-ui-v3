@@ -64,7 +64,7 @@
   color: #A23A99;
 }
 
-@media screen and (min-screen-width : 375px) {
+@media screen and (min-device-width : 375px) {
   .bottomMenu__link {
     font-size: 16px;
     padding: 15px 5px;
