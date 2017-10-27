@@ -56,13 +56,21 @@
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
-  font-size: 15px;
-  padding: 15px 5px;
+  font-size: 13px;
+  padding: 15px 0px;  
 }
 
 .bottomMenu__link--active {
   color: #A23A99;
 }
+
+@media screen and (min-screen-width : 375px) {
+  .bottomMenu__link {
+    font-size: 16px;
+    padding: 15px 5px;
+  }
+}
+
 
 /* sub Nav */
 .subMenu {
