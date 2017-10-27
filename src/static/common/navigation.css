@@ -29,9 +29,43 @@
   background-color: rgba(255,255,255,.85);
 }
 
+/* Десктоп, сайдбар-переключалка */
 .sidebar {
   position: fixed;
+  list-style: none;
+  top: 70px;
+  left: 25px;
+  /*padding: 2rem 1rem;*/
+  /*border-radius: 4px;*/
+}
+
+.sidebar__link {
+  display: block;
+  text-decoration: none;
   
+    background: #fff;
+    font-weight: 600;
+    min-width: 125px;
+    padding: 5px 13px;
+    border: 2px solid #353B3F;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+    /*box-shadow: 3px 3px 0;*/
+
+  margin-bottom: 15px;
+  min-width: 150px;
+  cursor: pointer;
+  /*transition: all .15s;*/
+}
+
+.sidebar__link:hover {
+    background-color: #E5E5E5;
+}
+
+.sidebar__link:active {
+    background-color: #E5E5E5;
 }
 
 /* Мобильник, главное меню (табы) */

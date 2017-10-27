@@ -47,7 +47,7 @@
 .saveButton {
     cursor: pointer;
     width: 50px;
-    background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Fadd-icon.svg?1502295567677) no-repeat top center;
+    background: url(/static/common/add-icon.svg) no-repeat top center;
 }
 
 .funnelDownButton {
@@ -59,7 +59,7 @@
 .dealButton {
     cursor: pointer;
     width: 50px;
-    background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Fdeal.svg?1503756423738) no-repeat top center;
+    background:  url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Fdeal.svg?1503756423738) no-repeat top center;
 }
 
 .name {
