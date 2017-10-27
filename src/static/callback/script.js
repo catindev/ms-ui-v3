@@ -9,7 +9,10 @@ function registerCallbacks() {
             .then(response => response.json())
             .then(checkResponse)
             .then(response => callbackLayout.style.display = 'none')
-            .catch(error => alert('Ошибка. Вызов отклонён'));        
+            .catch(error => {
+                callbackLayout.style.display = 'none';
+                console.error('Ошибка. Вызов отклонён');
+            });        
     }
 
     for (var i = 0; i < callButtons.length; i++) {
