@@ -1,0 +1,133 @@
+.list {
+    padding: 70px 0;
+}
+
+.pageTitle {
+    padding: 7px;
+    font-size: 28px;
+}
+
+.emptyList {
+    padding: 7px;
+    padding-left: 8px;
+    color: #9B9B9B;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.subTitle {
+    padding: 7px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .035);
+    margin-bottom: .7rem;
+}
+
+.noItems {
+    padding: 7px 13px;
+    color: #777;
+    font-size: 18px;
+}
+
+.lead {
+    border-spacing: 7px;
+}
+
+.callbackButton {
+    cursor: pointer;
+    width: 50px;
+    background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Fcallback-icon.svg?1502294671905) no-repeat top center;
+}
+
+.saveButton {
+    cursor: pointer;
+    width: 50px;
+    background: url(/static/common/add-icon.svg) no-repeat top center;
+}
+
+.funnelDownButton {
+    cursor: pointer;
+    width: 50px;
+    background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Ffunnel-down-icon.svg?1502295936104) no-repeat top center;
+}
+
+.dealButton {
+    cursor: pointer;
+    width: 50px;
+    background:  url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Fdeal.svg?1503756423738) no-repeat top center;
+}
+
+.name {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    padding-bottom: .5rem;
+    word-wrap: break-word;
+}
+
+.name:hover {
+    color: #A23A99;
+}
+
+.info {
+    border-spacing: 0;
+    padding-bottom: .5rem;
+    font-size: 15px;
+    color: #666;
+}
+
+.wbrdr {
+    border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.missed {
+    font-size: 13px;
+    color: #000;
+    background-color: #FFD1C6;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.success {
+    font-size: 13px;
+    color: #000;
+    background-color: #A6F0D9;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.preloader {
+    background: url(/static/common/loader80.gif) center center no-repeat;
+    min-height: 300px;
+}
+
+.name {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+@media screen and (min-width:1024px) {
+
+    .pageTitle {
+        padding-top: 7px;
+    }
+
+    .list {
+        padding: 60px 0;
+        margin: 0 auto;
+        width: 600px;
+    }
+
+    .list__content {
+        padding-top: 0;
+    }
+
+    .name {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .saveButton {
+        display: table-cell;
+    }
+}
