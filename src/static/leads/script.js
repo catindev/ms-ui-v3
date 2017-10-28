@@ -28,7 +28,7 @@
 
             leadsList.innerHTML = items.length > 0 ?
                 items.map(leadHTML).join('') :
-                `<div class="emptyList">Клиентов нет 🤷‍</div>`
+                `<div class="emptyList">Клиентов нет 🙈</div>`
 
             registerCallbacks();                   
         })

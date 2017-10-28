@@ -16,7 +16,7 @@
 
         const { phones, name, info } = newColdForm
 
-        if (!phones.value && !name.value && !info.value) {
+        if (!phones.value || !name.value || !info.value) {
             newColdForm.classList.add("shake")
             setTimeout(() => newColdForm.classList.remove("shake"), 1000)
             return false

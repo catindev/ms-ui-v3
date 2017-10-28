@@ -30,7 +30,7 @@
                   <div class="emptyList">
                     Список пуст 🤷‍
                   </div>
-                  <a href="/leads/cold/new" class="newButton">+ Добавить</a>
+                  <a href="/leads/cold/new" class="newButton">Добавить 🐣</a>
                 `
 
             registerCallbacks();                   
