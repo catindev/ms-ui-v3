@@ -28,7 +28,7 @@
                 items.map(leadHTML).join('') :
                 `
                   <div class="emptyList">
-                    Список пуст 🤷‍
+                    Список пуст 🙈
                   </div>
                   <a href="/leads/cold/new" class="newButton">Добавить 🐣</a>
                 `
