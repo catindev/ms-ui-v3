@@ -33,7 +33,7 @@
             })
             .then(response => response.json())
             .then(checkResponse)
-            .then(userData => {})
+            .then(({ id }) => { document.location.href = '/leads/cold' })
             .catch(error => console.error('Error:', error.message));
 
     })
