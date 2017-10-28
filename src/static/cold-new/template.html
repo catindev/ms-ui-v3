@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/static/common/navigation.css">
     <link rel="stylesheet" href="/static/callback/styles.css">
     <link rel="stylesheet" href="/static/cold-new/form.css">
+    <link rel="stylesheet" href="/static/cold-new/styles.css">
 </head>
 
 <body>
@@ -39,11 +40,11 @@
         </ul>
     </div>
 
-    <form onsubmit="event.preventDefault(); onSubmit();">
+    <form id="newColdForm">
       <h1>Добавить клиента</h1>
       
       <label for="info">Номер телефона</label>
-      <input type="text" id="info" name="phones" class="js-input"/>
+      <input type="text" id="phones" name="phones" class="js-input"/>
 
       <label for="name">Имя и фамилия</label>
       <input type="text" id="name" name="name" class="js-input"/>  

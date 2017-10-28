@@ -1,0 +1,23 @@
+.newButton {
+    display: block;
+    text-decoration: none;
+    background: #fff;
+    font-weight: 600;
+    padding: 5px 13px;
+    border: 2px solid #353B3F;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 150px;
+}
+
+@media screen and (min-width:1024px) {
+   .newButton {
+        display: none;
+   } 
+}
