@@ -62,7 +62,8 @@
     display: block;
     text-decoration: none;
     font-size: 20px;
-    padding-bottom: .5rem;
+    line-height: 1;
+    padding-bottom: .25rem;
     word-wrap: break-word;
 }
 
@@ -100,11 +101,6 @@
 .preloader {
     background: url(/static/common/loader80.gif) center center no-repeat;
     min-height: 300px;
-}
-
-.name {
-    font-size: 18px;
-    line-height: 18px;
 }
 
 @media screen and (min-width:1024px) {
