@@ -1,3 +1,7 @@
+.default {
+    margin-left: 15px;
+}
+
 .shake {
     animation: shaking 0.82s;
 }

@@ -6,7 +6,8 @@
             bottomTabs.style.display = 'none'
         }, false);
         inputs[i].addEventListener('blur', function() {
-            bottomTabs.style.display = 'block'
+            const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width < 1024) bottomTabs.style.display = 'block'
         }, false);
     }
 
