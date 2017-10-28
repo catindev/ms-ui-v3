@@ -1,48 +1,49 @@
-/* Десктоп, главное менюы */
+/* Десктоп, главное меню */
 
 .pageHeader {
-  position: fixed;
-  width: 100%;
-  padding-left: 170px;
-  background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Flogo.svg?1502313014500) no-repeat;
-  background-color: #A23A99;
-  z-index: 999;
+    position: fixed;
+    width: 100%;
+    padding-left: 170px;
+    background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Flogo.svg?1502313014500) no-repeat;
+    background-color: #A23A99;
+    z-index: 999;
 }
 
 .topNavigation {
-  list-style: none;
+    list-style: none;
 }
 
 .topNavigation li {
-  display:inline;
+    display: inline;
 }
 
 .topNavigation__link {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  padding: 15px 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 15px;
 }
 
 .topNavigation__link--active {
-  color: #A23A99;
-  background-color: rgba(255,255,255,.85);
+    color: #A23A99;
+    background-color: rgba(255, 255, 255, .85);
 }
 
-/* Десктоп, сайдбар-переключалка */
+
+/* Десктоп, сайдбар слева */
+
 .sidebar {
-  position: fixed;
-  list-style: none;
-  top: 70px;
-  left: 25px;
-  /*padding: 2rem 1rem;*/
-  /*border-radius: 4px;*/
+    position: fixed;
+    list-style: none;
+    top: 70px;
+    left: 25px;
+    /*padding: 2rem 1rem;*/
+    /*border-radius: 4px;*/
 }
 
 .sidebar__link {
-  display: block;
-  text-decoration: none;
-  
+    display: block;
+    text-decoration: none;
     background: #fff;
     font-weight: 600;
     min-width: 125px;
@@ -52,12 +53,9 @@
     font-size: 15px;
     cursor: pointer;
     outline: none;
-    /*box-shadow: 3px 3px 0;*/
-
-  margin-bottom: 15px;
-  min-width: 150px;
-  cursor: pointer;
-  /*transition: all .15s;*/
+    margin-bottom: 15px;
+    min-width: 150px;
+    cursor: pointer;
 }
 
 .sidebar__link:hover {
@@ -68,51 +66,54 @@
     background-color: #E5E5E5;
 }
 
+
 /* Мобильник, главное меню (табы) */
+
 .bottomMenu {
-  position: fixed;
-  bottom: 0;
-  /*border-top: 1px solid rgba(0,0,0,.05);*/
-  width: 100%;
-  background-color: #A23A99;
-  list-style: none;
-  text-align: center;
-  z-index: 999;
-  padding: 7px 0;
+    position: fixed;
+    bottom: 0;
+    /*border-top: 1px solid rgba(0,0,0,.05);*/
+    width: 100%;
+    background-color: #A23A99;
+    list-style: none;
+    text-align: center;
+    z-index: 999;
+    padding: 7px 0;
 }
 
 .bottomMenu li:not(:first-child):before {
-  content: '';
-  margin: 0 8px;
-  color: rgba(255,255,255,.25);
+    content: '';
+    margin: 0 8px;
+    color: rgba(255, 255, 255, .25);
 }
 
 .bottomMenu li {
-  display:inline;
+    display: inline;
 }
 
 .bottomMenu__link {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 13px;
-  padding: 10px 10px; 
-  color: rgba(255,255,255, .8); 
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 10px;
+    color: rgba(255, 255, 255, .8);
 }
 
 .bottomMenu__link--active {
-  color: #fff;
-  border: 2px solid rgba(255,255,255, .5);
-  border-radius: 4px;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 4px;
 }
 
-@media screen and (min-device-width : 375px) {
-  .bottomMenu__link {
-    font-size: 16px;
-  }
+@media screen and (device-aspect-ratio: 40/71) {
+    .bottomMenu__link {
+        font-size: 13px;
+    }  
 }
 
-/* test */
+
+/* Мобильник, радиокнопки для верхнего меню */
 
 .buttonGroup {
     position: relative;
@@ -122,20 +123,20 @@
 }
 
 .buttonGroup__button {
-  display: inline-block;
-  text-decoration: none;
-  color: #A23A99;
-  padding: 8px 14px;
-  font-weight: bold;
-  border: 2px solid #A23A99;
-  border-radius: 4px;
-  margin-left: -1px;
-  font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    color: #A23A99;
+    padding: 8px 14px;
+    font-weight: bold;
+    border: 2px solid #A23A99;
+    border-radius: 4px;
+    margin-left: -1px;
+    font-size: 14px;
 }
 
 .buttonGroup__button--active {
-  color: #fff;
-  background-color: #A23A99;
+    color: #fff;
+    background-color: #A23A99;
 }
 
 .buttonGroup__button:first-child:not(:last-child) {
@@ -154,40 +155,39 @@
 
 
 
+
 /* Мобильник, переключалка в хэдер */
+
 .subMenu {
-  position: fixed;
-  top: 0;
-  border-top: 10px solid #A23A99;
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  width: 100%;
-  padding: 10px 0;
-  background-color: #fff;
-  list-style: none;
-  text-align: center;
-  z-index: 999;
+    position: fixed;
+    top: 0;
+    border-top: 10px solid #A23A99;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+    list-style: none;
+    text-align: center;
+    z-index: 999;
 }
 
 .subMenu li {
-  display:inline;
+    display: inline;
 }
 
 .subMenu__link {
-  display: inline-block;
-  text-decoration: none;
-  color: #A23A99;
-  padding: 7px 13px;
-  font-weight: bold;
-  border: 2px solid #A23A99;
-  border-radius: 4px;
-  margin-right: 10px;
-  font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    color: #A23A99;
+    padding: 7px 13px;
+    font-weight: bold;
+    border: 2px solid #A23A99;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 14px;
 }
 
 .subMenu__link--active {
-  color: #fff;
-  background-color: #A23A99;
+    color: #fff;
+    background-color: #A23A99;
 }
-
-
-
