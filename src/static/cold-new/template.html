@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <title>Новые клиенты</title>
+    <title>Редактировать</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
     <link rel="stylesheet" href="/static/callback/styles.css">
-    <link rel="stylesheet" href="/static/leads/styles.css">
+    <link rel="stylesheet" href="/static/cold-new/form.css">
 </head>
 
 <body>
@@ -17,30 +17,42 @@
 
     <div class="subMenu onlyMobile">
         <div class="buttonGroup">
-            <a class="buttonGroup__button buttonGroup__button--active">Горячие 🔥</a>
-            <a class="buttonGroup__button" href="/leads/cold/new">Холодные ⛄</a>
+            <a class="buttonGroup__button" href="/leads/hot">Горячие 🔥</a>
+            <a class="buttonGroup__button buttonGroup__button--active">Холодные ⛄</a>
         </div>
     </div>
 
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
-            <li><a class="topNavigation__link topNavigation__link--active">
+            <li><a class="topNavigation__link" href="/leads/hot">
                 Новые клиенты
             </a></li>
-            <li><a class="topNavigation__link topNavigation__link" href="/leads/cold">
+            <li><a class="topNavigation__link topNavigation__link topNavigation__link--active">
               Холодные лиды
             </a></li>
             <li><a href="/my" class="topNavigation__link">Мои клиенты</a></li>
             <li><a href="#" class="topNavigation__link">Недавние</a></li>
 
-            <li style="float: right;"><a href="#" class="topNavigation__link">Уасилий Кю</a></li>
+            <li style="float: right;">
+              <a id="username" class="topNavigation__link">Уасилий Кю</a>
+            </li>
         </ul>
-    </div> 
-
-    <div class="list">
-        <h1 class="pageTitle">Новые клиенты</h1>
-        <div id="leadsList" class="preloader"></div>
     </div>
+
+    <form onsubmit="event.preventDefault(); onSubmit();">
+      <h1>Добавить клиента</h1>
+      
+      <label for="info">Номер телефона</label>
+      <input type="text" id="info" name="phones"/>
+
+      <label for="name">Имя и фамилия</label>
+      <input type="text" id="name" name="name"/>  
+      
+      <label for="info">Описание</label>
+      <input type="text" id="info" name="info"/>        
+      
+      <button>Добавить</button>
+    </form>
 
     <ul class="bottomMenu onlyMobile">
         <li><a class="bottomMenu__link bottomMenu__link--active">Новые</a></li>
@@ -56,7 +68,6 @@
     </script>    
     <script src="static/common/script.js"></script>
     <script src="static/callback/script.js"></script>
-    <script src="static/leads/script.js"></script>
 </body>
 
 </html>
