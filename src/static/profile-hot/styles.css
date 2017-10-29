@@ -4,6 +4,7 @@ button, .button {
 
 .backButton {
   display: inline-block;
+  opacity: .25;
   background: url(/static/profile-hot/back-icon.svg) no-repeat;
   background-size: 10px 18px;
   width: 10px;
