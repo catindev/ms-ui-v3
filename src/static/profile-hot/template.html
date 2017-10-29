@@ -9,13 +9,10 @@
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
     <link rel="stylesheet" href="/static/common/profile.css">
+    <link rel="stylesheet" href="/static/player/styles.css">
     <link rel="stylesheet" href="/static/callback/styles.css">
     <link rel="stylesheet" href="/static/profile-hot/styles.css">  
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/jouele/jouele.min.js"></script>
     <link href="/static/jouele/jouele.min.css" rel="stylesheet"/>
-
 </head>
 
 <body>
@@ -45,7 +42,7 @@
         </ul>
     </div>
 
-    <div class="sidebar onlyDesktop">
+    <div class="sidebar onlyDesktop" style="display: none">
         <a class="sidebar__link sidebar__link--active">Профиль 🗿</a>
         <a class="sidebar__link">Записи звонков 🔈</a>
         <div class="sidebar__divider"></div>
@@ -67,9 +64,13 @@
         .config('https://38eb5217172a4497bd9f0bc5acf86e6e@sentry.io/233872')
         .install()
     </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/jouele/jouele.min.js"></script>
+
     <script src="/static/common/script.js"></script>
     <script src="/static/callback/script.js"></script>
-    <script src="/static/common/playlist.js"></script>
+    <script src="/static/player/script.js"></script>
     <script src="/static/profile-hot/script.js"></script>   
 </body>
 
