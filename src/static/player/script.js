@@ -2,16 +2,21 @@
 function createPlaylist(calls) {
 
   function call({ user: { name = false }, isCallback, date, record }) {
-    const type = isCallback === true ? 'Исходящий ➡️' : 'Входящий ⬅️'
+    const type = isCallback === true?
+      (record? 'outcoming' : 'outcoming-missed')
+      :
+      (record? 'incoming' : 'incoming-missed')
+      ;
+
     return `
-        <div class="track" style="font-size: 14px">
+        <div class="track ${ type }">
             ${ 
               record? 
                 `<a href="${ record }" class="jouele" data-hide-timeline-on-pause="true">
                   ${ date }
                 </a>`
                 : 
-                type + ', без ответа' 
+                date 
             } 
         </div> 
     `

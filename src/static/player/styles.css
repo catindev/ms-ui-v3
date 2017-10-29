@@ -4,4 +4,30 @@
     border-radius: 4px;
     background-color: #fff;
     margin-bottom: 15px;
+    padding-left: 35px;
+    font-size: 14px
+}
+
+.incoming {
+  background: url(/static/player/incoming.svg) left 5px center no-repeat;
+  background-size: 25px 25px;
+  background-color: #fff;
+}
+
+.incoming-missed {
+  background: url(/static/player/incoming-missed.svg) left 5px center no-repeat;
+  background-size: 25px 25px;
+  background-color: #fff;
+}
+
+.outcoming {
+  background: url(/static/player/outcoming.svg) left 5px center no-repeat;
+  background-size: 25px 25px;
+  background-color: #fff;
+}
+
+.outcoming-missed {
+  background: url(/static/player/outcoming-missed.svg) left 5px center no-repeat;
+  background-size: 25px 25px;
+  background-color: #fff;
 }
