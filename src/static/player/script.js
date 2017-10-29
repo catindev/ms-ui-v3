@@ -1,7 +1,7 @@
 
 function createPlaylist(calls) {
 
-  function call({ user: { name = false }, isCallback, date, record }) {
+  function call({ isCallback, date, record }) {
     const type = isCallback === true?
       (record? 'outcoming' : 'outcoming-missed')
       :

@@ -1,10 +1,9 @@
 (function() {
 
-    function template({ _id, name, phones, account: { targetQuestion } }) {
+    function template({ _id, name, trunk, phones, account: { targetQuestion } }) {
         return `
-          <h1 class="mobilePadding"><i class="fa fa-address-book" aria-hidden="true"></i>
-${ name }</h1>
-          <h2 class="mobilePadding">${ phones.join(',') }</h2>
+          <h1 class="mobilePadding">${ name }</h1>
+          <h2 class="mobilePadding">${ trunk.name }</h2>
           
           <div class="card">
             <div class="data">
