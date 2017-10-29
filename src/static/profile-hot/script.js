@@ -24,7 +24,7 @@ ${ name }</h1>
         .then(({ customer }) => {
             Profile.classList.remove('preloader');
             Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
-            $('.jouele').jouele();
+            playerInit();
         })
         .catch(error => console.error('Error:', error.message));
 })();

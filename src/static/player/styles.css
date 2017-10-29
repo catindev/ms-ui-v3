@@ -5,7 +5,12 @@
     background-color: #fff;
     margin-bottom: 15px;
     padding-left: 35px;
-    font-size: 14px
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.track:hover {
+  border-color: #353B3F;
 }
 
 .incoming {

@@ -230,6 +230,7 @@
 }
 
 .jouele-info-control-button {
+    display: none;
     float: left;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -276,7 +277,7 @@
     overflow: hidden;
     word-wrap: break-word;
     white-space: normal;
-    padding-top: 3px;
+    /*padding-top: 3px;*/
     padding-left: 2px;
 }
 
@@ -291,7 +292,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-top: 5px;
+    /*padding-top: 5px;*/
     font-weight: 500;
 }
 .jouele_broken .jouele-info-time {

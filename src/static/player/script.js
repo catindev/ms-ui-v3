@@ -28,5 +28,13 @@ function createPlaylist(calls) {
       ${ (calls.map(call)).join('') }      
     </div>
   `
+}
 
+
+function playerInit() {
+  $('.jouele').jouele();
+  $('.track').on('click',function() {
+    const player = $('.jouele', this).data("jouele");
+    player && player.play();
+  })  
 }
