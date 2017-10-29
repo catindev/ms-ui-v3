@@ -24,8 +24,15 @@ function createPlaylist(calls) {
 
   return `
     <div class="playListWithCalls" style="padding-top: .5rem">
-      <h2>История звонков</h2>
-      ${ (calls.map(call)).join('') }      
+      <h2 class="mobilePadding">История звонков</h2>
+      ${ 
+        calls && calls.length > 0 ?
+          (calls.map(call)).join('') 
+          : 
+          `<span class="mobilePadding">
+            В истории нет звонков
+          </span>`
+      }      
     </div>
   `
 }
