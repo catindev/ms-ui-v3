@@ -1,3 +1,7 @@
+h2 {
+  padding-left: 10px;
+}
+
 .track {
     border: 1px solid #E6E6E7;
     padding: .8rem .88rem;
@@ -9,8 +13,8 @@
     cursor: pointer;
 }
 
-.track:hover {
-  border-color: #353B3F;
+.incoming:hover, .outcoming:hover {
+  border-color: #A23A99;
 }
 
 .incoming {

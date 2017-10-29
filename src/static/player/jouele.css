@@ -273,7 +273,7 @@
 }
 .jouele-info-control-text {
     line-height: 16px !important; /* Перекрываем все возможные каскады на сайте */
-    padding: 0 2em 0 0;
+    /*padding: 0 2em 0 0;*/
     overflow: hidden;
     word-wrap: break-word;
     white-space: normal;
