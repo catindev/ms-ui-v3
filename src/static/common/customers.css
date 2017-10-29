@@ -42,7 +42,7 @@
 .saveButton {
     cursor: pointer;
     width: 50px;
-    background: url(/static/common/add-icon.svg) no-repeat top center;
+    background: url(/static/common/info-icon.svg) no-repeat top center;
 }
 
 .funnelDownButton {

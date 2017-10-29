@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>add icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add-icon">
+            <rect id="Rectangle-11" stroke="#BD72B6" x="8.5" y="8.5" width="33" height="33" rx="4"></rect>
+            <text id="i" font-family="Georgia" font-size="24" font-weight="normal" fill="#BD72B6">
+                <tspan x="22" y="33">i</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
