@@ -15,13 +15,15 @@
 
 <body>
     <div class="callbackLayout" id="callbackLayout"></div>
+
     <div class="subMenu onlyMobile">
         <div class="buttonGroup">
             <a class="buttonGroup__button buttonGroup__button--active" href="/leads/hot">   Горячие 🔥
             </a>
-            <a class="buttonGroup__button" href="/leads/сold">Холодные ⛄</a>
+            <a class="buttonGroup__button" href="/leads/cold">Холодные ⛄</a>
         </div>
     </div>
+    
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
             <li><a class="topNavigation__link topNavigation__link--active" href="/leads/hot">
@@ -38,20 +40,7 @@
         </ul>
     </div>
 
-    <section>
-      <h1 class="mobilePadding">Умный лось</h1>
-      <h2 class="mobilePadding">+7 (778) 628-72-46</h2>
-      
-      <div class="card">
-        <div class="data">
-          <h3>Клиент хотел купить стройматериалы?</h3>
-          <div class="">
-              <a href="/customer/111/edit" class="button button--primary">Да</a> 
-              <a href="/customer/111/reject" class="button">Нет</a>              
-          </div>           
-        </div>
-      </div>
-    </section>
+    <section id="Profile"></section>
 
     <ul class="bottomMenu onlyMobile" id="bottomTabs">
         <li><a class="bottomMenu__link bottomMenu__link--active">Новые</a></li>
@@ -66,7 +55,7 @@
     </script>
     <script src="/static/common/script.js"></script>
     <script src="/static/callback/script.js"></script>
-    <script src="/static/cold-new/script.js"></script>
+    <script src="/static/profile-hot/script.js"></script>
 </body>
 
 </html>

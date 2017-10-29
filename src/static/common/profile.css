@@ -7,7 +7,7 @@ section {
 }
 
 h1 {
-/*   padding: 0 15px; */
+  font-size: 22px;
 }
 
 h2 {
@@ -84,6 +84,11 @@ button:hover, .button:hover {
   background: #A23A99;
   color: #FFFFFF;
   border: 2px solid transparent;
+}
+
+.preloader {
+    background: url(/static/common/loader80.gif) center center no-repeat;
+    min-height: 300px;
 }
 
 
