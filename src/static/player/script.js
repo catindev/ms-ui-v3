@@ -29,7 +29,7 @@ function createPlaylist(calls) {
         calls && calls.length > 0 ?
           (calls.map(call)).join('') 
           : 
-          `<span class="mobilePadding">
+          `<span class="mobilePadding" style="font-size:13px;">
             В истории нет звонков
           </span>`
       }      
