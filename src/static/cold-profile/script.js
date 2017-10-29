@@ -7,10 +7,26 @@
             ${ name }
             </h1>
             <h2 class="mobilePadding">${ trunk.name }</h2>
+
             <div class="optionsPanel onlyMobile">
-                <a href="" class="optionsButton">Заполнить профиль 📝</a>
-                <a href="" class="optionsButton">Оформить отказ 🚯</a>
+                <a class="optionsButton" href="/leads/cold/${ _id }/edit">
+                    Заполнить профиль 📝
+                </a>
+                <a class="optionsButton" href="/leads/cold/${ _id }/reject">
+                    Оформить отказ 🚯
+                </a>
             </div>           
+
+            <div class="sidebar onlyDesktop">
+                <a class="sidebar__link sidebar__link--active">Профиль 🗿</a>
+                <div class="sidebar__divider"></div>
+                <a class="sidebar__link" href="/leads/cold/${ _id }/edit">
+                    Заполнить профиль 📝
+                </a>
+                <a class="sidebar__link" href="/leads/cold/${ _id }/reject">
+                    Оформить отказ 🚯
+                </a>
+            </div>            
         `
     }
 
