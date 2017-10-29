@@ -3,15 +3,23 @@ h2 {
 }
 
 .track {
-    border: 1px solid #E6E6E7;
+    border-top: 1px solid #E6E6E7;
+    border-bottom: 1px solid #E6E6E7;
     padding: .8rem .88rem;
-    border-radius: 4px;
     background-color: #fff;
     margin-bottom: 15px;
     padding-left: 35px;
     font-size: 14px;
     cursor: pointer;
 }
+
+@media screen and (min-width:1024px) {
+  .track {
+      border: 1px solid #E6E6E7;
+      border-radius: 4px;
+  }  
+}
+
 
 .incoming:hover, .outcoming:hover {
   border-color: #A23A99;
