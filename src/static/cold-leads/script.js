@@ -25,11 +25,7 @@
             leadsList.classList.add('list__content');
 
             leadsList.innerHTML = items.length > 0 ?
-                items.map(leadHTML).join('') :
-                `
-                  <div class="emptyList">Список пуст</div>
-                  <a href="/leads/cold/new" class="newButton">Добавить 🐣</a>
-                `
+                items.map(leadHTML).join('') : `<div class="emptyList">Список пуст</div>`
 
             registerCallbacks();                   
         })
