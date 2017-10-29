@@ -1,11 +1,11 @@
 
-<svg width="15px" height="21px" viewBox="0 0 15 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="10px" height="18px" viewBox="0 0 10 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="mobile" transform="translate(-42.000000, -557.000000)" fill-rule="nonzero" fill="#353B3F">
-            <polygon id="Shape" points="50.529316 567.490879 56.8583062 561.020195 52.7964169 557.1 42.5 567.585342 53.0325733 577.834528 57 573.81987"></polygon>
+        <g id="mobile" transform="translate(-67.000000, -558.000000)" fill-rule="nonzero" fill="#353B3F">
+            <path d="M76.6146656,573.266702 C77.1284448,573.780481 77.1284448,574.613094 76.6146656,575.126873 C76.1008864,575.640652 75.2682739,575.640652 74.7544946,575.126873 L67.4358381,567.808216 C66.8547206,567.227099 66.8547206,566.284736 67.4358381,565.703619 L74.7544946,558.385334 C75.2682739,557.871555 76.1008864,557.871555 76.6146656,558.385334 C77.1284448,558.899114 77.1284448,559.731726 76.6146656,560.245505 L70.1040673,566.756104 L76.6146656,573.266702 Z" id="Shape"></path>
         </g>
     </g>
 </svg>
