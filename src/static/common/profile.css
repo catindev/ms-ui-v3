@@ -1,5 +1,5 @@
 body {
-  background-color: #F0EFF5;
+  background-color: #F4F5F5;
 }
 
 section {
@@ -39,8 +39,8 @@ h3 {
   font-size: 16px;
   padding: 1rem;
   background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,.05);
-  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid #E6E6E7;
+  border-top: 1px solid #E6E6E7;
   margin-bottom: 20px;
 }
 
@@ -114,7 +114,7 @@ button:hover, .button:hover {
   }
   
   .data {
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid #E6E6E7;
     padding: 1rem .7rem;
     border-radius: 4px;
   }
