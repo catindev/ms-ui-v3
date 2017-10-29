@@ -107,7 +107,8 @@ h3 {
 .optionsPanel {
     border-top: 1px solid #E6E6E7;
     border-bottom: 1px solid #E6E6E7;
-    padding: .8rem .88rem;
+    padding: 15px;
+    padding-top: 0;
     background-color: #fff;
     margin-bottom: 15px;
     font-size: 14px;
@@ -126,7 +127,7 @@ h3 {
     border: solid #7f8c8d 2px;
     border-radius: 5px;
     position: relative; 
-    margin-top: 10px   
+    margin-top: 15px;  
 }
 
 
