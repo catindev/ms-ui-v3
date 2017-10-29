@@ -35,6 +35,10 @@ function playerInit() {
   $('.jouele').jouele();
   $('.track').on('click',function() {
     const player = $('.jouele', this).data("jouele");
-    player && player.play();
+    if (player) {
+      player.play();
+      // $('.jouele-info-control-button', this).show();
+    }  
+
   })  
 }

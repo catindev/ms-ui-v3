@@ -1,3 +1,13 @@
-  button, .button {
-    min-width: 120px;
+  button,
+  .button {
+      min-width: 120px;
+  }
+
+
+  .backButton {
+    display: inline-block;
+    background: url(/static/profile-hot/back-icon.svg) no-repeat;
+    background-size: 20px 20px;
+    width: 25px;
+    height: 20px;
   }

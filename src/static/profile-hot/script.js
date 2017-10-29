@@ -2,7 +2,10 @@
 
     function template({ _id, name, trunk, phones, account: { targetQuestion } }) {
         return `
-          <h1 class="mobilePadding">${ name }</h1>
+          <h1 class="mobilePadding">
+            <a href="/leads/hot" class="backButton"></a>
+            ${ name }
+          </h1>
           <h2 class="mobilePadding">${ trunk.name }</h2>
           
           <div class="card">
