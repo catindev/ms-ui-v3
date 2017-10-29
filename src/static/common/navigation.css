@@ -41,6 +41,17 @@
     /*border-radius: 4px;*/
 }
 
+.sidebar__divider {
+    border-top: 1px solid rgba(0,0,0, .05);
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding-top: 5px;
+    color: #ddd;
+    max-width: 100px;
+
+}
+
 .sidebar__link {
     display: block;
     text-decoration: none;
@@ -64,6 +75,14 @@
 
 .sidebar__link:active {
     background-color: #E5E5E5;
+}
+
+.sidebar__link--active {
+    background-color: #F4F5F5;   
+}
+
+.sidebar__link--active:hover {
+ background-color: #F4F5F5;    
 }
 
 

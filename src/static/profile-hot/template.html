@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="/static/common/navigation.css">
     <link rel="stylesheet" href="/static/common/profile.css">
     <link rel="stylesheet" href="/static/callback/styles.css">
-    <link rel="stylesheet" href="/static/profile-hot/styles.css">
+    <link rel="stylesheet" href="/static/profile-hot/styles.css">  
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/jouele/jouele.min.js"></script>
+    <link href="/static/jouele/jouele.min.css" rel="stylesheet"/>
+
 </head>
 
 <body>
@@ -40,6 +45,14 @@
         </ul>
     </div>
 
+    <div class="sidebar onlyDesktop">
+        <a class="sidebar__link sidebar__link--active">Профиль 🗿</a>
+        <a class="sidebar__link">Записи звонков 🔈</a>
+        <div class="sidebar__divider"></div>
+        <a class="sidebar__link">Заполнить профиль 📝</a>
+        <a class="sidebar__link">Оформить отказ 🚯</a>
+    </div>
+
     <section id="Profile"></section>
 
     <ul class="bottomMenu onlyMobile" id="bottomTabs">
@@ -47,6 +60,7 @@
         <li><a href="/my" class="bottomMenu__link">В работе</a></li>
         <li><a href="/closed" class="bottomMenu__link">Закрытые</a></li>
     </ul>
+
     <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js"></script>
     <script type="text/javascript">
     Raven
@@ -55,7 +69,8 @@
     </script>
     <script src="/static/common/script.js"></script>
     <script src="/static/callback/script.js"></script>
-    <script src="/static/profile-hot/script.js"></script>
+    <script src="/static/common/playlist.js"></script>
+    <script src="/static/profile-hot/script.js"></script>   
 </body>
 
 </html>

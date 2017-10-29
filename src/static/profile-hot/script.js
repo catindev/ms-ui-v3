@@ -2,7 +2,8 @@
 
     function template({ _id, name, phones, account: { targetQuestion } }) {
         return `
-          <h1 class="mobilePadding">${ name }</h1>
+          <h1 class="mobilePadding"><i class="fa fa-address-book" aria-hidden="true"></i>
+${ name }</h1>
           <h2 class="mobilePadding">${ phones.join(',') }</h2>
           
           <div class="card">
@@ -22,7 +23,8 @@
         .then(checkResponse)
         .then(({ customer }) => {
             Profile.classList.remove('preloader');
-            Profile.innerHTML = template(customer)
+            Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
+            $('.jouele').jouele();
         })
         .catch(error => console.error('Error:', error.message));
 })();

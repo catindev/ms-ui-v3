@@ -36,12 +36,14 @@ h3 {
 }
 
 .data {
+  display: block;
+  text-decoration: none;
   font-size: 16px;
   padding: 1rem;
   background: #fff;
   border-bottom: 1px solid #E6E6E7;
   border-top: 1px solid #E6E6E7;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .info {
@@ -61,7 +63,7 @@ h3 {
   padding-top: 15px;
 }
 
-button, .button {
+.button {
   outline: none;
   display: block;
   cursor: pointer;
@@ -76,7 +78,7 @@ button, .button {
   text-align: center;
   margin-bottom: 15px;
 }
-button:hover, .button:hover {
+.button:hover {
   box-shadow: 7px 7px 0 0 #353B3F;
 }
 
@@ -103,7 +105,7 @@ button:hover, .button:hover {
     text-align: center;
   }
 
-  button, .button {
+  .button {
     display: inline-block;
     margin-bottom: 0;
     margin-right: 15px;
