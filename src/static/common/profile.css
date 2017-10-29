@@ -1,0 +1,131 @@
+body {
+  background-color: #FBFBFC;
+}
+
+section {
+  padding: 70px 0;
+}
+
+h1 {
+/*   padding: 0 15px; */
+}
+
+h2 {
+  padding: 7px 0;
+  opacity: .7;
+  font-size: 1.15em;
+  font-weight: 400;
+}
+
+h3 {
+  line-height: 1;
+  padding-bottom: 3px;
+}
+
+.mobilePadding {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  opacity: .8;
+  margin: 5px 0;
+  padding: 0 15px;
+}
+
+.data {
+  font-size: 16px;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  border-top: 1px solid rgba(0,0,0,.05);
+  margin-bottom: 20px;
+}
+
+.info {
+  font-size: 14px;
+  opacity: .7;
+  padding: 10px 15px;
+  padding-top: 0;
+  border-bottom: 1px solid rgba(0,0,0,.025);
+}
+
+.card {
+  padding-top: 15px;
+}
+
+.panel {
+  padding: 0 15px;
+  padding-top: 15px;
+}
+
+button, .button {
+  outline: none;
+  display: block;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 4px 4px 0 0 #353B3F;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 2px solid;
+  padding: 7px 12px;
+  margin-top: 12px;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 15px;
+}
+button:hover, .button:hover {
+  box-shadow: 7px 7px 0 0 #353B3F;
+}
+
+.button--primary {
+  background: #A23A99;
+  color: #FFFFFF;
+  border: 2px solid transparent;
+}
+
+
+@media screen and (min-width:1024px) {
+  section {
+    padding: 70px 15px 100px 15px;
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  .buttonsPanel {
+    text-align: center;
+  }
+
+  button, .button {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+  
+  .mobilePadding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .label {
+    padding: 0;
+  }
+  
+  .data {
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 1rem .7rem;
+    border-radius: 4px;
+  }
+  
+  .info {
+    padding: 10px 0;
+    padding-top: 0;
+  }
+  
+  .panel {
+    padding: 0;
+    padding-top: 1%;
+  }
+}

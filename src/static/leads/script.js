@@ -9,10 +9,10 @@
           <div class="row lead">
               <div class="col callbackButton" customer="${ _id }"></div>
               <div class="col">
-                  <a class="name" href="/customer/${ _id }">${ name }</a>
+                  <a class="name" href="/leads/hot/${ _id }">${ name }</a>
                   <div class="row info">${ status }</div>
               </div>
-              <a href="/customer/${ _id }" class="col saveButton"></a>
+              <a href="/leads/hot/${ _id }" class="col saveButton"></a>
           </div>   
         `
     }
