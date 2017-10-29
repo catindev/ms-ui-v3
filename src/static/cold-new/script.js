@@ -1,5 +1,7 @@
 (function() {
 
+    let isRequest = false;
+
     const inputs = document.getElementsByClassName('js-input');
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener('focus', function() {
@@ -13,15 +15,17 @@
 
     newColdForm.addEventListener("submit", function(event) {
         event.preventDefault();
-
+        errorMessage.style.display = 'none'
+        if (isRequest == true) return false;
         const { phones, name, info } = newColdForm
 
         if (!phones.value || !name.value || !info.value) {
-            newColdForm.classList.add("shake")
-            setTimeout(() => newColdForm.classList.remove("shake"), 1000)
+            newColdForm.classList.add('shake')
+            setTimeout(() => newColdForm.classList.remove('shake'), 1000)
             return false
         }
 
+        isRequest = true;
         fetch(Config.API_HOST + "/customers/cold.leads?token=" + getCookie('msid'), {
                 method: "post",
                 headers: { "Content-type": "application/json" },
@@ -34,7 +38,17 @@
             .then(response => response.json())
             .then(checkResponse)
             .then(({ id }) => { document.location.href = '/leads/cold' })
-            .catch(error => console.error('Error:', error.message));
+            .catch(error => {
+                isRequest = false;
+                
+                console.error('Error:', error.message)
+
+                errorMessage.innerText = error.message + '  😦'
+                errorMessage.style.display = 'block'
+
+                newColdForm.classList.add('shake')
+                setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+            });
 
     })
 

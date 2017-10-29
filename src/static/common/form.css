@@ -1,0 +1,119 @@
+form {
+  padding: 80px 15px;
+}
+
+h2 {
+  padding: 7px 0;
+  opacity: .7;
+  font-size: 1.25em;
+  font-weight: 400;
+}
+
+h2 > a {
+  text-decoration: none;
+}
+h2 > a:hover {
+  text-decoration: underline;
+}
+
+form > label {
+  display: block;
+  font-size: 16px;
+  opacity: .8;
+  margin-top: 8px;
+}
+
+input[type=text], input[type=number], textarea, select {
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;  
+  font-size: 16px;
+  width: 100%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px solid #353B3F;
+}
+
+select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+input[type=text]:focus, input[type=number]:focus, textarea:focus, select:focus {
+      transition: all .15s;
+    border: 2px solid #A23A99;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(162, 58, 153, .25);
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+input[type=checkbox] {
+  -ms-transform: scale(1.25); /* IE */
+  -moz-transform: scale(1.25); /* FF */
+  -webkit-transform: scale(1.25); /* Safari and Chrome */
+  -o-transform: scale(1.25); /* Opera */
+  margin-right: 5px;
+}
+
+.buttonsPanel {
+  text-align: center;
+}
+
+button, .button {
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  background: #A23A99;
+  box-shadow: 4px 4px 0 0 #353B3F;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  padding: 10px 12px;
+  margin-top: 12px;
+  text-decoration: none;
+  text-align: center;
+}
+button:hover, .button:hover {
+  box-shadow: 7px 7px 0 0 #353B3F;
+}
+.block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.default {
+  border: 2px solid #353B3F;
+  color: #353B3F;
+  background: #fff;
+}
+.inline {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.
+
+form > ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  padding-bottom: 8px;
+}
+form > ul > li {
+  padding: 5px 0;
+  padding-left: 3px;
+  font-size: 16px;
+}
+
+@media screen and (min-width:1024px) {
+  form {
+    margin: 0 auto;
+    width: 400px;
+  }
+}

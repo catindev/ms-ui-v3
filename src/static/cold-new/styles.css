@@ -6,6 +6,15 @@
     animation: shaking 0.82s;
 }
 
+.message {
+    display: none;
+    background-color: #FCF3AF;
+    border-radius: 5px;
+    padding: .7rem;
+    margin-top: 0;
+    margin: .5rem 0;
+    font-size: 14px;    
+}
 
 @keyframes shaking {
     10%,
