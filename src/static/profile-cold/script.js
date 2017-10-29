@@ -2,11 +2,15 @@
 
     function template({ _id, name, trunk, phones }) {
         return `
-          <h1 class="mobilePadding">
+            <h1 class="mobilePadding">
             <a href="/leads/cold" class="backButton"></a>
             ${ name }
-          </h1>
-          <h2 class="mobilePadding">${ trunk.name }</h2>
+            </h1>
+            <h2 class="mobilePadding">${ trunk.name }</h2>
+            <div class="optionsPanel onlyMobile">
+                <a href="" class="optionsButton">Заполнить профиль 📝</a>
+                <a href="" class="optionsButton">Оформить отказ 🚯</a>
+            </div>           
         `
     }
 
