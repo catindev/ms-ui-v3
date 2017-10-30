@@ -28,7 +28,11 @@
 
             leadsList.innerHTML = items.length > 0 ?
                 items.map(leadHTML).join('') :
-                `<div class="emptyList">Клиентов нет</div>`
+                `<div class="emptyList">
+                    <p>Клиентов нет. Позже здесь будет список новых клиентов,
+                    которые позвонят вам на рекламные номера.</p>
+                    <p>Этот список заполняется автоматически, без вашего участия.</p>
+                </div>`
 
             registerCallbacks();                   
         })

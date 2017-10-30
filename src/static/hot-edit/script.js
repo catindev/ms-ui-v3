@@ -138,18 +138,15 @@
             else data[id] = editForm[id].value    
         }); 
 
-        return console.log(data)  
-
-
         isRequest = true;
-        fetch(`${ Config.API_HOST }/customers/hot/${ _id }?token=${ getCookie('msid') }`, {
+        fetch(`${ Config.API_HOST }/customers/${ _id }?token=${ getCookie('msid') }`, {
                 method: "put",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(data)
             })
             .then(response => response.json())
             .then(checkResponse)
-            .then(() => { document.location.href = '/leads/hot' })
+            .then(() => { document.location.href = '/customers' })
             .catch(error => {
                 isRequest = false;
 
