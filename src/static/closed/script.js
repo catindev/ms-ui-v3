@@ -37,7 +37,7 @@
 
     function deals(items) {
       return `
-        <h1 class="pageTitle">Сделки</h1>
+        <h1 class="pageTitle">Сделки 💰</h1>
         ${ 
             items && items.length > 0? 
               (items.map(templateDeal)).join('') 
@@ -48,12 +48,12 @@
 
     function rejects(items) {
       return `
-        <h2>Отказы</h3>
+        <h2>Отказы 💩</h3>
         ${ 
             items && items.length > 0? 
               (items.map(templateReject)).join('') 
               :
-              '<div class="emptyList">Список сделок пуст 😐</div>' 
+              '<div class="emptyList">Пока без отказов 👍</div>' 
         }`
     }
 
