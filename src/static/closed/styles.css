@@ -1,0 +1,18 @@
+.name {
+    padding-bottom: .5rem;
+}
+
+.list {
+    padding: 20px 0;
+}
+
+h2 {
+  padding: 7px;
+  padding-top: 20px
+}
+
+@media screen and (min-width:1024px) {
+  .list {
+      padding: 70px 0;
+  }
+}

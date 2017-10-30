@@ -22,6 +22,8 @@ app.get('/leads/cold/:id/reject', (request, response) => response.sendFile(__dir
 
 app.get('/customers/:id/reject', (request, response) => response.sendFile(__dirname + '/static/customer-reject/template.html'))
 app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirname + '/static/customer-deal/template.html'))
+app.get('/customers/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
+
 
 
 
