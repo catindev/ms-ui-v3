@@ -70,7 +70,7 @@
             <a href="/leads/hot/${ _id }" class="backButton"></a>
             ${ name }
         </h1>
-        <h2>Редактировать профиль</h2>
+        <h2>Заполнить профиль</h2>
         <div class="message" id="errorMessage"></div>
 
         <label for="name">Имя</label>
@@ -130,17 +130,22 @@
             editForm.classList.add('shake')
             setTimeout(() => editForm.classList.remove('shake'), 1000)
             return false
-        }        
+        }     
+
+        const data = { name: name.value, info: info.value, notes: notes.value };
+        customparams.forEach( ({ id, type }) => {
+            if (type === 'multiselect') data[id] = getMultiselectValues(editForm[id])    
+            else data[id] = editForm[id].value    
+        }); 
+
+        return console.log(data)  
 
 
         isRequest = true;
-        fetch(`${ Config.API_HOST }/customers/${ _id }/reject?token=${ getCookie('msid') }`, {
+        fetch(`${ Config.API_HOST }/customers/hot/${ _id }?token=${ getCookie('msid') }`, {
                 method: "put",
                 headers: { "Content-type": "application/json" },
-                body: JSON.stringify({
-                    reason: reason.value,
-                    comment: comment.value
-                })
+                body: JSON.stringify(data)
             })
             .then(response => response.json())
             .then(checkResponse)
