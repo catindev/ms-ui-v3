@@ -1,12 +1,23 @@
 (function() {
 
-    function template({ _id, name, trunk, phones }) {
+    function template({ _id, name, trunk, user, phones }) {
+        const manager = user && user.name ? `
+          <div class="label">Менеджер</div>
+          <div class="data">${ user.name }</div>
+        ` : '';
+
         return `
             <h1 class="mobilePadding">
             <a href="/leads/cold" class="backButton"></a>
             ${ name }
             </h1>
-            <h2 class="mobilePadding">${ trunk.name }</h2>
+            <h2 class="mobilePadding">${ phones.join('') }</h2>
+
+            <div class="card">
+                <div class="label">Источник</div>
+                <div class="data">${ trunk.name }</div>
+                ${ manager }
+            </div>
 
             <div class="optionsPanel onlyMobile">
                 <a class="optionsButton" href="/leads/cold/${ _id }/edit">
