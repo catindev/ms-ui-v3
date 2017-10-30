@@ -5,7 +5,7 @@
     function customer({ name, info, _id,  }, next) {
         return `
           <div class="row lead" id="${ _id }">
-              <div class="col callbackButton"></div>
+              <div class="col callbackButton" customer="${ _id }"></div>
               <div class="col">
                   <a class="name" href="/customers/${ _id }">
                     ${ name }
