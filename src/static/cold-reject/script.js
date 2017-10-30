@@ -10,7 +10,7 @@
                 const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 if (width < 1024) bottomTabs.style.display = 'block'
             }, false);
-        }        
+        }
     }
 
 
@@ -53,6 +53,7 @@
 
         <label for="info">Комментарий</label>
         <input type="text" id="comment" name="comment" class="js-input" />
+        
         <div class="buttonsPanel">
             <button>Оформить</button>
             <a href="/leads/cold/${ _id }" class="button default">
@@ -62,17 +63,60 @@
         `
     }
 
+    let _id;
+
     fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[3] }?token=${ getCookie('msid') }`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
+            _id = customer._id
             rejectForm.classList.remove('preloader');
             rejectForm.innerHTML = template(customer);
             hideTabsOnFocus();
         })
         .catch(error => console.error('Error:', error.message));
 
+
+    /* Form logic */
+
     let isRequest = false;
 
+    rejectForm.addEventListener("submit", function(event) {
+        event.preventDefault();
 
+        errorMessage.style.display = 'none';
+        if (isRequest == true) return false;
+        const { reason, comment } = rejectForm;
+
+        if (!reason.value) {
+            newColdForm.classList.add('shake')
+            setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+            return false
+        }
+
+        isRequest = true;
+        fetch(`${ Config.API_HOST }/customers/${ _id }/reject?token=${ getCookie('msid') }`, {
+                method: "put",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify({
+                    reason: reason.value,
+                    comment: comment.value
+                })
+            })
+            .then(response => response.json())
+            .then(checkResponse)
+            .then(() => { document.location.href = '/leads/cold' })
+            .catch(error => {
+                isRequest = false;
+
+                console.error('Error:', error.message)
+
+                errorMessage.innerText = error.message + '  😦'
+                errorMessage.style.display = 'block'
+
+                newColdForm.classList.add('shake')
+                setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+            });
+
+    })
 })();
