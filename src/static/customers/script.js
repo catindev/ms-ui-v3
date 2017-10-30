@@ -58,7 +58,8 @@
             `
 
             closedList.innerHTML = (items.map(customers)).join('') 
-            registerFunnelButtons();              
+            registerFunnelButtons();  
+            registerCallbacks();             
         })
         .catch(error => console.error('Error:', error.message));
 })();
