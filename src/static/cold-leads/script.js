@@ -25,7 +25,10 @@
             leadsList.classList.add('list__content');
 
             leadsList.innerHTML = items.length > 0 ?
-                items.map(leadHTML).join('') : `<div class="emptyList">Список пуст</div>`
+                items.map(leadHTML).join('') 
+                : `<div class="emptyList">
+                    <p>Список пуст. Сюда нужно добавлять клиентов для холодного обзвона.</p>
+                </div>`
 
             registerCallbacks();                   
         })

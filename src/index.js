@@ -20,10 +20,12 @@ app.get('/leads/cold', (request, response) => response.sendFile(__dirname + '/st
 app.get('/leads/cold/new', (request, response) => response.sendFile(__dirname + '/static/cold-new/template.html'))
 app.get('/leads/cold/:id', (request, response) => response.sendFile(__dirname + '/static/cold-profile/template.html'))
 app.get('/leads/cold/:id/reject', (request, response) => response.sendFile(__dirname + '/static/cold-reject/template.html'))
+app.get('/leads/cold/:id/edit', (request, response) => response.sendFile(__dirname + '/static/cold-edit/template.html'))
 
+app.get('/customers/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
 app.get('/customers/:id/reject', (request, response) => response.sendFile(__dirname + '/static/customer-reject/template.html'))
 app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirname + '/static/customer-deal/template.html'))
-app.get('/customers/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
+app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirname + '/static/customer-edit/template.html'))
 
 
 
