@@ -30,10 +30,25 @@
     function template({ _id, name, trunk, phones, account: { noTargetReasons } }) {
         return `
         <h1 class="mobilePadding">
-            <a href="/leads/hot/${ _id }" class="backButton"></a>
+            <a href="/customers/${ _id }" class="backButton"></a>
             ${ name }
         </h1>
         <h2>Оформить отказ</h2>
+
+        <div class="sidebar onlyDesktop">
+            <a class="sidebar__link" href="/customers/${ _id }">Профиль 🗿</a>
+            <div class="sidebar__divider"></div>
+            <a class="sidebar__link" href="/customers/${ _id }/edit">
+                Изменить профиль 📝
+            </a>
+            <a class="sidebar__link" href="/customers/${ _id }/deal">
+                Закрыть сделку 💸
+            </a>            
+            <a class="sidebar__link sidebar__link--active">
+                Оформить отказ 🚯
+            </a>
+        </div> 
+
         <div class="message" id="errorMessage"></div>
 
         <label for="reason">Причина</label>
@@ -44,7 +59,7 @@
         
         <div class="buttonsPanel">
             <button>Оформить</button>
-            <a href="/leads/hot/${ _id }" class="button default">
+            <a href="/customers/${ _id }" class="button default">
                 Отменить
             </a>
         </div>           
@@ -53,7 +68,7 @@
 
     let _id;
 
-    fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[3] }?token=${ getCookie('msid') }`)
+    fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[2] }?token=${ getCookie('msid') }`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
@@ -93,7 +108,7 @@
             })
             .then(response => response.json())
             .then(checkResponse)
-            .then(() => { document.location.href = '/leads/hot' })
+            .then(() => { document.location.href = '/customers' })
             .catch(error => {
                 isRequest = false;
 

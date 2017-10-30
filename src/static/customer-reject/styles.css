@@ -1,0 +1,18 @@
+.default {
+    margin-left: 15px;
+}
+
+body {
+    background-color: #F4F5F5;
+}
+
+form {
+    padding: 15px;
+}
+
+
+@media screen and (min-width:1024px) {
+    form {
+        padding: 70px 15px;
+    }
+}

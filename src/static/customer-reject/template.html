@@ -9,29 +9,27 @@
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
     <link rel="stylesheet" href="/static/common/form.css">
-    <link rel="stylesheet" href="/static/callback/styles.css">
-    <link rel="stylesheet" href="/static/hot-reject/styles.css">
+    <link rel="stylesheet" href="/static/customer-reject/styles.css">
 </head>
 
 <body>
-    <div class="callbackLayout" id="callbackLayout"></div>
-    
-    <div class="subMenu onlyMobile">
-        <div class="buttonGroup">
-            <a class="buttonGroup__button buttonGroup__button--active">Горячие 🔥</a>
-            <a class="buttonGroup__button" href="/leads/cold">Холодные ⛄</a>
-        </div>
-    </div>
+
+    <div class="onlyMobile" style="border-top: 10px solid #A23A99"></div>
+
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
-            <li><a class="topNavigation__link topNavigation__link--active">
+            <li><a class="topNavigation__link" href="/leads/hot">
                 Новые клиенты
             </a></li>
             <li><a class="topNavigation__link topNavigation__link" href="/leads/cold">
               Холодные лиды
             </a></li>
-            <li><a href="/my" class="topNavigation__link">В работе</a></li>
-            <li><a href="#" class="topNavigation__link">Закрытые</a></li>
+            <li><a href="/my" class="topNavigation__link topNavigation__link--active">
+                Мои клиенты
+            </a></li>
+            <li><a href="#" class="topNavigation__link">
+                Закрытые
+            </a></li>
             <li style="float: right;">
                 <a id="username" class="topNavigation__link"></a>
             </li>
@@ -41,8 +39,10 @@
     <form id="rejectForm" class="preloader"></form>
 
     <ul class="bottomMenu onlyMobile" id="bottomTabs">
-        <li><a class="bottomMenu__link bottomMenu__link--active">Новые</a></li>
-        <li><a href="/my" class="bottomMenu__link">В работе</a></li>
+        <li><a class="bottomMenu__link" href="/leads/hot">
+            Новые
+        </a></li>
+        <li><a href="/my" class="bottomMenu__link bottomMenu__link--active">В работе</a></li>
         <li><a href="/closed" class="bottomMenu__link">Закрытые</a></li>
     </ul>
     <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js"></script>
@@ -52,8 +52,7 @@
         .install()
     </script>
     <script src="/static/common/script.js"></script>
-    <script src="/static/callback/script.js"></script>
-    <script src="/static/hot-reject/script.js"></script>
+    <script src="/static/customer-reject/script.js"></script>
 </body>
 
 </html>

@@ -14,37 +14,39 @@
     }
 
 
-    function selectWithReasons(reasons) {
-        const options = (reasons.map(
-            reason => `<option value="${reason}">${reason}</option>`
-        )).join('');
-
-        return `
-            <select id="reason" name="reason" class="js-input">
-                ${ options }
-            </select> 
-        `
-    }
-
-
     function template({ _id, name, trunk, phones, account: { noTargetReasons } }) {
         return `
         <h1 class="mobilePadding">
-            <a href="/leads/hot/${ _id }" class="backButton"></a>
+            <a href="/customers/${ _id }" class="backButton"></a>
             ${ name }
         </h1>
-        <h2>Оформить отказ</h2>
+        <h2>Закрыть сделку</h2>
+
+        <div class="sidebar onlyDesktop">
+            <a class="sidebar__link" href="/customers/${ _id }">Профиль 🗿</a>
+            <div class="sidebar__divider"></div>
+            <a class="sidebar__link" href="/customers/${ _id }/edit">
+                Изменить профиль 📝
+            </a>
+            <a class="sidebar__link sidebar__link--active">
+                Закрыть сделку 💸
+            </a>            
+            <a class="sidebar__link" href="/customers/${ _id }/reject">
+                Оформить отказ 🚯
+            </a>
+        </div> 
+
         <div class="message" id="errorMessage"></div>
 
-        <label for="reason">Причина</label>
-        ${ selectWithReasons(noTargetReasons) }
+        <label for="amount">Сумма сделки</label>
+        <input type="number" id="amount" name="amount" class="js-input" />
 
         <label for="info">Комментарий</label>
         <input type="text" id="comment" name="comment" class="js-input" />
         
         <div class="buttonsPanel">
-            <button>Оформить</button>
-            <a href="/leads/hot/${ _id }" class="button default">
+            <button>Сохранить</button>
+            <a href="/customers/${ _id }" class="button default">
                 Отменить
             </a>
         </div>           
@@ -53,7 +55,7 @@
 
     let _id;
 
-    fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[3] }?token=${ getCookie('msid') }`)
+    fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[2] }?token=${ getCookie('msid') }`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
@@ -74,26 +76,26 @@
 
         errorMessage.style.display = 'none';
         if (isRequest == true) return false;
-        const { reason, comment } = rejectForm;
+        const { amount, comment } = rejectForm;
 
-        if (!reason.value) {
+        if (!amount.value) {
             newColdForm.classList.add('shake')
             setTimeout(() => newColdForm.classList.remove('shake'), 1000)
             return false
         }
 
         isRequest = true;
-        fetch(`${ Config.API_HOST }/customers/${ _id }/reject?token=${ getCookie('msid') }`, {
+        fetch(`${ Config.API_HOST }/customers/${ _id }/deal?token=${ getCookie('msid') }`, {
                 method: "put",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify({
-                    reason: reason.value,
+                    amount: amount.value,
                     comment: comment.value
                 })
             })
             .then(response => response.json())
             .then(checkResponse)
-            .then(() => { document.location.href = '/leads/hot' })
+            .then(() => { document.location.href = '/customers' })
             .catch(error => {
                 isRequest = false;
 

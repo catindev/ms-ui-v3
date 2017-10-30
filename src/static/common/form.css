@@ -130,5 +130,6 @@ form > ul > li {
   form {
     margin: 0 auto;
     width: 400px;
+    padding: 70px 15px;    
   }
 }

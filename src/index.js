@@ -20,6 +20,9 @@ app.get('/leads/cold/new', (request, response) => response.sendFile(__dirname + 
 app.get('/leads/cold/:id', (request, response) => response.sendFile(__dirname + '/static/cold-profile/template.html'))
 app.get('/leads/cold/:id/reject', (request, response) => response.sendFile(__dirname + '/static/cold-reject/template.html'))
 
+app.get('/customers/:id/reject', (request, response) => response.sendFile(__dirname + '/static/customer-reject/template.html'))
+app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirname + '/static/customer-deal/template.html'))
+
 
 
 const listener = app.listen(5003, () => console.log('Started at', listener.address().port))
