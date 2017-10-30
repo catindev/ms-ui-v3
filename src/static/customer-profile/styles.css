@@ -4,6 +4,7 @@ button, .button {
 
 section {
   padding: 15px 0;
+  padding-bottom: 70px;
 }
 
 @media screen and (min-width:1024px) {
