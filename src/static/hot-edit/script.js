@@ -15,24 +15,27 @@
 
 
     function text({ id, name }) {
+        const value  = CUSTOMER[id] ? CUSTOMER[id] : '';
         return `
             <label for="${ id }">${ name }</label>
-            <input type="text" id="${ id }" name="${ id }" class="js-input" />
+            <input type="text" id="${ id }" name="${ id }" value="${ value }" class="js-input" />
         `
     }
 
-
+    const isChecked = (customer, fieldID, value) => customer[fieldID] && customer[fieldID].indexOf(value) !== -1 ? 'checked' : '';
     function multiselect({ items, id, name }) {
         const options = (items.map(
-            item => `
-                <li>
+            item => {
+                const checked = isChecked(CUSTOMER, id, item);
+                console.log(id, item, checked)
+                return `<li>
                     <label>
-                    <input type="checkbox" name="${ id }" value="${ item }"> 
+                    <input type="checkbox" ${ checked } name="${ id }" value="${ item }"> 
                         ${ item }
                     </label>
                 </li>
             `
-        )).join('');
+        })).join('');
 
         return `
             <label>${ name }</label>
@@ -44,12 +47,13 @@
         const selected = [].filter.call(domElements, element => element.checked);
         return selected.map( ({ value }) => value)
     }
-
-
+    const isSelected = (customer, fieldID, value) => customer[fieldID] === value ? 'selected' : '';
     function select({ items, id, name }) {
         const options = (items.map(
-            item => `<option value="${item}">${item}</option>`
-        )).join('');
+            item => {
+                const selected = isSelected(CUSTOMER, id, item);
+                return `<option value="${item}" ${ selected }>${item}</option>`
+        })).join('');
 
         return `
             <label for="${ id }">${ name }</label>
@@ -93,12 +97,13 @@
         `
     }
 
-    let _id, customparams;
+    let _id, customparams, CUSTOMER;
 
     fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[3] }?token=${ getCookie('msid') }&params=1`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
+            CUSTOMER = customer;
             _id = customer._id;
             customparams = customer.params;
 
