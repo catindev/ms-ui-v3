@@ -2,6 +2,16 @@ form {
   padding: 80px 15px;
 }
 
+.backButton {
+  display: inline-block;
+  opacity: .55;
+  background: url(/static/common/back-icon.svg) no-repeat;
+  background-size: 10px 18px;
+  width: 10px;
+  height: 18px;
+  margin-right: 7px;
+}
+
 h2 {
   padding: 7px 0;
   opacity: .7;
@@ -38,6 +48,7 @@ input[type=text], input[type=number], textarea, select {
 }
 
 select {
+  background: url(/static/common/dropdown-arrow.svg) right 10px center no-repeat;
   background-color: #fff;
   cursor: pointer;
 }
@@ -47,6 +58,10 @@ input[type=text]:focus, input[type=number]:focus, textarea:focus, select:focus {
     border: 2px solid #A23A99;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(162, 58, 153, .25);
+}
+
+select:focus {
+  background: url(/static/common/dropdown-arrow-focus.svg) right 10px center no-repeat;
 }
 
 textarea {
