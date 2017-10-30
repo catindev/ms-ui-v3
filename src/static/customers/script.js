@@ -42,7 +42,7 @@
             items && items.length > 0? 
               (items.map(templateDeal)).join('') 
               :
-              '<div class="emptyList">Список сделок пуст</div>' 
+              '<div class="emptyList">Список сделок пуст 😐</div>' 
         }`
     }
 
@@ -53,7 +53,7 @@
             items && items.length > 0? 
               (items.map(templateReject)).join('') 
               :
-              '<div class="emptyList">Пока без отказов</div>' 
+              '<div class="emptyList">Пока без отказов 👍</div>' 
         }`
     }
 

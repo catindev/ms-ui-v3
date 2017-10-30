@@ -28,7 +28,4 @@ app.get('/customers/:id/reject', (request, response) => response.sendFile(__dirn
 app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirname + '/static/customer-deal/template.html'))
 app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirname + '/static/customer-edit/template.html'))
 
-
-
-
 const listener = app.listen(5003, () => console.log('Started at', listener.address().port))

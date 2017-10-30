@@ -8,10 +8,9 @@
         ` : '';
 
         function customs(params) {
-            return (params.map(({ name, id }) => customer[id]?
+            return (params.map(({ name, id }) => customer[id] ?
                 `<div class="label">${ name }</div>
-                <div class="data">${ customer[id] }</div>`
-                :
+                <div class="data">${ customer[id] }</div>` :
                 '')).join('')
         }
 
@@ -32,7 +31,7 @@
             <div class="sidebar onlyDesktop">
                 <a class="sidebar__link sidebar__link--active" href="/customers/${ _id }">Профиль 🗿</a>
                 <div class="sidebar__divider"></div>
-                <a class="sidebar__link">
+                <a class="sidebar__link" href="/customers/${ _id }/edit">
                     Изменить профиль 📝
                 </a>
                 <a class="sidebar__link" href="/customers/${ _id }/deal">
