@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Редактировать</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/common/styles.css">
+    <link rel="stylesheet" href="/static/common/navigation.css">
+    <link rel="stylesheet" href="/static/common/form.css">
+    <link rel="stylesheet" href="/static/callback/styles.css">
+    <link rel="stylesheet" href="/static/hot-reject/styles.css">
+</head>
+
+<body>
+    <div class="callbackLayout" id="callbackLayout"></div>
+    
+    <div class="subMenu onlyMobile">
+        <div class="buttonGroup">
+            <a class="buttonGroup__button buttonGroup__button--active" href="/leads/hot">Горячие 🔥</a>
+            <a class="buttonGroup__button">Холодные ⛄</a>
+        </div>
+    </div>
+    <div class="pageHeader">
+        <ul class="topNavigation onlyDesktop">
+            <li><a class="topNavigation__link topNavigation__link--active" href="/leads/hot">
+                Новые клиенты
+            </a></li>
+            <li><a class="topNavigation__link topNavigation__link">
+              Холодные лиды
+            </a></li>
+            <li><a href="/my" class="topNavigation__link">Мои клиенты</a></li>
+            <li><a href="#" class="topNavigation__link">Недавние</a></li>
+            <li style="float: right;">
+                <a id="username" class="topNavigation__link">Уасилий Кю</a>
+            </li>
+        </ul>
+    </div>
+    
+    <form id="rejectForm" class="preloader"></form>
+
+    <ul class="bottomMenu onlyMobile" id="bottomTabs">
+        <li><a class="bottomMenu__link bottomMenu__link--active">Новые</a></li>
+        <li><a href="/my" class="bottomMenu__link">В работе</a></li>
+        <li><a href="/closed" class="bottomMenu__link">Закрытые</a></li>
+    </ul>
+    <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js"></script>
+    <script type="text/javascript">
+    Raven
+        .config('https://38eb5217172a4497bd9f0bc5acf86e6e@sentry.io/233872')
+        .install()
+    </script>
+    <script src="/static/common/script.js"></script>
+    <script src="/static/callback/script.js"></script>
+    <script src="/static/hot-reject/script.js"></script>
+</body>
+
+</html>

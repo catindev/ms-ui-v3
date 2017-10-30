@@ -12,7 +12,8 @@ app.use(checkIn)
 app.get('/', (request, response) => response.sendFile(__dirname + '/static/leads/template.html'))
 
 app.get('/leads/hot', (request, response) => response.sendFile(__dirname + '/static/leads/template.html'))
-app.get('/leads/hot/:id', (request, response) => response.sendFile(__dirname + '/static/profile-hot/template.html'))
+app.get('/leads/hot/:id', (request, response) => response.sendFile(__dirname + '/static/hot-profile/template.html'))
+app.get('/leads/hot/:id/reject', (request, response) => response.sendFile(__dirname + '/static/hot-reject/template.html'))
 
 app.get('/leads/cold', (request, response) => response.sendFile(__dirname + '/static/cold-leads/template.html'))
 app.get('/leads/cold/new', (request, response) => response.sendFile(__dirname + '/static/cold-new/template.html'))
