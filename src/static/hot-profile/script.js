@@ -12,8 +12,8 @@
             <div class="data">
               <h3>${ targetQuestion }</h3>
               <div class="">
-                  <a href="/customer/${ _id }/edit" class="button button--primary">Да</a> 
-                  <a href="/customer/${ _id }/reject" class="button">Нет</a>              
+                  <a href="/leads/hot/${ _id }/edit" class="button button--primary">Да</a> 
+                  <a href="/leads/hot/${ _id }/reject" class="button">Нет</a>              
               </div>           
             </div>
           </div>  
