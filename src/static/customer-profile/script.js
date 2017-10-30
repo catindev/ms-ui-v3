@@ -28,6 +28,18 @@
                 ${ customs(params) }
             </div>
 
+            <div class="optionsPanel onlyMobile">
+                <a class="optionsButton" href="/customers/${ _id }/edit">
+                    Изменить профиль 📝
+                </a>
+                <a class="optionsButton" href="/customers/${ _id }/deal">
+                    Закрыть сделку 💸
+                </a>                  
+                <a class="optionsButton" href="/customers/${ _id }/reject">
+                    Оформить отказ 🚯
+                </a>
+            </div> 
+
             <div class="sidebar onlyDesktop">
                 <a class="sidebar__link sidebar__link--active" href="/customers/${ _id }">Профиль 🗿</a>
                 <div class="sidebar__divider"></div>
