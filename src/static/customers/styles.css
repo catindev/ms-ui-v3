@@ -17,3 +17,55 @@ h2 {
       padding: 70px 0;
   }
 }
+
+
+.funnelTitle {
+  padding: 7px;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(0,0,0,.035);
+  margin-bottom: .7rem;
+}
+
+.animateFunnelDown {
+  -webkit-animation: disappear 1s;
+  -webkit-animation-fill-mode: forwards; 
+  animation: disappear .5s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes disappear{
+  25% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }  
+  
+  50% {
+    -webkit-transform: translateY(-1%);
+    transform: translateY(-1%);
+    opacity: .5;
+  }
+  
+  100% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%); 
+  }    
+}
+
+@keyframes disappear{
+  25% {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+  }    
+  
+  50% {
+    -webkit-transform: translateY(-1%);
+    transform: translateY(-1%);
+    opacity: .5;
+  }
+  
+  100% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%); 
+    opacity: 0;
+  }    
+}

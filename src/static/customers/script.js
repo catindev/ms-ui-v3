@@ -1,74 +1,61 @@
 (function() {
 
-    function formatCurrency(input, mode) {
-      const splitted = `${input}`.split('.');
-      const money = splitted[0].replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1&thinsp;');
-      const change = splitted[1];
-      // return mode === 'comma' && change ? `${money},${change}` : money;
-      return money
+    let funnel;
+
+    function getNextStepID(index) {
+        return index !== funnel.length - 1 ? funnel[index + 1].id : false;
     }
 
-    function templateReject({ name, reject: { reason, comment } }) {
+    function customer({ name, info, _id,  }, index) {
         return `
-          <div class="row lead">
+          <div class="row lead" id="${ _id }">
+              <div class="col callbackButton"></div>
               <div class="col">
-                  <div class="name">${ name }</div>
-                  <div class="row info wbrdr">
-                    ${ reason === 'Другое' && comment ? comment : reason }
-                  </div>
+                  <a class="name" href="/customer/${ _id }">
+                    ${ name }
+                  </a>
+                  <div class="row info">
+                    <span>${ info }</span>
+                </div>
               </div>
-          </div>   
-        `
-    }
-
-    function templateDeal({ name, deal: { amount } }) {
-        return `
-          <div class="row lead">
-              <div class="col">
-                  <div class="name">${ name }</div>
-                  <div class="row info wbrdr">
-                    ${ formatCurrency(amount) }
-                  </div>
-              </div>
-          </div>   
+              <a class="col ${ getNextStepID(index) === false? 'dealButton' : 'funnelDownButton' } " 
+                   ${ getNextStepID(index) === false && 'href=/deal/' + _id }
+                   item-id="${ _id }"
+                   to-step-id="${ getNextStepID(index) }"></a>
+          </div>  
         `
     }    
 
 
-    function deals(items) {
+    function customers({ name, customers }) {
       return `
-        <h1 class="pageTitle">Сделки 💰</h1>
         ${ 
-            items && items.length > 0? 
-              (items.map(templateDeal)).join('') 
+          name === 'in-progress'? 
+            `<h1 class="pageTitle">В работе</h1>` 
+            : 
+            `<h2 class="funnelTitle">${name}</h2>` 
+          }
+        ${ 
+            customers && customers.length > 0? 
+              (customers.map(customer)).join('') 
               :
-              '<div class="emptyList">Список сделок пуст 😐</div>' 
+              '<div class="emptyList">Нет клиентов</div>' 
         }`
     }
 
-    function rejects(items) {
-      return `
-        <h2>Отказы 💩</h3>
-        ${ 
-            items && items.length > 0? 
-              (items.map(templateReject)).join('') 
-              :
-              '<div class="emptyList">Пока без отказов 👍</div>' 
-        }`
-    }
-
-    fetch(Config.API_HOST + "/customers/closed?token=" + getCookie('msid'))
+    fetch(`${ Config.API_HOST }/customers/funnel?token=${ getCookie('msid') }`)
         .then(response => response.json())
         .then(checkResponse)
-        .then(({ reject, deal }) => {
-            if (!reject || !deal) return false
-
+        .then(({ items }) => {
+            funnel = items;
             closedList.classList.remove('preloader');
-            closedList.classList.add('list__content');
 
-            closedList.innerHTML = deals(deal) + rejects(reject) 
+            if (!items || items.length === 0) return closedList.innerHTML = `
+              <h1 class="pageTitle">В работе</h1>
+              <div class="emptyList">Клиентов нет</div>
+            `
 
-                        
+            closedList.innerHTML = (items.map(customers)).join('')               
         })
         .catch(error => console.error('Error:', error.message));
 })();

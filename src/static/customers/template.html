@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <title>Закрытые</title>
+    <title>В работе</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
     <link rel="stylesheet" href="/static/common/customers.css">
-    <link rel="stylesheet" href="/static/closed/styles.css">
+    <link rel="stylesheet" href="/static/customers/styles.css">
 </head>
 
 <body>
@@ -20,13 +20,13 @@
             <li><a class="topNavigation__link" href="/leads/hot">
                 Новые клиенты
             </a></li>
-            <li><a class="topNavigation__link topNavigation__link" href="/leads/cold">
+            <li><a class="topNavigation__link" href="/leads/cold">
               Холодные лиды
             </a></li>
-            <li><a href="/my" class="topNavigation__link">
+            <li><a href="/customers" class="topNavigation__link topNavigation__link--active">
                 В работе
             </a></li>
-            <li><a class="topNavigation__link topNavigation__link--active">
+            <li><a class="topNavigation__link">
                 Закрытые
             </a></li>
 
@@ -39,11 +39,17 @@
 
     <ul class="bottomMenu onlyMobile">
         <li><a href="/leads/hot" class="bottomMenu__link">Новые</a></li>
-        <li><a href="/my" class="bottomMenu__link">В работе</a></li>
-        <li><a class="bottomMenu__link bottomMenu__link--active">
+        <li><a class="bottomMenu__link bottomMenu__link--active">В работе</a></li>
+        <li><a href="/customers/closed" class="bottomMenu__link">
             Закрытые
         </a></li>
     </ul>
+
+
+
+
+
+
 
     <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js"></script>
     <script type="text/javascript">
@@ -52,7 +58,7 @@
             .install()
     </script>    
     <script src="/static/common/script.js"></script>
-    <script src="/static/closed/script.js"></script>
+    <script src="/static/customers/script.js"></script>
 </body>
 
 </html>
