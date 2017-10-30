@@ -16,7 +16,7 @@
 
         return `
             <h1 class="mobilePadding">
-            <a href="/leads/cold" class="backButton"></a>
+            <a href="/customers" class="backButton"></a>
             ${ name }
             </h1>
             <h2 class="mobilePadding">${ phones.join('') }</h2>

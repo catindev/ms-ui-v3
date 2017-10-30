@@ -54,13 +54,13 @@
     cursor: pointer;
     width: 50px;
     background-size: 30px 30px;
-    background: url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Ffunnel-down-icon.svg?1502295936104) no-repeat top center;
+    background: url(/static/common/move-icon.svg?1502294671905) no-repeat top center;
 }
 
 .dealButton {
     cursor: pointer;
     width: 50px;
-    background:  url(https://cdn.glitch.com/ad00917f-6e7f-4e02-be9e-1e86b9a7f371%2Fdeal.svg?1503756423738) no-repeat top center;
+    background:  url(/static/common/deal-icon.svg?1502294671905) no-repeat top center;
 }
 
 .name {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>deal button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="deal-button">
+            <polygon id="Path" fill="#BD72B6" points="23.0547368 32.0147368 16.04 25 19.3115789 21.7284211 23.0547368 25.4715789 30.7768421 17.7494737 34.0484211 21.0210526"></polygon>
+            <rect id="Rectangle-11" stroke="#BD72B6" stroke-width="2" x="9" y="9" width="32" height="32" rx="4"></rect>
+        </g>
+    </g>
+</svg>

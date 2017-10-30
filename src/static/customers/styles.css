@@ -21,9 +21,9 @@ h2 {
 
 .funnelTitle {
   padding: 7px;
-  padding-top: 20px;
-  border-bottom: 1px solid rgba(0,0,0,.035);
-  margin-bottom: .7rem;
+  padding-top: 30px;
+  /*border-bottom: 1px solid rgba(0,0,0,.035);*/
+  /*margin-bottom: .7rem;*/
 }
 
 .animateFunnelDown {
