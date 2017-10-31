@@ -48,7 +48,7 @@
 
     function rejects(items) {
       return `
-        <h2>Отказы 💩</h3>
+        <h2>Отказы 😕</h3>
         ${ 
             items && items.length > 0? 
               (items.map(templateReject)).join('') 
