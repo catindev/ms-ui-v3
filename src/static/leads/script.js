@@ -29,7 +29,7 @@
             leadsList.innerHTML = items.length > 0 ?
                 items.map(leadHTML).join('') :
                 `<div class="emptyList">
-                    <p>Клиентов нет. Сюда попадут новые клиенты,
+                    <p>Клиентов нет. Сюда попадут Горячие лиды,
                     которые позвонят на рекламные номера.</p>
                 </div>`
 
