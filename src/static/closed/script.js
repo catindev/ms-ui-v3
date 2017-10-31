@@ -37,7 +37,7 @@
 
     function deals(items) {
       return `
-        <h1 class="pageTitle">Сделки 💰</h1>
+        <h1 class="pageTitle">Успешные сделки 💰</h1>
         ${ 
             items && items.length > 0? 
               (items.map(templateDeal)).join('') 
