@@ -40,7 +40,8 @@ function registerFunnelButtons() {
                 const nextStepEmpty = document.querySelectorAll(`#${nextID} .emptyList`)[0]
                 nextStepEmpty.style.display = 'none';
 
-                requestNextStep({ id: this.getAttribute('item-id') })
+                console.log({ id: this.getAttribute('item-id'), toStep: nextID })
+                requestNextStep({ id: this.getAttribute('item-id'), toStep: nextID })
                   .then( () => item.style.display = 'block' )
             };
 
