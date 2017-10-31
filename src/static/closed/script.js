@@ -8,11 +8,11 @@
       return money
     }
 
-    function templateReject({ name, reject: { reason, comment } }) {
+    function templateReject({ name, reject: { reason, comment }, _id }) {
         return `
           <div class="row lead">
               <div class="col">
-                  <div class="name">${ name }</div>
+                  <a href="/closed/${ _id }" class="name">${ name }</a>
                   <div class="row info wbrdr">
                     ${ reason === 'Другое' && comment ? comment : reason }
                   </div>
@@ -21,11 +21,11 @@
         `
     }
 
-    function templateDeal({ name, deal: { amount } }) {
+    function templateDeal({ name, deal: { amount }, _id }) {
         return `
           <div class="row lead">
               <div class="col">
-                  <div class="name">${ name }</div>
+                  <a href="/closed/${ _id }" class="name">${ name }</a>
                   <div class="row info wbrdr">
                     ${ formatCurrency(amount) }
                   </div>
