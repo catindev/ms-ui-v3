@@ -1,5 +1,5 @@
 
-function createPlaylist(calls) {
+function createPlaylist(calls, emptyMessage) {
 
   function call({ isCallback, date, record }) {
     const type = isCallback === true?
@@ -30,7 +30,7 @@ function createPlaylist(calls) {
           (calls.map(call)).join('') 
           : 
           `<span class="mobilePadding" style="font-size:13px;">
-            В истории нет звонков
+            ${ emptyMessage || 'В истории нет звонков' }
           </span>`
       }      
     </div>

@@ -1,21 +1,12 @@
 (function() {
 
     function template({ _id, name, trunk, user, phones }) {
-        const manager = user && user.name ? `
-          <div class="label">Менеджер</div>
-          <div class="data">${ user.name }</div>
-        ` : '';
-
         return `
             <h1 class="mobilePadding">
             <a href="/leads/cold" class="backButton"></a>
             ${ name }
             </h1>
             <h2 class="mobilePadding">${ phones.join('') }</h2>
-
-            <div class="card">
-                ${ manager }
-            </div>
 
             <div class="optionsPanel onlyMobile">
                 <a class="optionsButton" href="/leads/cold/${ _id }/edit">
@@ -44,7 +35,7 @@
         .then(checkResponse)
         .then(({ customer }) => {
             Profile.classList.remove('preloader');
-            Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
+            Profile.innerHTML = template(customer) + createPlaylist(customer.calls, 'Вы ещё не звонили этому клиенту')
             playerInit();
         })
         .catch(error => console.error('Error:', error.message));
