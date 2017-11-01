@@ -42,11 +42,11 @@
             <ul>${ options }</ul>
         `
     }   
-
     function getMultiselectValues(domElements) {
         const selected = [].filter.call(domElements, element => element.checked);
         return selected.map( ({ value }) => value)
     }
+
     const isSelected = (customer, fieldID, value) => customer[fieldID] === value ? 'selected' : '';
     function select({ items, id, name }) {
         const options = (items.map(
@@ -58,6 +58,7 @@
         return `
             <label for="${ id }">${ name }</label>
             <select id="${ id }" name="${ id }" class="js-input">
+                <option value=""></option>
                 ${ options }
             </select> 
         `

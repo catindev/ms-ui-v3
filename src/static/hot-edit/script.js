@@ -58,6 +58,7 @@
         return `
             <label for="${ id }">${ name }</label>
             <select id="${ id }" name="${ id }" class="js-input">
+                <option value=""></option>
                 ${ options }
             </select> 
         `
