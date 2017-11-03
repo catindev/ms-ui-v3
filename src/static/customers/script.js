@@ -15,7 +15,7 @@
                 </div>
               </div>
               <a class="col ${ next === false? 'dealButton' : 'funnelDownButton' } " 
-                   ${ next === false && `href=/customers/${_id}` }
+                   ${ next === false && `href=/customers/${_id}/deal` }
                    item-id="${ _id }"
                    to-step-id="${ next }"></a>
           </div>  
