@@ -31,10 +31,7 @@
             <div class="optionsPanel onlyMobile">
                 <a class="optionsButton" href="/customers/${ _id }/edit">
                     Изменить профиль 📝
-                </a>
-                <a class="optionsButton" href="/customers/${ _id }/deal">
-                    Закрыть сделку 💸
-                </a>                  
+                </a>                 
                 <a class="optionsButton" href="/customers/${ _id }/reject">
                     Оформить отказ 🚯
                 </a>
@@ -45,9 +42,6 @@
                 <div class="sidebar__divider"></div>
                 <a class="sidebar__link" href="/customers/${ _id }/edit">
                     Изменить профиль 📝
-                </a>
-                <a class="sidebar__link" href="/customers/${ _id }/deal">
-                    Закрыть сделку 💸
                 </a>            
                 <a class="sidebar__link" href="/customers/${ _id }/reject">
                     Оформить отказ 🚯
