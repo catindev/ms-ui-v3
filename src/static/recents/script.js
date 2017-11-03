@@ -1,12 +1,12 @@
 (function() {
 
-    function leadHTML({ _id, name, funnelStep }) {
-        const state = step => {
-          if (step === 'cold') return 'Холодный лид'
-          if (step === 'in-progress') return 'В работе'
-          if (step === 'reject') return 'Был отказ'
-          if (step === 'deal') return 'Закрытая сделка' 
-          return step
+    function leadHTML({ _id, name, funnelStep, lastActivity }) {
+        const state = activity => {
+          if (activity === 'пропущенный') return 'пропущенный 📵'
+          if (activity === 'продажа') return 'продажа 💵'
+          if (activity === 'входящий звонок') return 'входящий звонок 📞'
+          if (activity === 'прогресс в воронке') return 'прогресс в воронке 🎉'
+          return activity
         }
 
         const url = step => {
@@ -21,9 +21,9 @@
               <div class="col callbackButton" customer="${ _id }"></div>
               <div class="col">
                   <a class="name" href="${ url(funnelStep) }${ _id }">${ name }</a>
-                  <div class="row info">${ state(funnelStep) }</div>
+                  <div class="row info">${ state(lastActivity) }</div>
               </div>
-              <a href="/leads/hot/${ _id }" class="col saveButton"></a>
+              <a href="${ url(funnelStep) }${ _id }" class="col saveButton"></a>
           </div>   
         `
     }
