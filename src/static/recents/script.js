@@ -21,7 +21,7 @@
               <div class="col callbackButton" customer="${ _id }"></div>
               <div class="col">
                   <a class="name" href="${ url(funnelStep) }${ _id }">${ name }</a>
-                  <div class="row info">${ state(lastActivity) }</div>
+                  <div class="row info wbrdr">${ state(lastActivity) }</div>
               </div>
               <a href="${ url(funnelStep) }${ _id }" class="col saveButton"></a>
           </div>   
