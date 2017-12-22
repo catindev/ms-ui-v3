@@ -23,6 +23,9 @@ function processCustomer(element) {
     item.classList.add('animateFunnelDown');
 
     const removeItem = () => {
+        document.body.removeEventListener('webkitAnimationEnd', removeItem, false);
+        document.body.removeEventListener('animationend', removeItem, false);
+
         item.style.display = 'none';
         nextStep.insertBefore(item, nextStep.firstChild);
         item.classList.remove('animateFunnelDown');
@@ -32,12 +35,10 @@ function processCustomer(element) {
             item.children[2].setAttribute('href', '/customers/' + element.getAttribute('item-id') + '/deal');
         }
 
-        const nextStepEmpty = document.querySelectorAll(`#${nextID} .emptyList`)[0]
-        nextStepEmpty.style.display = 'none';
+        const nextStepEmpty = document.querySelectorAll(`#${nextID} .emptyList`)
+        nextStepEmpty && (nextStepEmpty[0].style.display = 'none');
 
         console.log({ id: element.getAttribute('item-id'), toStep: nextID })
-        document.body.removeEventListener('webkitAnimationEnd', removeItem, false);
-        document.body.removeEventListener('animationend', removeItem, false);
         item.style.display = 'block'
         requestNextStep({ id: element.getAttribute('item-id'), toStep: nextID })
             .then(() => console.log('request for', element.getAttribute('item-id'), 'ok'))

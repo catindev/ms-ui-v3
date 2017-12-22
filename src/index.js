@@ -33,4 +33,10 @@ app.get('/closed/:id', (request, response) => response.sendFile(__dirname + '/st
 
 app.get('/recents', (request, response) => response.sendFile(__dirname + '/static/recents/template.html'))
 
+app.get('/exit', (request, response) => {
+    const { query: { msid } } = request
+    response.clearCookie('msid')
+    response.redirect('/')
+})
+
 const listener = app.listen(5003, () => console.log('Started at', listener.address().port))

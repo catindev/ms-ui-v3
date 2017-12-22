@@ -39,6 +39,9 @@
         <label for="reason">Причина</label>
         ${ selectWithReasons(noTargetReasons) }
 
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" class="js-input" />
+
         <label for="info">Комментарий</label>
         <input type="text" id="comment" name="comment" class="js-input" />
         
@@ -74,7 +77,7 @@
 
         errorMessage.style.display = 'none';
         if (isRequest == true) return false;
-        const { reason, comment } = rejectForm;
+        const { reason, comment, name } = rejectForm;
 
         if (!reason.value) {
             newColdForm.classList.add('shake')
@@ -88,7 +91,8 @@
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify({
                     reason: reason.value,
-                    comment: comment.value
+                    comment: comment.value,
+                    name: name.value
                 })
             })
             .then(response => response.json())

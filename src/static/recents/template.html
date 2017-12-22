@@ -20,19 +20,31 @@
 
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
-            <li><a href="/leads/hot" class="topNavigation__link">
-                Горячие лиды
-            </a></li>
-            <li><a class="topNavigation__link topNavigation__link" href="/leads/cold">
-              Холодные лиды
-            </a></li>
-            <li><a href="/customers" class="topNavigation__link">В работе</a></li>
-            <li><a href="/closed" class="topNavigation__link">Закрытые</a></li>
-            <li><a class="topNavigation__link topNavigation__link--active">Недавние</a></li>
+            <li>
+                <a href="/leads/hot" class="topNavigation__link">
+                    Горячие лиды
+                </a>
+            </li>
+            <li>
+                <a class="topNavigation__link topNavigation__link" href="/leads/cold">
+                    Холодные лиды
+                </a>
+            </li>
+            <li>
+                <a href="/customers" class="topNavigation__link">В работе</a>
+            </li>
+            <li>
+                <a href="/closed" class="topNavigation__link">Закрытые</a>
+            </li>
+            <li>
+                <a class="topNavigation__link topNavigation__link--active">Недавние</a>
+            </li>
 
-            <li style="float: right;"><a href="#" class="topNavigation__link"></a></li>
+            <li style="float: right;">
+                <a href="/exit" class="topNavigation__link">Выйти</a>
+            </li>
         </ul>
-    </div> 
+    </div>
 
     <div class="list">
         <h1 class="pageTitle">Недавние</h1>
@@ -40,10 +52,18 @@
     </div>
 
     <ul class="bottomMenu onlyMobile">
-        <li><a href="/leads/hot" class="bottomMenu__link">Новые</a></li>
-        <li><a href="/customers" class="bottomMenu__link">В работе</a></li>
-        <li><a href="/closed" class="bottomMenu__link">Закрытые</a></li>
-        <li><a class="bottomMenu__link bottomMenu__link--active">Недавние</a></li>
+        <li>
+            <a href="/leads/hot" class="bottomMenu__link">Новые</a>
+        </li>
+        <li>
+            <a href="/customers" class="bottomMenu__link">В работе</a>
+        </li>
+        <li>
+            <a href="/closed" class="bottomMenu__link">Закрытые</a>
+        </li>
+        <li>
+            <a class="bottomMenu__link bottomMenu__link--active">Недавние</a>
+        </li>
     </ul>
 
     <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js"></script>
@@ -51,7 +71,7 @@
         Raven
             .config('https://38eb5217172a4497bd9f0bc5acf86e6e@sentry.io/233872')
             .install()
-    </script>    
+    </script>
     <script src="/static/common/script.js"></script>
     <script src="/static/callback/script.js"></script>
     <script src="/static/recents/script.js"></script>
