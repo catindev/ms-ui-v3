@@ -1,7 +1,7 @@
 (function () {
 
-    function customerHTML({ _id, missing, date, customer: { id, name }, isCallback, owner }) {
-        const status = missing === true ?
+    function customerHTML({ _id, missed, date, customer: { id, name }, isCallback, owner }) {
+        const status = missed === true ?
             `<span class="recentCall--missed">${date}</span>` :
             `<span class="recentCall">${date}</span>`
 
@@ -11,7 +11,7 @@
           <div class="row lead">
               <div class="col callbackButton" customer="${id}"></div>
               <div class="col wbrdr">
-                    <${container} class="name ${missing === true && 'recentCall--missed'}" 
+                    <${container} class="name ${missed === true && 'recentCall--missed'}" 
                                 href="/customers/${id}">
                                 ${name}
                     </${container}>
