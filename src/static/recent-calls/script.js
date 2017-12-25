@@ -23,8 +23,7 @@
         `
     }
 
-    // fetch(Config.API_HOST + "/recent.calls?token=" + getCookie('msid'))
-    fetch("http://localhost:5002/recent.calls?token=" + getCookie('msid'))
+    fetch(Config.API_HOST + "/recent.calls?token=" + getCookie('msid'))
         .then(response => response.json())
         .then(checkResponse)
         .then(({ items }) => {
