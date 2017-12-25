@@ -71,6 +71,7 @@
 }
 
 .outcomingIcon {
+    opacity: .5;
     width: 50px;
     background: url(/static/player/outcoming.svg?1502294671905) no-repeat top center;
     background-size: 30px 30px;
