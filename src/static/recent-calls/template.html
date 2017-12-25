@@ -2,28 +2,31 @@
 <html>
 
 <head>
-    <title>Клиент</title>
+    <title>Недавние звонки</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
-    <link rel="stylesheet" href="/static/common/profile.css">
-
-    <link rel="stylesheet" href="/static/player/styles.css">
-    <link rel="stylesheet" href="/static/player/jouele.css" />
-
-    <link rel="stylesheet" href="/static/customer-profile/styles.css">
+    <link rel="stylesheet" href="/static/callback/styles.css">
+    <link rel="stylesheet" href="/static/common/customers.css">
+    <link rel="stylesheet" href="/static/recent-calls/styles.css">
 </head>
 
 <body>
-    <div class="onlyMobile" style="border-top: 10px solid #A23A99"></div>
+    <div class="callbackLayout" id="callbackLayout"></div>
+
+    <!-- <div class="subMenu onlyMobile">
+        <div class="buttonGroup">
+            <a class="buttonGroup__button buttonGroup__button--active">Горячие 🔥</a>
+            <a class="buttonGroup__button" href="/leads/cold">Холодные ⛄</a>
+        </div>
+    </div> -->
 
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
             <li>
-                <a class="topNavigation__link" href="/leads/hot">
+                <a href="/leads/hot" class="topNavigation__link">
                     Горячие лиды
                 </a>
             </li>
@@ -33,13 +36,13 @@
                 </a>
             </li>
             <li>
-                <a class="topNavigation__link topNavigation__link--active">В работе</a>
+                <a href="/customers" class="topNavigation__link">В работе</a>
             </li>
             <li>
                 <a href="/closed" class="topNavigation__link">Закрытые</a>
             </li>
             <li>
-                <a href="/recents" class="topNavigation__link">Недавние</a>
+                <a class="topNavigation__link topNavigation__link--active">Недавние</a>
             </li>
 
             <li style="float: right;">
@@ -48,20 +51,23 @@
         </ul>
     </div>
 
-    <section id="Profile" class="preloader"></section>
+    <div class="list">
+        <h1 class="pageTitle">Недавние звонки</h1>
+        <div id="leadsList" class="preloader"></div>
+    </div>
 
-    <ul class="bottomMenu onlyMobile" id="bottomTabs">
+    <ul class="bottomMenu onlyMobile">
         <li>
-            <a class="bottomMenu__link" href="/leads/hot">Новые</a>
+            <a href="/leads/hot" class="bottomMenu__link">Новые</a>
         </li>
         <li>
-            <a href="/customers" class="bottomMenu__link bottomMenu__link--active">В работе</a>
+            <a href="/customers" class="bottomMenu__link">В работе</a>
         </li>
         <li>
             <a href="/closed" class="bottomMenu__link">Закрытые</a>
         </li>
         <li>
-            <a href="/recents" class="bottomMenu__link">Недавние</a>
+            <a class="bottomMenu__link bottomMenu__link--active">Недавние</a>
         </li>
     </ul>
 
@@ -71,12 +77,9 @@
             .config('https://38eb5217172a4497bd9f0bc5acf86e6e@sentry.io/233872')
             .install()
     </script>
-
     <script src="/static/common/script.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/player/jouele.min.js"></script>
-    <script src="/static/player/script.js"></script>
-    <script src="/static/customer-profile/script.js"></script>
+    <script src="/static/callback/script.js"></script>
+    <script src="/static/recent-calls/script.js"></script>
 </body>
 
 </html>

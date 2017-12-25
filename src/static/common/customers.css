@@ -63,6 +63,19 @@
     background:  url(/static/common/deal-icon.svg?1502294671905) no-repeat top center;
 }
 
+.incomingIcon {
+    opacity: .5;
+    width: 50px;
+    background: url(/static/player/incoming.svg?1502294671905) no-repeat top center;
+    background-size: 30px 30px;
+}
+
+.outcomingIcon {
+    width: 50px;
+    background: url(/static/player/outcoming.svg?1502294671905) no-repeat top center;
+    background-size: 30px 30px;
+}
+
 .name {
     cursor: pointer;
     display: block;

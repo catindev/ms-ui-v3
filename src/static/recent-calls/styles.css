@@ -1,0 +1,12 @@
+.name {
+    padding-bottom: .5rem;
+}
+
+.info {
+    font-size: 13px;
+    color: grey;
+}
+
+.recentCall--missed {
+    color: #D35400 !important;
+}

@@ -31,7 +31,7 @@ app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirnam
 app.get('/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
 app.get('/closed/:id', (request, response) => response.sendFile(__dirname + '/static/closed-profile/template.html'))
 
-app.get('/recents', (request, response) => response.sendFile(__dirname + '/static/recents/template.html'))
+app.get('/recents', (request, response) => response.sendFile(__dirname + '/static/recent-calls/template.html'))
 
 app.get('/exit', (request, response) => {
     const { query: { msid } } = request
