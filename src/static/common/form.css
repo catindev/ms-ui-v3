@@ -48,6 +48,10 @@ input[type=text], input[type=tel], input[type=number], input[type=date], textare
   border: 2px solid #353B3F;
 }
 
+input[type=date] {
+  height: 36px;
+}
+
 select {
   background: url(/static/common/dropdown-arrow.svg) right 10px center no-repeat;
   background-color: #fff;
