@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"ms3.logs"},{"v":2,"key":{"when":1},"name":"when_1","ns":"ms3.logs","expireAfterSeconds":1209600,"background":true}]}

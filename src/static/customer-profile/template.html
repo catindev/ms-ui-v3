@@ -18,7 +18,15 @@
 </head>
 
 <body>
-    <div class="onlyMobile" style="border-top: 10px solid #A23A99"></div>
+    <div class="changelog--mobile onlyMobile">
+        <a href="">Узнайте что изменилось на этой неделе 👀 </a>
+    </div>
+
+    <div class="changelog--desktop onlyDesktop">
+        <a href="">Узнайте что изменилось на этой неделе 👀 </a>
+    </div>
+
+    <div class="onlyMobile" style="background: #A23A99;min-height:10px;"></div>
 
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
@@ -39,7 +47,7 @@
                 <a href="/closed" class="topNavigation__link">Закрытые</a>
             </li>
             <li>
-                <a href="/recents" class="topNavigation__link">Недавние</a>
+                <a href="/recents" class="topNavigation__link">История</a>
             </li>
 
             <li style="float: right;">
@@ -61,7 +69,7 @@
             <a href="/closed" class="bottomMenu__link">Закрытые</a>
         </li>
         <li>
-            <a href="/recents" class="bottomMenu__link">Недавние</a>
+            <a href="/recents" class="bottomMenu__link">История</a>
         </li>
     </ul>
 
@@ -77,6 +85,13 @@
     <script src="/static/player/jouele.min.js"></script>
     <script src="/static/player/script.js"></script>
     <script src="/static/customer-profile/script.js"></script>
+    <!-- <script>
+        var HW_config = {
+            selector: ".changelog",
+            account: "x9mmnx"
+        }
+    </script>
+    <script async src="//cdn.headwayapp.co/widget.js"></script> -->
 </body>
 
 </html>

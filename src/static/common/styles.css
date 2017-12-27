@@ -24,6 +24,51 @@ h1 {
   background: #FCF3AF;
   font-size: 16px;
   line-height: 20px;
+  margin-bottom: .5rem;
+}
+
+.changelog--mobile {
+  display: none;
+  padding: .5rem;
+  text-align: center;
+  color: #fff;
+  background: #A23A99;
+}
+
+.changelog--mobile a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(255,255,255, .55)
+}
+
+.changelog--desktop {
+  display: none !important;
+  z-index: 9998;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: -4px -4px 0 -4px #353B3F; ;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  background: #A23A99; 
+}
+
+.changelog--desktop a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 2px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(255,255,255, .55)
+}
+
+.changelog--desktop a:hover {
+  border-bottom: 2px solid #fff;
 }
 
 @media screen and (min-width:1024px) {

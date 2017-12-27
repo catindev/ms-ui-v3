@@ -24,6 +24,8 @@ app.get('/leads/cold/:id/edit', (request, response) => response.sendFile(__dirna
 
 app.get('/customers', (request, response) => response.sendFile(__dirname + '/static/customers/template.html'))
 app.get('/customers/:id', (request, response) => response.sendFile(__dirname + '/static/customer-profile/template.html'))
+app.get('/customers/:id/profile', (request, response) => response.sendFile(__dirname + '/static/customer-profile-details/template.html'))
+app.get('/customers/:id/set.task', (request, response) => response.sendFile(__dirname + '/static/customer-set-task/template.html'))
 app.get('/customers/:id/reject', (request, response) => response.sendFile(__dirname + '/static/customer-reject/template.html'))
 app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirname + '/static/customer-deal/template.html'))
 app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirname + '/static/customer-edit/template.html'))

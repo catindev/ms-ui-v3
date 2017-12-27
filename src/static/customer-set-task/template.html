@@ -2,26 +2,23 @@
 <html>
 
 <head>
-    <title>Недавние</title>
+    <title>Редактировать</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
-    <link rel="stylesheet" href="/static/callback/styles.css">
-    <link rel="stylesheet" href="/static/common/customers.css">
-    <link rel="stylesheet" href="/static/recents/styles.css">
+    <link rel="stylesheet" href="/static/common/form.css">
+    <link rel="stylesheet" href="/static/customer-set-task/styles.css">
 </head>
 
 <body>
-    <div class="callbackLayout" id="callbackLayout"></div>
-
-    <div class="onlyMobile" style="border-top: 10px solid #A23A99"></div>
+    ц
 
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
             <li>
-                <a href="/leads/hot" class="topNavigation__link">
+                <a class="topNavigation__link" href="/leads/hot">
                     Горячие лиды
                 </a>
             </li>
@@ -31,13 +28,17 @@
                 </a>
             </li>
             <li>
-                <a href="/customers" class="topNavigation__link">В работе</a>
+                <a href="/customers" class="topNavigation__link topNavigation__link--active">
+                    В работе
+                </a>
             </li>
             <li>
-                <a href="/closed" class="topNavigation__link">Закрытые</a>
+                <a href="/closed" class="topNavigation__link">
+                    Закрытые
+                </a>
             </li>
             <li>
-                <a class="topNavigation__link topNavigation__link--active">Недавние</a>
+                <a href="/recents" class="topNavigation__link">История</a>
             </li>
 
             <li style="float: right;">
@@ -46,23 +47,22 @@
         </ul>
     </div>
 
-    <div class="list">
-        <h1 class="pageTitle">Недавние</h1>
-        <div id="customersList" class="preloader"></div>
-    </div>
+    <form id="editForm" class="preloader"></form>
 
-    <ul class="bottomMenu onlyMobile">
+    <ul class="bottomMenu onlyMobile" id="bottomTabs">
         <li>
-            <a href="/leads/hot" class="bottomMenu__link">Новые</a>
+            <a class="bottomMenu__link" href="/leads/hot">Новые</a>
         </li>
         <li>
-            <a href="/customers" class="bottomMenu__link">В работе</a>
+            <a href="/customers" class="bottomMenu__link bottomMenu__link--active">
+                В работе
+            </a>
         </li>
         <li>
             <a href="/closed" class="bottomMenu__link">Закрытые</a>
         </li>
         <li>
-            <a class="bottomMenu__link bottomMenu__link--active">История</a>
+            <a href="/recents" class="bottomMenu__link">История</a>
         </li>
     </ul>
 
@@ -73,8 +73,7 @@
             .install()
     </script>
     <script src="/static/common/script.js"></script>
-    <script src="/static/callback/script.js"></script>
-    <script src="/static/recents/script.js"></script>
+    <script src="/static/customer-set-task/script.js"></script>
 </body>
 
 </html>

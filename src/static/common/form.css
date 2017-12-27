@@ -33,7 +33,7 @@ form > label {
   margin-top: 8px;
 }
 
-input[type=text], input[type=tel], input[type=number], textarea, select {
+input[type=text], input[type=tel], input[type=number], input[type=date], textarea, select {
   outline: none;
   appearance: none;
   -webkit-appearance: none;

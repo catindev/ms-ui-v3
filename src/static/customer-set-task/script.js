@@ -69,47 +69,38 @@
         return (fields.map(field => render[field.type](field))).join('')
     }
 
-    function template({ _id, name, info = '', notes = '', params }) {
+    function template({ _id, name, task: { when = '', what = '' } = {} }) {
         return `
         <h1 class="mobilePadding">
-            <a href="/customers/${ _id}/profile" class="backButton"></a>
+            <a href="/customers/${ _id}" class="backButton"></a>
             ${ name}
         </h1>
-        <h2>Редактировать профиль</h2>
+        <h2>Поставить задачу</h2>
 
         <div class="sidebar onlyDesktop">
             <a class="sidebar__link" href="/customers/${ _id}">
                 Карточка 🗿
             </a>
             <div class="sidebar__divider"></div>
-            <a class="sidebar__link" href="/customers/${ _id}/profile">
+            <a class="sidebar__link sidebar__link--active" href="/customers/${ _id}/profile">
                 Профиль 📋
-            </a>    
-            <a class="sidebar__link sidebar__link--active" href="/customers/${ _id}/edit">
-                Изменить профиль 📝
-            </a>                         
-            <div class="sidebar__divider"></div>
+            </a>            
             <a class="sidebar__link" href="/customers/${ _id}/reject">
                 Оформить отказ 🚯
             </a>
-        </div>
+        </div>         
 
         <div class="message" id="errorMessage"></div>
 
-        <label for="name">Имя</label>
-        <input type="text" id="name" name="name" value="${ name}" class="js-input" />
+        <label for="name">Что сделать?</label>
+        <input type="text" id="what" name="what" value="${what}" class="js-input" />
         
-        <label for="info">Описание</label>
-        <input type="text" id="info" name="info" value="${ info}" class="js-input" />
-
-        ${ customs(params)}
-
-        <label for="notes">Заметки</label>
-        <textarea id="notes" name="notes" class="js-input">${ notes}</textarea>
+        <label for="info">Когда?</label>
+        <input type="date" id="when" name="when" value="${when}" class="js-input" />
 
         <div class="buttonsPanel">
             <button>Сохранить</button>
-            <a href="/customers/${ _id}/profile" class="button default">
+            <a href="/customers/${ _id}" class="button default">
                 Отменить
             </a>
         </div>           
@@ -145,32 +136,28 @@
         console.log(isRequest)
         if (isRequest == true) return false;
 
-        const { name, info, notes } = editForm;
+        const { when, what } = editForm;
 
-        if (!name.value) {
+        if (!when.value || !what.value) {
             window.scrollTo(0, 0);
-            errorMessage.innerText = 'Имя не заполнено'
+            errorMessage.innerText = 'Заполните форму полностью'
             errorMessage.style.display = 'block'
             editForm.classList.add('shake')
             setTimeout(() => editForm.classList.remove('shake'), 1000)
             return false
         }
 
-        const data = { name: name.value, info: info.value, notes: notes.value };
-        customparams.forEach(({ id, type }) => {
-            if (type === 'multiselect') data[id] = getMultiselectValues(editForm[id])
-            else data[id] = editForm[id].value
-        });
+        const data = { when: when.value, what: what.value };
 
         isRequest = true;
-        fetch(`${Config.API_HOST}/customers/${_id}?token=${getCookie('msid')}`, {
+        fetch(`${Config.API_HOST}/customers/${_id}/set.task?token=${getCookie('msid')}`, {
             method: "put",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(data)
         })
             .then(response => response.json())
             .then(checkResponse)
-            .then(() => { document.location.href = '/customers/' + _id + '/profile' })
+            .then(() => { document.location.href = '/customers/' + _id })
             .catch(error => {
                 isRequest = false;
 
