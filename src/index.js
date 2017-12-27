@@ -23,6 +23,7 @@ app.get('/leads/cold/:id/reject', (request, response) => response.sendFile(__dir
 app.get('/leads/cold/:id/edit', (request, response) => response.sendFile(__dirname + '/static/cold-edit/template.html'))
 
 app.get('/customers', (request, response) => response.sendFile(__dirname + '/static/customers/template.html'))
+app.get('/customers/today', (request, response) => response.sendFile(__dirname + '/static/customers-today/template.html'))
 app.get('/customers/:id', (request, response) => response.sendFile(__dirname + '/static/customer-profile/template.html'))
 app.get('/customers/:id/profile', (request, response) => response.sendFile(__dirname + '/static/customer-profile-details/template.html'))
 app.get('/customers/:id/set.task', (request, response) => response.sendFile(__dirname + '/static/customer-set-task/template.html'))

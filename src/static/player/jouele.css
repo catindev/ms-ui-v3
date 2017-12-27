@@ -230,7 +230,7 @@
 }
 
 .jouele-info-control-button {
-    display: none;
+    /* display: none; */
     float: left;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -277,7 +277,7 @@
     overflow: hidden;
     word-wrap: break-word;
     white-space: normal;
-    /*padding-top: 3px;*/
+    padding-top: 3px;
     padding-left: 2px;
 }
 

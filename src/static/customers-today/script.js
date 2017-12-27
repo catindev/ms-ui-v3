@@ -15,7 +15,7 @@
     `
   }
 
-  function customer({ name, info, _id, }, next) {
+  function customer({ name, task: { what = '' } = {}, _id, }, next) {
     return `
           <div class="row lead" id="${ _id}">
               <div class="col callbackButton" customer="${ _id}"></div>
@@ -24,7 +24,7 @@
                     ${ name}
                   </a>
                   <div class="row info wbrdr">
-                    <span>${ info}</span>
+                    <span>${ what}</span>
                 </div>
               </div>
               <a onclick="processCustomer(this)" class="col ${ next === false ? 'dealButton' : 'funnelDownButton'} " 
@@ -43,7 +43,7 @@
     const empty = !customers || customers.length === 0;
 
     return `
-      ${sideMenu()}
+      ${sideMenu(true)}
 
       ${
       name === 'in-progress' ?
@@ -60,7 +60,7 @@
       </div>`
   }
 
-  fetch(`${Config.API_HOST}/customers/funnel?token=${getCookie('msid')}`)
+  fetch(`${Config.API_HOST}/customers/funnel?token=${getCookie('msid')}&today=true`)
     .then(response => response.json())
     .then(checkResponse)
     .then(({ items }) => {
@@ -68,9 +68,11 @@
       closedList.classList.remove('preloader');
 
       if (!items || items.length === 0) return closedList.innerHTML = `
-        ${sideMenu()}
+        ${sideMenu(true)}
         <h1 class="pageTitle">В работе</h1>
-        <div class="emptyList">Клиентов нет</div>
+        <div class="emptyList" style="color: #777;">
+          Нет клиентов с задачами на сегодня. Переключитесь на всех клиентов и поставьте задачи в карточках
+        </div>
       `
 
       closedList.innerHTML = (items.map(customers)).join('')

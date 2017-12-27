@@ -46,16 +46,22 @@
             </h2>
 
             <div class="card">  
+                <div class="label">Описание</div>
+                <div class="data">${info}</div>    
+                          
                 ${taskHTML}
             </div>
 
             <div class="optionsPanel onlyMobile">
+                <a class="optionsButton" href="/customers/${ _id}/set.task">
+                    Поставить задачу ✅
+                </a>             
                 <a class="optionsButton" href="/customers/${ _id}/profile">
                     Открыть профиль 📋
                 </a>                 
                 <a class="optionsButton" href="/customers/${ _id}/reject">
                     Оформить отказ 🚯
-                </a>
+                </a>               
             </div> 
 
             <div class="sidebar onlyDesktop">
@@ -69,6 +75,10 @@
                 <a class="sidebar__link" href="/customers/${ _id}/reject">
                     Оформить отказ 🚯
                 </a>
+                <div class="sidebar__divider"></div>
+                <a class="sidebar__link" href="/customers/${ _id}/set.task">
+                    Поставить задачу ✅
+                </a>                  
             </div>                      
         `
     }

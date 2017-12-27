@@ -2,15 +2,15 @@
 <html>
 
 <head>
-    <title>Холодные лиды</title>
+    <title>В работе</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
-    <link rel="stylesheet" href="/static/coldback/styles.css">
+    <link rel="stylesheet" href="/static/callback/styles.css">
     <link rel="stylesheet" href="/static/common/customers.css">
-    <link rel="stylesheet" href="/static/cold-leads/styles.css">
+    <link rel="stylesheet" href="/static/customers-today/styles.css">
 </head>
 
 <body>
@@ -25,13 +25,9 @@
 
     <div class="subMenu onlyMobile">
         <div class="buttonGroup">
-            <a class="buttonGroup__button" href="/leads/hot">Горячие 🔥</a>
-            <a class="buttonGroup__button buttonGroup__button--active">Холодные ⛄</a>
+            <a class="buttonGroup__button" href="/customers">Все клиенты</a>
+            <a class="buttonGroup__button buttonGroup__button--active">На сегодня</a>
         </div>
-    </div>
-
-    <div class="sidebar onlyDesktop">
-        <a class="sidebar__link" href="/leads/cold/new">+ Добавить</a>
     </div>
 
     <div class="pageHeader">
@@ -42,15 +38,19 @@
                 </a>
             </li>
             <li>
-                <a class="topNavigation__link topNavigation__link topNavigation__link--active">
+                <a class="topNavigation__link" href="/leads/cold">
                     Холодные лиды
                 </a>
             </li>
             <li>
-                <a href="/customers" class="topNavigation__link">В работе</a>
+                <a href="/customers" class="topNavigation__link topNavigation__link--active">
+                    В работе
+                </a>
             </li>
             <li>
-                <a href="/closed" class="topNavigation__link">Закрытые</a>
+                <a class="topNavigation__link" href="/closed">
+                    Закрытые
+                </a>
             </li>
             <li>
                 <a href="/recents" class="topNavigation__link">История</a>
@@ -62,23 +62,20 @@
         </ul>
     </div>
 
-    <div class="list">
-        <h1 class="pageTitle">Холодные лиды</h1>
-        <div class="mobilePanel onlyMobile">
-            <a href="/leads/cold/new" class="panelButton">+ Добавить</a>
-        </div>
-        <div id="leadsList" class="preloader"></div>
+    <div class="list" id="closedList" class="preloader">
     </div>
 
     <ul class="bottomMenu onlyMobile">
         <li>
-            <a class="bottomMenu__link bottomMenu__link--active">Новые</a>
+            <a href="/leads/hot" class="bottomMenu__link">Новые</a>
         </li>
         <li>
-            <a href="/customers" class="bottomMenu__link">В работе</a>
+            <a class="bottomMenu__link bottomMenu__link--active">В работе</a>
         </li>
         <li>
-            <a href="/closed" class="bottomMenu__link">Закрытые</a>
+            <a href="/closed" class="bottomMenu__link">
+                Закрытые
+            </a>
         </li>
         <li>
             <a href="/recents" class="bottomMenu__link">История</a>
@@ -92,8 +89,9 @@
             .install()
     </script>
     <script src="/static/common/script.js"></script>
-    <script src="/static/coldback/script.js"></script>
-    <script src="/static/cold-leads/script.js"></script>
+    <script src="/static/callback/script.js"></script>
+    <script src="/static/customers-today/funnel-buttons.js?v=1513776042162"></script>
+    <script src="/static/customers-today/script.js?v=1513776042162"></script>
 </body>
 
 </html>

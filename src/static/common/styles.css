@@ -28,7 +28,7 @@ h1 {
 }
 
 .changelog--mobile {
-  display: none;
+  /* display: none; */
   padding: .5rem;
   text-align: center;
   color: #fff;
@@ -45,7 +45,7 @@ h1 {
 }
 
 .changelog--desktop {
-  display: none !important;
+  /* display: none !important; */
   z-index: 9998;
   position: fixed;
   bottom: 0;

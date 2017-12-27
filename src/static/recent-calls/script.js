@@ -1,18 +1,25 @@
 (function () {
 
-    function customerHTML({ _id, missed, date, customer: { id, name }, isCallback, owner }) {
+    function customerHTML({ _id, missed, date, customer: { id, name, funnelStep }, isCallback, owner }) {
         const status = missed === true ?
             `<span class="recentCall--missed">${date}</span>` :
             `<span class="recentCall">${date}</span>`
 
         const container = owner === 'you' ? 'a' : 'div'
 
+        const profileURL = (step, id) => {
+            if (step === 'cold') return '/leads/cold/' + id
+            if (step === 'lead') return '/leads/hot/' + id
+            if (step === 'reject' || step === 'deal') return '/closed/' + id
+            return '/customers/' + id
+        }
+
         return `
           <div class="row lead">
               <div class="col callbackButton" customer="${id}"></div>
               <div class="col wbrdr">
                     <${container} class="name ${missed === true && 'recentCall--missed'}" 
-                                href="/customers/${id}">
+                                href="${profileURL(funnelStep, id)}">
                                 ${name}
                     </${container}>
                     <div class="row info">${ status}</div>

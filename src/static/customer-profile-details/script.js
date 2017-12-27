@@ -59,6 +59,10 @@
                 <a class="sidebar__link" href="/customers/${ _id}/reject">
                     Оформить отказ 🚯
                 </a>
+                <div class="sidebar__divider"></div>
+                <a class="sidebar__link" href="/customers/${ _id}/set.task">
+                    Поставить задачу ✅
+                </a>                
             </div>                    
         `
     }
