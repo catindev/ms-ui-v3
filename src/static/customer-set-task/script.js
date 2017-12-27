@@ -75,24 +75,7 @@
             <a href="/customers/${ _id}" class="backButton"></a>
             ${ name}
         </h1>
-        <h2>Поставить задачу</h2>
-
-        <div class="sidebar onlyDesktop">
-            <a class="sidebar__link" href="/customers/${ _id}">
-                Карточка 🗿
-            </a>
-            <div class="sidebar__divider"></div>
-            <a class="sidebar__link" href="/customers/${ _id}/profile">
-                Профиль 📋
-            </a>            
-            <a class="sidebar__link" href="/customers/${ _id}/reject">
-                Оформить отказ 🚯
-            </a>
-            <div class="sidebar__divider"></div>
-            <a class="sidebar__link sidebar__link--active" href="/customers/${ _id}/set.task">
-                Поставить задачу ✅
-            </a>
-        </div>         
+        <h2>Поставить задачу</h2>         
 
         <div class="message" id="errorMessage"></div>
 

@@ -77,27 +77,6 @@
         </h1>
         <h2>Редактировать профиль</h2>
 
-        <div class="sidebar onlyDesktop">
-            <a class="sidebar__link" href="/customers/${ _id}">
-                Карточка 🗿
-            </a>
-            <div class="sidebar__divider"></div>
-            <a class="sidebar__link" href="/customers/${ _id}/profile">
-                Профиль 📋
-            </a>    
-            <a class="sidebar__link sidebar__link--active" href="/customers/${ _id}/edit">
-                Изменить профиль 📝
-            </a>                         
-            <div class="sidebar__divider"></div>
-            <a class="sidebar__link" href="/customers/${ _id}/reject">
-                Оформить отказ 🚯
-            </a>
-            <div class="sidebar__divider"></div>
-            <a class="sidebar__link" href="/customers/${ _id}/set.task">
-                Поставить задачу ✅
-            </a>              
-        </div>
-
         <div class="message" id="errorMessage"></div>
 
         <label for="name">Имя</label>
