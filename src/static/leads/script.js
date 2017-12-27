@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     function leadHTML({ _id, name, state }) {
         const status = state === 'WAIT_RECALL' ?
@@ -7,12 +7,12 @@
 
         return `
           <div class="row lead">
-              <div class="col callbackButton" customer="${ _id }"></div>
+              <div class="col callbackButton" customer="${ _id}"></div>
               <div class="col">
-                  <a class="name" href="/leads/hot/${ _id }">${ name }</a>
-                  <div class="row info">${ status }</div>
+                  <a class="name" href="/leads/hot/${ _id}">${name}</a>
+                  <div class="row info">${ status}</div>
               </div>
-              <a href="/leads/hot/${ _id }" class="col saveButton"></a>
+              <a href="/leads/hot/${ _id}" class="col saveButton"></a>
           </div>   
         `
     }
@@ -29,11 +29,11 @@
             leadsList.innerHTML = items.length > 0 ?
                 items.map(leadHTML).join('') :
                 `<div class="emptyList">
-                    <p>Клиентов нет. Сюда попадут Горячие лиды,
+                    <p>Клиентов нет. Сюда попадут новые клиенты,
                     которые позвонят на рекламные номера.</p>
                 </div>`
 
-            registerCallbacks();                   
+            registerCallbacks();
         })
         .catch(error => console.error('Error:', error.message));
 })();
