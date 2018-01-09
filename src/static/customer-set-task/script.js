@@ -13,63 +13,7 @@
         }
     }
 
-
-    function text({ id, name }) {
-        const value = CUSTOMER[id] ? CUSTOMER[id] : '';
-        return `
-            <label for="${ id}">${name}</label>
-            <input type="text" id="${ id}" name="${id}" value="${value}" class="js-input" />
-        `
-    }
-
-    const isChecked = (customer, fieldID, value) => customer[fieldID] && customer[fieldID].indexOf(value) !== -1 ? 'checked' : '';
-    function multiselect({ items, id, name }) {
-        const options = (items.map(
-            item => {
-                const checked = isChecked(CUSTOMER, id, item);
-                console.log(id, item, checked)
-                return `<li>
-                    <label>
-                    <input type="checkbox" ${ checked} name="${id}" value="${item}"> 
-                        ${ item}
-                    </label>
-                </li>
-            `
-            })).join('');
-
-        return `
-            <label>${ name}</label>
-            <ul>${ options}</ul>
-        `
-    }
-
-    function getMultiselectValues(domElements) {
-        const selected = [].filter.call(domElements, element => element.checked);
-        return selected.map(({ value }) => value)
-    }
-    const isSelected = (customer, fieldID, value) => customer[fieldID] === value ? 'selected' : '';
-    function select({ items, id, name }) {
-        const options = (items.map(
-            item => {
-                const selected = isSelected(CUSTOMER, id, item);
-                return `<option value="${item}" ${selected}>${item}</option>`
-            })).join('');
-
-        return `
-            <label for="${ id}">${name}</label>
-            <select id="${ id}" name="${id}" class="js-input">
-                <option value=""></option>
-                ${ options}
-            </select> 
-        `
-    }
-
-    const render = { select, text, multiselect }
-    function customs(fields) {
-        return (fields.map(field => render[field.type](field))).join('')
-    }
-
-    function template({ _id, name, task: { when = '', what = '' } = {} }) {
+    function template({ _id, name, task: { when = '', what = '', time = '' } = {} }) {
         return `
         <h1 class="mobilePadding">
             <a href="/customers/${ _id}" class="backButton"></a>
@@ -79,11 +23,14 @@
 
         <div class="message" id="errorMessage"></div>
 
-        <label for="name">Что сделать?</label>
+        <label for="what">Что сделать</label>
         <input type="text" id="what" name="what" value="${what}" class="js-input" />
         
-        <label for="info">Когда?</label>
+        <label for="when">Когда</label>
         <input type="date" id="when" name="when" value="${when}" class="js-input" />
+
+        <label for="time">Во сколько</label>
+        <input type="time" id="time" name="time" value="${time}" class="js-input" />
 
         <div class="buttonsPanel">
             <button>Сохранить</button>
@@ -96,7 +43,8 @@
 
     let _id, customparams, CUSTOMER;
 
-    fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[2]}?token=${getCookie('msid')}&params=1`)
+    // fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[2]}?token=${getCookie('msid')}&params=1`)
+    fetch(`http://localhost:5002/customers/${location.pathname.split('/')[2]}?token=${getCookie('msid')}&params=1`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
@@ -123,9 +71,9 @@
         console.log(isRequest)
         if (isRequest == true) return false;
 
-        const { when, what } = editForm;
+        const { when, what, time } = editForm;
 
-        if (!when.value || !what.value) {
+        if (!when.value || !what.value || !time.value) {
             window.scrollTo(0, 0);
             errorMessage.innerText = 'Заполните форму полностью'
             errorMessage.style.display = 'block'
@@ -134,13 +82,14 @@
             return false
         }
 
-        const data = { when: when.value, what: what.value };
-
         isRequest = true;
-        fetch(`${Config.API_HOST}/customers/${_id}/set.task?token=${getCookie('msid')}`, {
+        // fetch(`${Config.API_HOST}/customers/${_id}/set.task?token=${getCookie('msid')}`, {
+        fetch(`http://localhost:5002/customers/${_id}/set.task?token=${getCookie('msid')}`, {
             method: "put",
             headers: { "Content-type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                when: when.value, what: what.value, time: time.value
+            })
         })
             .then(response => response.json())
             .then(checkResponse)
@@ -153,8 +102,8 @@
                 errorMessage.innerText = error.message + '  😦'
                 errorMessage.style.display = 'block'
 
-                newColdForm.classList.add('shake')
-                setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+                editForm.classList.add('shake')
+                setTimeout(() => editForm.classList.remove('shake'), 1000)
             });
 
     })

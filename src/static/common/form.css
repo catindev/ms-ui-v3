@@ -34,7 +34,7 @@ form > label {
   margin-top: 8px;
 }
 
-input[type=text], input[type=tel], input[type=number], input[type=date], textarea, select {
+input[type=text], input[type=tel], input[type=number], input[type=date], input[type=time], textarea, select {
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -48,7 +48,7 @@ input[type=text], input[type=tel], input[type=number], input[type=date], textare
   border: 2px solid #353B3F;
 }
 
-input[type=date] {
+input[type=date], input[type=time] {
   height: 40px;
 }
 
