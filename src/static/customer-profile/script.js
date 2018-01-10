@@ -15,10 +15,11 @@
                     ${customer.task.what}
                 </p>
                 <p style="font-size: 13px; color: #999898;">
-                    ${customer.task.displayWhen}
+                    ${customer.task.displayWhen} в ${customer.task.time}
                 </p>
             </div>        
         ` : '';
+
 
 
         const getParamValue = value => typeof value === 'string' ?

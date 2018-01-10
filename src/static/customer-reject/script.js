@@ -78,8 +78,8 @@
         const { reason, comment } = rejectForm;
 
         if (!reason.value) {
-            newColdForm.classList.add('shake')
-            setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+            rejectForm.classList.add('shake')
+            setTimeout(() => rejectForm.classList.remove('shake'), 1000)
             return false
         }
 
@@ -103,8 +103,8 @@
                 errorMessage.innerText = error.message + '  😦'
                 errorMessage.style.display = 'block'
 
-                newColdForm.classList.add('shake')
-                setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+                rejectForm.classList.add('shake')
+                setTimeout(() => rejectForm.classList.remove('shake'), 1000)
             });
 
     })

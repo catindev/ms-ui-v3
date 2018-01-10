@@ -15,7 +15,7 @@
     `
   }
 
-  function customer({ name, task: { what = '' } = {}, _id, }, next) {
+  function customer({ name, task: { what = '', time = '', displayWhen = '' } = {}, _id, }, next) {
     return `
           <div class="row lead" id="${ _id}">
               <div class="col callbackButton" customer="${ _id}"></div>
@@ -24,7 +24,8 @@
                     ${ name}
                   </a>
                   <div class="row info wbrdr">
-                    <span>${ what}</span>
+                    <span>${what}</span><br>
+                    <small>в ${displayWhen}</small>
                 </div>
               </div>
               <a onclick="processCustomer(this)" class="col ${ next === false ? 'dealButton' : 'funnelDownButton'} " 
@@ -47,7 +48,7 @@
 
       ${
       name === 'in-progress' ?
-        `<h1 class="pageTitle">В работе</h1>`
+        `<h1 class="pageTitle">Звонок</h1>`
         :
         `<h2 class="funnelTitle">${name}</h2>`
       }

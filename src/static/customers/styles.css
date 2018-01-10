@@ -7,6 +7,14 @@ h2 {
   padding-top: 20px
 }
 
+.warning {
+  color: #D35400;
+}
+
+.missedTask {
+  text-decoration: line-through;
+}
+
 @media screen and (min-width:1024px) {
 
 }

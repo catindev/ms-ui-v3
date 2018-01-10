@@ -43,8 +43,7 @@
 
     let _id, customparams, CUSTOMER;
 
-    // fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[2]}?token=${getCookie('msid')}&params=1`)
-    fetch(`http://localhost:5002/customers/${location.pathname.split('/')[2]}?token=${getCookie('msid')}&params=1`)
+    fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[2]}?token=${getCookie('msid')}&params=1`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
@@ -83,8 +82,7 @@
         }
 
         isRequest = true;
-        // fetch(`${Config.API_HOST}/customers/${_id}/set.task?token=${getCookie('msid')}`, {
-        fetch(`http://localhost:5002/customers/${_id}/set.task?token=${getCookie('msid')}`, {
+        fetch(`${Config.API_HOST}/customers/${_id}/set.task?token=${getCookie('msid')}`, {
             method: "put",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({
