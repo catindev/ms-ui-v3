@@ -15,7 +15,7 @@
                     ${customer.task.what}
                 </p>
                 <p style="font-size: 13px; color: #999898;">
-                    ${customer.task.displayWhen} в ${customer.task.time}
+                    ${customer.task.displayWhen} ${customer.task.time ? 'в ' + customer.task.time }
                 </p>
             </div>        
         ` : '';
@@ -48,7 +48,7 @@
 
             <div class="card">  
                 <div class="label">Описание</div>
-                <div class="data">${info}</div>    
+                <div class="data">${info || 'нет'}</div>    
                           
                 ${taskHTML}
             </div>
