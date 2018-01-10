@@ -15,6 +15,23 @@ h2 {
   text-decoration: line-through;
 }
 
+.funnelSetTask {
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  margin-left: 10px;
+  color: #A23A99;
+  font-size: 13px;
+  border: solid rgba(162,58,153, .35) 2px;
+  border-radius: 5px;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+.funnelSetTask:hover {
+  border: solid #A23A99 2px;
+}
+
 @media screen and (min-width:1024px) {
 
 }

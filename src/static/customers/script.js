@@ -18,7 +18,7 @@
   function customer({ name, info, _id, task }, next) {
     const taskHTML = task.timestamp !== 0 ?
       `${task.what}<br/><small>${task.displayWhen}</small>`
-      : 'Нет задачи 😡';
+      : `Нет задачи 😡 <a class="funnelSetTask" href="/customers/${_id}/set.task">Назначить</a>`;
 
     return `
           <div class="row lead" id="${ _id}">
