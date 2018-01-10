@@ -73,7 +73,6 @@
         .then(({ customer }) => {
             Profile.classList.remove('preloader');
             Profile.innerHTML = template(customer)
-            playerInit();
         })
         .catch(error => console.error('Error:', error.message));
 })();

@@ -69,10 +69,10 @@
         return (fields.map(field => render[field.type](field))).join('')
     }
 
-    function template({ _id, name, info = '', notes = '', params }) {
+    function template({ _id, name, info = '', notes = '', params, funnelStep }) {
         return `
         <h1 class="mobilePadding">
-            <a href="/customers/${ _id}/profile" class="backButton"></a>
+            <a href="/customers/${_id}/profile" class="backButton"></a>
             ${ name}
         </h1>
         <h2>Редактировать профиль</h2>
@@ -84,6 +84,9 @@
         
         <label for="info">Описание</label>
         <input type="text" id="info" name="info" value="${ info}" class="js-input" />
+
+        <input type="hidden" id="funnelStep" name="funnelStep" value="${funnelStep}" />
+        <input type="hidden" id="_id" name="_id" value="${_id}" />
 
         ${ customs(params)}
 
@@ -128,7 +131,9 @@
         console.log(isRequest)
         if (isRequest == true) return false;
 
-        const { name, info, notes } = editForm;
+        const { name, info, notes, funnelStep, _id } = editForm;
+
+        console.info(':D', funnelStep.value, _id.value)
 
         if (!name.value) {
             window.scrollTo(0, 0);
@@ -146,14 +151,17 @@
         });
 
         isRequest = true;
-        fetch(`${Config.API_HOST}/customers/${_id}?token=${getCookie('msid')}`, {
+        fetch(`${Config.API_HOST}/customers/${_id.value}?token=${getCookie('msid')}`, {
             method: "put",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(data)
         })
             .then(response => response.json())
             .then(checkResponse)
-            .then(() => { document.location.href = '/customers/' + _id + '/profile' })
+            .then(() => {
+                if (funnelStep.value === 'lead') document.location.href = '/customers/' + _id.value + '/set.task'
+                else document.location.href = '/customers/' + _id.value + '/profile'
+            })
             .catch(error => {
                 isRequest = false;
 
@@ -162,8 +170,8 @@
                 errorMessage.innerText = error.message + '  😦'
                 errorMessage.style.display = 'block'
 
-                newColdForm.classList.add('shake')
-                setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+                editForm.classList.add('shake')
+                setTimeout(() => editForm.classList.remove('shake'), 1000)
             });
 
     })
