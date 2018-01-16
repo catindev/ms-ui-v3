@@ -36,7 +36,7 @@
             <div class="sidebar onlyDesktop">
                 <a class="sidebar__link sidebar__link--active">Профиль 🗿</a>
                 <div class="sidebar__divider"></div>
-                ${goodCalls > 0 ? '<a class="sidebar__link" href="/leads/cold/${ _id}/edit">Заполнить профиль 📝</a>' : ''}
+                ${goodCalls > 0 ? `<a class="sidebar__link" href="/leads/cold/${_id}/edit">Заполнить профиль 📝</a>` : ''}
                 <a class="sidebar__link" href="/leads/cold/${ _id}/reject">
                     Оформить отказ 🚯
                 </a>
