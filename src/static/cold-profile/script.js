@@ -11,8 +11,9 @@
 
         const noEditWarning = calls => calls === 0 ?
             `<div class="card">  
-                <div class="data" style="background:#FCF3AF">
-                Чтобы заполнить профиль и взять лида в работу нужно дозвониться до него хотя бы один раз
+                <div class="data warn">
+                Чтобы заполнить профиль и взять лида в работу нужно дозвониться до него
+                <span style="border-bottom:1px solid;">хотя бы один раз</span>
                 </div>    
             </div>`: ''
 
