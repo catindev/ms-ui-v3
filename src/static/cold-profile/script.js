@@ -22,7 +22,7 @@
                 <a href="/leads/cold" class="backButton"></a>
                 ${ name}
             </h1>
-            <h2 class="mobilePadding">${info}</h2>                
+            <h2 class="mobilePadding">${phones[0]}</h2>                
 
             ${noEditWarning(goodCalls)}
 
