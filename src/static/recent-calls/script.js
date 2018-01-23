@@ -5,7 +5,7 @@
             `<span class="recentCall--missed">${date}</span>` :
             `<span class="recentCall">${date}</span>`
 
-        const container = owner === 'you' ? 'a' : 'div'
+        const container = owner === 'you' || 'lead' ? 'a' : 'div'
 
         const profileURL = (step, id) => {
             if (step === 'cold') return '/leads/cold/' + id
@@ -13,6 +13,8 @@
             if (step === 'reject' || step === 'deal') return '/closed/' + id
             return '/customers/' + id
         }
+
+        const displayOwner = owner === 'lead' ? 'Новый клиент' : `Менеджер — ${owner}`;
 
         return `
           <div class="row lead">
@@ -23,7 +25,7 @@
                                 ${name}
                     </${container}>
                     <div class="row info">${ status}</div>
-                    ${ owner !== 'you' ? `<div class="row info">менеджер — ${owner}</div>` : ''}
+                    ${ owner !== 'you' ? `<div class="row info">${displayOwner}</div>` : ''}
               </div>
               <div class="col ${isCallback === true ? 'outcomingIcon' : 'incomingIcon'}"></div>
           </div>   
