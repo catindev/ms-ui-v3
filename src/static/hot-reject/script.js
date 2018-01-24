@@ -1,12 +1,12 @@
-(function() {
+(function () {
 
     function hideTabsOnFocus() {
         const inputs = document.getElementsByClassName('js-input');
         for (var i = 0; i < inputs.length; i++) {
-            inputs[i].addEventListener('focus', function() {
+            inputs[i].addEventListener('focus', function () {
                 bottomTabs.style.display = 'none'
             }, false);
-            inputs[i].addEventListener('blur', function() {
+            inputs[i].addEventListener('blur', function () {
                 const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 if (width < 1024) bottomTabs.style.display = 'block'
             }, false);
@@ -21,7 +21,7 @@
 
         return `
             <select id="reason" name="reason" class="js-input">
-                ${ options }
+                ${ options}
             </select> 
         `
     }
@@ -30,14 +30,14 @@
     function template({ _id, name, trunk, phones, account: { noTargetReasons } }) {
         return `
         <h1 class="mobilePadding">
-            <a href="/leads/hot/${ _id }" class="backButton"></a>
-            ${ name }
+            <a href="/leads/hot/${ _id}" class="backButton"></a>
+            ${ name}
         </h1>
         <h2>Оформить отказ</h2>
         <div class="message" id="errorMessage"></div>
 
         <label for="reason">Причина</label>
-        ${ selectWithReasons(noTargetReasons) }
+        ${ selectWithReasons(noTargetReasons)}
 
         <label for="name">Имя</label>
         <input type="text" id="name" name="name" class="js-input" />
@@ -47,7 +47,7 @@
         
         <div class="buttonsPanel">
             <button>Оформить</button>
-            <a href="/leads/hot/${ _id }" class="button default">
+            <a href="/leads/hot/${ _id}" class="button default">
                 Отменить
             </a>
         </div>           
@@ -56,7 +56,7 @@
 
     let _id;
 
-    fetch(`${ Config.API_HOST }/customers/${ location.pathname.split('/')[3] }?token=${ getCookie('msid') }`)
+    fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[3]}?token=${getCookie('msid')}`)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ customer }) => {
@@ -72,7 +72,7 @@
 
     let isRequest = false;
 
-    rejectForm.addEventListener("submit", function(event) {
+    rejectForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
         errorMessage.style.display = 'none';
@@ -80,21 +80,21 @@
         const { reason, comment, name } = rejectForm;
 
         if (!reason.value) {
-            newColdForm.classList.add('shake')
-            setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+            rejectForm.classList.add('shake')
+            setTimeout(() => rejectForm.classList.remove('shake'), 1000)
             return false
         }
 
         isRequest = true;
-        fetch(`${ Config.API_HOST }/customers/${ _id }/reject?token=${ getCookie('msid') }`, {
-                method: "put",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify({
-                    reason: reason.value,
-                    comment: comment.value,
-                    name: name.value
-                })
+        fetch(`${Config.API_HOST}/customers/${_id}/reject?token=${getCookie('msid')}`, {
+            method: "put",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({
+                reason: reason.value,
+                comment: comment.value,
+                name: name.value
             })
+        })
             .then(response => response.json())
             .then(checkResponse)
             .then(() => { document.location.href = '/leads/hot' })
@@ -106,8 +106,8 @@
                 errorMessage.innerText = error.message + '  😦'
                 errorMessage.style.display = 'block'
 
-                newColdForm.classList.add('shake')
-                setTimeout(() => newColdForm.classList.remove('shake'), 1000)
+                rejectForm.classList.add('shake')
+                setTimeout(() => rejectForm.classList.remove('shake'), 1000)
             });
 
     })
