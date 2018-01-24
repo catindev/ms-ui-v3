@@ -23,7 +23,7 @@
 
 
         const getParamValue = value => typeof value === 'string' ?
-            value : value.join(', ');
+            value : value.join('</br>');
 
         function customs(params) {
             return (params.map(({ name, id }) => {
