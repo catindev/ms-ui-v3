@@ -1,6 +1,6 @@
 (function () {
 
-    function template({ _id, name, info, trunk, user, phones, calls }) {
+    function template({ _id, name, info, trunk, user, phones, calls, notes }) {
         const goodCalls = calls && calls.length > 0 ?
             calls.reduce((sum, call) => call.record ? sum + 1 : sum, 0) : 0;
 
@@ -17,6 +17,22 @@
             </div>`: ''
 
 
+        const infoHTML = info ?
+            `<div class="card">
+                <div class="label">Описание</div>  
+                <div class="data">
+                ${info}
+                </div>    
+            </div>`: '';
+
+        const notesHTML = notes ?
+            `<div class="card">
+                <div class="label">Заметка</div>  
+                <div class="data">
+                ${notes}
+                </div>    
+            </div>`: '';
+
         return `
             <h1 class="mobilePadding">
                 <a href="/leads/cold" class="backButton"></a>
@@ -24,6 +40,8 @@
             </h1>
             <h2 class="mobilePadding">${phones[0]}</h2>                
 
+            ${infoHTML}
+            ${notesHTML}
             ${noEditWarning(goodCalls)}
 
             <div class="optionsPanel onlyMobile">
