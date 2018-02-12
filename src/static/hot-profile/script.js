@@ -1,7 +1,6 @@
 (function () {
 
   function isEnoughCalls(calls) {
-    return true
     if (!calls || calls.length === 0) return false;
 
     // const callsWithRecord = calls.filter(({ record }) => record);
