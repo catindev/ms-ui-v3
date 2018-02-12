@@ -81,8 +81,6 @@
             closedList.classList.add('list__content');
 
             closedList.innerHTML = deals(deal)
-
-
         })
         .catch(error => console.error('Error:', error.message));
 })();

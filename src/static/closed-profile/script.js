@@ -50,7 +50,8 @@
         .then(checkResponse)
         .then(({ customer }) => {
             Profile.classList.remove('preloader');
-            Profile.innerHTML = template(customer)
+            Profile.innerHTML = template(customer) + createPlaylist(customer.calls);
+            playerInit();
         })
         .catch(error => console.error('Error:', error.message));
 })();
