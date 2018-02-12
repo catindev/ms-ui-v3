@@ -1,5 +1,7 @@
 (function () {
 
+    const CUSTOMERID = location.pathname.split('/')[2];
+
     function template(customer) {
         const { _id, name, trunk, user, phones, params, reject, deal } = customer;
 
@@ -32,11 +34,24 @@
 
 
         return `
+            <div class="sidebar onlyDesktop">
+                <a class="sidebar__link js-comeback_btn">
+                    Взять в работу 💸
+                </a>       
+            </div>             
+
             <h1 class="mobilePadding">
                 <a href="/closed" class="backButton"></a>
                 ${ name}
             </h1>
             <h2 class="mobilePadding">${ phones.join('')}</h2>
+
+            <div class="optionsPanel onlyMobile">
+                <a class="optionsButton js-comeback_btn">
+                    Взять в работу 💸
+                </a>                         
+            </div>             
+
             <div4 class="card">
                 ${rejectHTML}
                 ${dealHTML}              
@@ -52,6 +67,33 @@
             Profile.classList.remove('preloader');
             Profile.innerHTML = template(customer) + createPlaylist(customer.calls);
             playerInit();
+            waitForComeback();
         })
         .catch(error => console.error('Error:', error.message));
+
+    // Comeback logic        
+    function waitForComeback() {
+        let isRequest = false;
+        Array
+            .from(document.querySelectorAll('.js-comeback_btn'))
+            .forEach(button => button.addEventListener('click', OnComeback));
+
+        function OnComeback(event) {
+            if (isRequest === true) return;
+            isRequest = true;
+            fetch(`${Config.API_HOST}/customers/${CUSTOMERID}/comeback?token=${getCookie('msid')}`, {
+                method: "put",
+                headers: { "Content-type": "application/json" }
+            })
+                .then(response => response.json())
+                .then(checkResponse)
+                .then(() => { document.location.href = '/customers/' + CUSTOMERID })
+                .catch(error => {
+                    isRequest = false;
+                    console.error('Error:', error.message)
+                    alert(error.message + '  😦')
+                });
+        }
+    }
+
 })();
