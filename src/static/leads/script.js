@@ -1,5 +1,7 @@
 (function () {
 
+    var leadsList = document.getElementById('leadsList');
+
     function leadHTML({ _id, name, state }) {
         const status = state === 'WAIT_RECALL' ?
             `<span class="missed">Перезвонить</span>` :

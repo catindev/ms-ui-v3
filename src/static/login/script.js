@@ -34,8 +34,8 @@
             body: body
         }).then(function (response) {
             return response.json();
-        }).then(checkResponse).then(function (_ref) {
-            var token = _ref.token;
+        }).then(checkResponse).then(function (response) {
+            var token = response.token;
 
             if (code.value === '') {
                 theButton.innerText = 'Войти';
