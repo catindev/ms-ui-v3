@@ -3,10 +3,10 @@
     function sideMenu() {
         return `
         <div class="sidebar onlyDesktop">
-            <a class="sidebar__link sidebar__link--active" href="/closed">
+            <a class="sidebar__link" href="/closed">
                 Сделки 💰
             </a> 
-            <a class="sidebar__link" href="/rejects">
+            <a class="sidebar__link sidebar__link--active" href="/rejects">
                 Отказы 😕
             </a>         
         </div>    
@@ -50,7 +50,6 @@
 
     function deals(items) {
         return `
-        ${sideMenu()}
         <h1 class="pageTitle">Успешные сделки</h1>
         ${
             items && items.length > 0 ?
@@ -62,7 +61,8 @@
 
     function rejects(items) {
         return `
-        <h2>Отказы 😕</h3>
+        ${sideMenu()}
+        <h1>Отказы</h1>
         ${
             items && items.length > 0 ?
                 (items.map(templateReject)).join('')
@@ -71,7 +71,7 @@
             }`
     }
 
-    fetch(Config.API_HOST + "/customers/closed?filter=deal&token=" + getCookie('msid'))
+    fetch(Config.API_HOST + "/customers/closed?filter=reject&token=" + getCookie('msid'))
         .then(response => response.json())
         .then(checkResponse)
         .then(({ reject, deal }) => {
@@ -80,7 +80,7 @@
             closedList.classList.remove('preloader');
             closedList.classList.add('list__content');
 
-            closedList.innerHTML = deals(deal)
+            closedList.innerHTML = rejects(reject)
 
 
         })

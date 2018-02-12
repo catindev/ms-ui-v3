@@ -32,6 +32,7 @@ app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirnam
 app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirname + '/static/customer-edit/template.html'))
 
 app.get('/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
+app.get('/rejects', (request, response) => response.sendFile(__dirname + '/static/closed-rejects/template.html'))
 app.get('/closed/:id', (request, response) => response.sendFile(__dirname + '/static/closed-profile/template.html'))
 
 app.get('/recents', (request, response) => response.sendFile(__dirname + '/static/recent-calls/template.html'))
