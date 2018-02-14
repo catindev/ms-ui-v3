@@ -5,7 +5,7 @@
         .then(response => response.json())
         .then(checkResponse)
         .then(user => {
-            console.log('user', user)
+            console.log('user', user._id, user.account._id)
 
             OneSignal.push(["getNotificationPermission", function (permission) {
                 console.log("Site Notification Permission:", permission);
