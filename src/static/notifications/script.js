@@ -10,7 +10,7 @@
             OneSignal.push(function () {
                 OneSignal.init({ appId: "6b6458f2-a7b7-4665-bfb9-63d9214c3ceb" });
 
-                OneSignal.getNotificationPermission()(["getNotificationPermission", function (permission) {
+                OneSignal.push(["getNotificationPermission", function (permission) {
                     console.log("Site Notification Permission:", permission);
                 }]);
             });
