@@ -8,11 +8,16 @@
             console.log('user', user._id, user.account._id)
 
             OneSignal.push(["getNotificationPermission", function (permission) {
-                if (permission === 'granted') OneSignal.sendTags({
-                    'userId': user._id, 'accountId': user.account._id,
-                }).then(function (tagsSent) {
-                    console.log('Tags sent state:', tagsSent);
-                });
+                if (permission === 'granted') {
+                    OneSignal.sendTags({
+                        'userId': user._id, 'accountId': user.account._id,
+                    }).then(function (tagsSent) {
+                        document.getElementById('description').innerText = 'Уведомления включены 👍'
+                        console.log('Tags sent state:', tagsSent);
+                    })
+                } else {
+                    document.getElementById('description').innerText = 'Уведомления не включены 😳'
+                }
                 console.log("Site Notification Permission:", permission);
             }]);
         })
