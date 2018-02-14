@@ -8,13 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/notifications/styles.css">
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "6b6458f2-a7b7-4665-bfb9-63d9214c3ceb",
+            });
+        });
+    </script>
 </head>
 
 <body style="padding:1.5rem;padding-top:5rem;border-top: 10px solid #A23A99;">
     <a href="/">← Вернуться в ЦРМ</a>
     <h1>Настройка уведомлений</h1>
 
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script src="/static/common/script.js"></script>
     <script src="/static/notifications/script.js"></script>
 </body>
