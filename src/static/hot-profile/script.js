@@ -13,7 +13,8 @@
   }
 
   function template({ _id, name, trunk, calls, phones, user, account: { targetQuestion } }) {
-    const theQuestion = user && user.name ?
+    // beta fix: разрешаем заполнять без менеджера
+    const theQuestion =
       `<div class="card">
         <div class="data">
           <h3>${ targetQuestion}</h3>
@@ -22,14 +23,16 @@
               <a href="/leads/hot/${ _id}/reject" class="button">Нет</a>              
           </div>           
         </div>
-      </div>` : '';
+      </div>`;
 
     const needReject = (!user && isEnoughCalls(calls)) ?
       `<div class="card">
         <div class="data">
           <h3>Клиент не отвечает?</h3>
           <div class="">
-              <a href="/leads/hot/${ _id}/reject" class="button">Отправить в отказы 🔫</a>              
+              <a href="/leads/hot/${ _id}/reject" class="button">
+                Отправить в отказы 🔫
+              </a>              
           </div>           
         </div>
       </div>` : '';
@@ -47,7 +50,6 @@
           </div>
 
           ${theQuestion}  
-          ${needReject}
         `
   }
 
