@@ -37,6 +37,8 @@ app.get('/closed/:id', (request, response) => response.sendFile(__dirname + '/st
 
 app.get('/recents', (request, response) => response.sendFile(__dirname + '/static/recent-calls/template.html'))
 
+app.get('/notifications', (request, response) => response.sendFile(__dirname + '/static/notifications/template.html'))
+
 app.get('/exit', (request, response) => {
     const { query: { msid } } = request
     response.clearCookie('msid')

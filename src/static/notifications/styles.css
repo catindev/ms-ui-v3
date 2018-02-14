@@ -1,0 +1,14 @@
+a {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 0;
+    color: #3652D3;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid;
+    font-weight: 700px;
+}
+
+a:hover {
+    opacity: .5;
+}
