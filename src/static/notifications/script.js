@@ -16,7 +16,8 @@
                         console.log('Tags sent state:', tagsSent);
                     })
                 } else {
-                    document.getElementById('description').innerText = 'Уведомления не включены 😳'
+                    if (permission === 'default') document.getElementById('description').innerText = 'Ожидаем включения 🦑'
+                    else document.getElementById('description').innerText = 'Уведомления не включены 😳'
                 }
                 console.log("Site Notification Permission:", permission);
             }]);
