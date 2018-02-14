@@ -4,7 +4,7 @@
     fetch(`${Config.API_HOST}/users/me?token=${getCookie('msid')}&today=true`)
         .then(response => response.json())
         .then(checkResponse)
-        .then(user => {
+        .then(({ user }) => {
             console.log('user', user._id, user.account._id)
 
             OneSignal.push(["getNotificationPermission", function (permission) {
