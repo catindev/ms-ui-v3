@@ -19,8 +19,8 @@
         <div class="data">
           <h3>${ targetQuestion}</h3>
           <div class="">
-              <a href="/leads/hot/${ _id}/edit" class="button button--primary">Да</a> 
-              <a href="/leads/hot/${ _id}/reject" class="button">Нет</a>              
+              <a href="/leads/hot/${ _id}/edit" class="button button--primary js-checkOwner">Да</a> 
+              <a href="/leads/hot/${ _id}/reject" class="button js-checkOwner">Нет</a>              
           </div>           
         </div>
       </div>`;
@@ -53,6 +53,30 @@
         `
   }
 
+  function listenAndCheckBeforeEdit() {
+    const btns = document.querySelectorAll('.js-checkOwner');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = e.target || e.srcElement,
+          href = target.getAttribute('href');
+
+
+        fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[3]}/isowner?token=${getCookie('msid')}`)
+          .then(response => response.json())
+          .then(checkResponse)
+          .then(({ isOwner }) => {
+            if (isOwner) location.href = href;
+            else alert('Клиент назначен на другого менеджера')
+          })
+          .catch(error => {
+            console.error('Error:', error.message)
+            alert(error.message)
+          });
+      });
+    }
+  }
+
   fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[3]}?token=${getCookie('msid')}`)
     .then(response => response.json())
     .then(checkResponse)
@@ -60,6 +84,7 @@
       Profile.classList.remove('preloader');
       Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
       playerInit();
+      listenAndCheckBeforeEdit();
     })
     .catch(error => console.error('Error:', error.message));
 })();
