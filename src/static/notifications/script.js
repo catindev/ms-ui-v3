@@ -18,6 +18,7 @@
                 } else {
                     if (permission === 'default') document.getElementById('description').innerText = 'Ожидаем включения 🦑'
                     else document.getElementById('description').innerText = 'Уведомления не включены 😳'
+                    document.getElementById('hint').style.display = "block";
                 }
                 console.log("Site Notification Permission:", permission);
             }]);

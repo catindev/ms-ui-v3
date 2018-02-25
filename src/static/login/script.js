@@ -45,8 +45,9 @@
                 return false;
             }
 
-            var expires = new Date(new Date().getTime() + 31536000000);
-            document.cookie = 'msid=' + token + ';expires=' + expires + ';path=/';
+            const expires = new Date(new Date().getTime() + 31536000000);
+            Cookies.set('msid', token, { expires });
+
             window.location.reload();
         }).catch(function (error) {
             if (message === 'Failed to fetch') message = 'Ошибка входа. Проверьте подключен ли компьютер к интернету';
