@@ -42,12 +42,7 @@
             <a href="/leads/hot" class="backButton"></a>
             ${ name}
           </h1>
-          <h2 class="mobilePadding">${ phones.join('')}</h2>
-          
-          <div class="card">
-            <div class="label">Рекламный источник</div>
-            <div class="data">${ trunk.name}</div>
-          </div>
+          <h2 class="mobilePadding">${trunk.name}</h2>
 
           ${theQuestion}  
 
