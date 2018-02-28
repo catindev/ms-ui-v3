@@ -44,6 +44,16 @@
             ${notesHTML}
             ${noEditWarning(goodCalls)}
 
+            <div class="label">Контакты</div>
+            <div class="data">
+                <div id="ContactsListWidget" 
+                    data-customer="${_id}" 
+                    data-msid="${getCookie('msid')}"></div>
+                <a class="optionsButton" href="/customers/${ _id}/contacts/add">
+                    Добавить новый контакт 📒
+                </a>                     
+            </div>
+
             <div class="optionsPanel onlyMobile">
                 ${mobileEditBtn(goodCalls)}
                 <a class="optionsButton" href="/leads/cold/${ _id}/reject">
@@ -69,6 +79,7 @@
             Profile.classList.remove('preloader');
             Profile.innerHTML = template(customer) + createPlaylist(customer.calls, 'Вы ещё не звонили этому клиенту ')
             playerInit();
+            loadScript('/static/common/contactsWidget/script.js');
         })
         .catch(error => console.error('Error:', error.message));
 })();

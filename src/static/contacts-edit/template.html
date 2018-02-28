@@ -2,28 +2,17 @@
 <html>
 
 <head>
-    <title>Лид</title>
+    <title>Изменить контакт</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
-    <link rel="stylesheet" href="/static/common/profile.css">
-
-    <link rel="stylesheet" href="/static/callback/styles.css">
-
-    <link rel="stylesheet" href="/static/cold-profile/styles.css">
-
-    <link rel="stylesheet" href="/static/player/styles.css">
-    <link rel="stylesheet" href="/static/player/jouele.css" />
-
-    <link rel="stylesheet" href="/static/common/contactsWidget/styles.css">
+    <link rel="stylesheet" href="/static/common/form.css">
+    <link rel="stylesheet" href="/static/contacts-edit/styles.css">
 </head>
 
 <body>
-    <div class="callbackLayout" id="callbackLayout"></div>
-
     <div class="changelog--mobile onlyMobile">
         <a href="http://telegra.ph/ms-changelog-02-25" target="_blank">Новинка — уведомления о входящих звонках 🦑</a>
     </div>
@@ -31,15 +20,13 @@
         <a href="http://telegra.ph/ms-changelog-02-25" target="_blank">Новинка — уведомления о входящих звонках 🦑</a>
     </div>
 
+    <div class="callbackLayout" id="callbackLayout"></div>
     <div class="subMenu onlyMobile">
         <div class="buttonGroup">
-            <a class="buttonGroup__button" href="/leads/hot">
-                Горячие 🔥
-            </a>
-            <a class="buttonGroup__button buttonGroup__button--active" href="/leads/cold">Холодные ⛄</a>
+            <a class="buttonGroup__button" href="/leads/hot">Горячие 🔥</a>
+            <a class="buttonGroup__button buttonGroup__button--active">Холодные ⛄</a>
         </div>
     </div>
-
     <div class="pageHeader">
         <ul class="topNavigation onlyDesktop">
             <li>
@@ -48,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a class="topNavigation__link topNavigation__link topNavigation__link--active" href="/leads/cold">
+                <a class="topNavigation__link" href="/leads/cold">
                     Холодные лиды
                 </a>
             </li>
@@ -63,16 +50,29 @@
             </li>
 
             <li style="float: right;">
-                <a href="/exit" class="topNavigation__link">Выйти</a>
+                <a id="username" class="topNavigation__link"></a>
             </li>
         </ul>
     </div>
 
-    <section id="Profile" class="preloader"></section>
+    <form id="editContactForm">
+        <h1>Изменить контакт</h1>
+        <h2 id="customerName">...</h2>
+        <div class="message" id="errorMessage"></div>
+        <label for="phone">Номер телефона</label>
+        <input type="tel" id="phone" name="phone" class="js-input" />
+        <label for="name">Название контакта</label>
+        <input type="text" id="name" name="name" class="js-input" />
+        <input type="hidden" id="successURL" name="successURL" />
+        <div class="buttonsPanel">
+            <button>Сохранить</button>
+            <a id="cancelButton" href="" class="button default wmargin">Отменить</a>
+        </div>
+    </form>
 
     <ul class="bottomMenu onlyMobile" id="bottomTabs">
         <li>
-            <a class="bottomMenu__link bottomMenu__link--active">Новые</a>
+            <a href="/leads/hot" class="bottomMenu__link">Новые</a>
         </li>
         <li>
             <a href="/customers" class="bottomMenu__link">В работе</a>
@@ -84,23 +84,14 @@
             <a href="/recents" class="bottomMenu__link">История</a>
         </li>
     </ul>
-
     <script src="https://cdn.ravenjs.com/3.19.1/raven.min.js"></script>
     <script type="text/javascript">
         Raven
             .config('https://38eb5217172a4497bd9f0bc5acf86e6e@sentry.io/233872')
             .install()
     </script>
-
     <script src="/static/common/script.js"></script>
-    <script src="/static/callback/script.js"></script>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/player/jouele.min.js"></script>
-    <script src="/static/player/script.js"></script>
-
-
-    <script src="/static/cold-profile/script.js"></script>
+    <script src="/static/contacts-edit/script.js"></script>
 </body>
 
 </html>

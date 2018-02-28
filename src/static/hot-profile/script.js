@@ -50,6 +50,13 @@
           </div>
 
           ${theQuestion}  
+
+          <div class="label">Контакты</div>
+          <div class="data">     
+              <div id="ContactsListWidget" 
+                  data-customer="${_id}" 
+                  data-msid="${getCookie('msid')}"></div>                       
+          </div>           
         `
   }
 
@@ -83,6 +90,7 @@
     .then(({ customer }) => {
       Profile.classList.remove('preloader');
       Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
+      loadScript('/static/common/contactsWidget/script.js');
       playerInit();
       listenAndCheckBeforeEdit();
     })

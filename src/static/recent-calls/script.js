@@ -1,6 +1,11 @@
 (function () {
 
-    function customerHTML({ _id, missed, date, customer: { id, name, funnelStep }, isCallback, owner }) {
+    function customerHTML({
+        _id, missed, date, customer: { id, name, funnelStep }, contact, isCallback, owner
+    }) {
+
+        const mstyle = missed === true ? 'recentCall--missed' : '';
+
         const status = missed === true ?
             `<span class="recentCall--missed">${date}</span>` :
             `<span class="recentCall">${date}</span>`
@@ -14,6 +19,9 @@
             return '/customers/' + id
         }
 
+        const displayContact = contact && contact !== 'Основной' ?
+            `<div class="row info contact ${mstyle}">${contact}</div>` : '';
+
         const displayOwner = owner === 'lead' ? 'Новый клиент' : `Менеджер — ${owner}`;
 
         return `
@@ -24,6 +32,7 @@
                                 href="${profileURL(funnelStep, id)}">
                                 ${name}
                     </${container}>
+                    ${displayContact}
                     <div class="row info">${ status}</div>
                     ${ owner !== 'you' ? `<div class="row info">${displayOwner}</div>` : ''}
               </div>

@@ -7,6 +7,12 @@
     color: grey;
 }
 
+.contact {
+    font-size: 14px;
+    color: inherit;
+    font-weight: 500;
+}
+
 .recentCall--missed {
     color: #D35400 !important;
 }

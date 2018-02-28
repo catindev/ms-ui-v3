@@ -53,6 +53,12 @@
             </div>             
 
             <div4 class="card">
+                <div class="label">Контакты</div>
+                <div class="data">
+                    <div id="ContactsListWidget" 
+                        data-customer="${_id}" 
+                        data-msid="${getCookie('msid')}"></div>
+                </div>             
                 ${rejectHTML}
                 ${dealHTML}              
                 ${customs(params)}
@@ -67,6 +73,7 @@
             Profile.classList.remove('preloader');
             Profile.innerHTML = template(customer) + createPlaylist(customer.calls);
             playerInit();
+            loadScript('/static/common/contactsWidget/script.js');
             waitForComeback();
         })
         .catch(error => console.error('Error:', error.message));

@@ -51,6 +51,16 @@
                 <div class="data">${info || 'нет'}</div>    
                           
                 ${taskHTML}
+
+                <div class="label">Контакты</div>
+                <div class="data">     
+                    <div id="ContactsListWidget" 
+                        data-customer="${_id}" 
+                        data-msid="${getCookie('msid')}"></div>
+                    <a class="optionsButton" href="/customers/${ _id}/contacts/add">
+                        Добавить новый контакт 📒
+                    </a>                        
+                </div> 
             </div>
 
             <div class="optionsPanel onlyMobile">
@@ -79,7 +89,7 @@
                 <div class="sidebar__divider"></div>
                 <a class="sidebar__link" href="/customers/${ _id}/set.task">
                     Поставить задачу ✅
-                </a>                  
+                </a>                     
             </div>                      
         `
     }
@@ -91,6 +101,7 @@
             Profile.classList.remove('preloader');
             Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
             playerInit();
+            loadScript('/static/common/contactsWidget/script.js')
         })
         .catch(error => console.error('Error:', error.message));
 })();

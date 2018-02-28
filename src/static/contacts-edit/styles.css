@@ -1,0 +1,37 @@
+.default {
+    margin-left: 15px;
+}
+
+.shake {
+    animation: shaking 0.82s;
+}
+
+.message {
+    display: none;
+    background-color: #FCF3AF;
+    border-radius: 5px;
+    padding: .7rem;
+    margin-top: 0;
+    margin: .5rem 0;
+    font-size: 14px;    
+}
+
+@keyframes shaking {
+    10%,
+    90% {
+        transform: translate3d(-2px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(4px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-6px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(6px, 0, 0);
+    }
+}

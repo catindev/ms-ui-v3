@@ -9,6 +9,14 @@ function getCookie(name) {
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
+function loadScript(name) {
+  console.log('Loading', name)
+  var fileref = document.createElement('script')
+  fileref.setAttribute("type", "text/javascript")
+  fileref.setAttribute("src", name)
+  document.head.appendChild(fileref)
+}
+
 function checkResponse(response) {
   console.log(response)
   if (response.status === 403) {

@@ -31,6 +31,9 @@ app.get('/customers/:id/reject', (request, response) => response.sendFile(__dirn
 app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirname + '/static/customer-deal/template.html'))
 app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirname + '/static/customer-edit/template.html'))
 
+app.get('/customers/:id/contacts/add', (request, response) => response.sendFile(__dirname + '/static/contacts-new/template.html'))
+app.get('/contacts/:id/edit', (request, response) => response.sendFile(__dirname + '/static/contacts-edit/template.html'))
+
 app.get('/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
 app.get('/rejects', (request, response) => response.sendFile(__dirname + '/static/closed-rejects/template.html'))
 app.get('/closed/:id', (request, response) => response.sendFile(__dirname + '/static/closed-profile/template.html'))
@@ -45,4 +48,4 @@ app.get('/exit', (request, response) => {
     response.redirect('/')
 })
 
-const listener = app.listen(5003, () => console.log('Started at', listener.address().port))
+const listener = app.listen(7003, () => console.log('Started at', listener.address().port))
