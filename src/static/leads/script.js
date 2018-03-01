@@ -9,7 +9,7 @@
 
         return `
           <div class="row lead">
-              <div class="col callbackButton" customer="${ _id}"></div>
+              <a class="col callbackButton" href="/customers/${_id}/contacts"></a>
               <div class="col">
                   <a class="name" href="/leads/hot/${ _id}">${name}</a>
                   <div class="row info">${ status}</div>
@@ -35,7 +35,7 @@
                     которые позвонят на рекламные номера.</p>
                 </div>`
 
-            registerCallbacks();
+            // registerCallbacks();
         })
         .catch(error => console.error('Error:', error.message));
 })();

@@ -22,7 +22,7 @@
 
     return `
           <div class="row lead" id="${ _id}">
-              <div class="col callbackButton" customer="${ _id}"></div>
+          <a class="col callbackButton" href="/customers/${_id}/contacts"></a>
               <div class="col">
                   <a class="name" href="/customers/${ _id}">
                     ${ name}
@@ -78,7 +78,7 @@
       `
 
       closedList.innerHTML = (items.map(customers)).join('')
-      registerCallbacks();
+      // registerCallbacks();
     })
     .catch(error => console.error('Error:', error.message));
 })();

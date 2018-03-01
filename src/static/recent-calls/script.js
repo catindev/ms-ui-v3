@@ -26,7 +26,7 @@
 
         return `
           <div class="row lead">
-              <div class="col callbackButton" customer="${id}"></div>
+              <a class="col callbackButton" href="/customers/${id}/contacts"></a>
               <div class="col wbrdr">
                     <${container} class="name ${missed === true && 'recentCall--missed'}" 
                                 href="${profileURL(funnelStep, id)}">
@@ -94,7 +94,7 @@
                     <p>Звонков нет. Сюда попадут контакты звонивших вам клиентов.</p>
                 </div>`
 
-            registerCallbacks();
+            // registerCallbacks();
         })
         .catch(error => console.error('Error:', error.message));
 })();
