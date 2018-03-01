@@ -2,20 +2,19 @@
 <html>
 
 <head>
-    <title>Холодные лиды</title>
+    <title>Горячие лиды</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/common/styles.css">
     <link rel="stylesheet" href="/static/common/navigation.css">
-    <link rel="stylesheet" href="/static/coldback/styles.css">
     <link rel="stylesheet" href="/static/common/customers.css">
-    <link rel="stylesheet" href="/static/cold-leads/styles.css">
+    <link rel="stylesheet" href="/static/contacts/styles.css">
+
+    <link rel="stylesheet" href="/static/common/contactsWidget/styles.css">
 </head>
 
 <body>
-    <div class="callbackLayout" id="callbackLayout"></div>
-
     <div class="changelog--mobile onlyMobile">
         <a href="http://telegra.ph/ms-changelog-02-25" target="_blank">Новинка — уведомления о входящих звонках 🦑</a>
     </div>
@@ -25,13 +24,9 @@
 
     <div class="subMenu onlyMobile">
         <div class="buttonGroup">
-            <a class="buttonGroup__button" href="/leads/hot">Горячие 🔥</a>
-            <a class="buttonGroup__button buttonGroup__button--active">Холодные ⛄</a>
+            <a class="buttonGroup__button buttonGroup__button--active">Горячие 🔥</a>
+            <a class="buttonGroup__button" href="/leads/cold">Холодные ⛄</a>
         </div>
-    </div>
-
-    <div class="sidebar onlyDesktop">
-        <a class="sidebar__link" href="/leads/cold/new">+ Добавить</a>
     </div>
 
     <div class="pageHeader">
@@ -42,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a class="topNavigation__link topNavigation__link topNavigation__link--active">
+                <a class="topNavigation__link" href="/leads/cold">
                     Холодные лиды
                 </a>
             </li>
@@ -62,17 +57,12 @@
         </ul>
     </div>
 
-    <div class="list">
-        <h1 class="pageTitle">Холодные лиды</h1>
-        <div class="mobilePanel onlyMobile">
-            <a href="/leads/cold/new" class="panelButton">+ Добавить</a>
-        </div>
-        <div id="leadsList" class="preloader"></div>
+    <div class="list preloader " id="contactsList">
     </div>
 
     <ul class="bottomMenu onlyMobile">
         <li>
-            <a class="bottomMenu__link bottomMenu__link--active">Новые</a>
+            <a href="/leads/hot" class="bottomMenu__link">Новые</a>
         </li>
         <li>
             <a href="/customers" class="bottomMenu__link">В работе</a>
@@ -92,7 +82,7 @@
             .install()
     </script>
     <script src="/static/common/script.js"></script>
-    <script src="/static/cold-leads/script.js"></script>
+    <script src="/static/contacts/script.js"></script>
 </body>
 
 </html>

@@ -32,7 +32,9 @@ app.get('/customers/:id/deal', (request, response) => response.sendFile(__dirnam
 app.get('/customers/:id/edit', (request, response) => response.sendFile(__dirname + '/static/customer-edit/template.html'))
 
 app.get('/customers/:id/contacts/add', (request, response) => response.sendFile(__dirname + '/static/contacts-new/template.html'))
+app.get('/customers/:id/contacts', (request, response) => response.sendFile(__dirname + '/static/contacts/template.html'))
 app.get('/contacts/:id/edit', (request, response) => response.sendFile(__dirname + '/static/contacts-edit/template.html'))
+
 
 app.get('/closed', (request, response) => response.sendFile(__dirname + '/static/closed/template.html'))
 app.get('/rejects', (request, response) => response.sendFile(__dirname + '/static/closed-rejects/template.html'))

@@ -1,16 +1,16 @@
-(function() {
+(function () {
 
     function leadHTML({ _id, name, info }) {
         return `
           <div class="row lead">
-              <div class="col callbackButton" customer="${ _id }"></div>
+              <a class="col callbackButton" href="/customers/${_id}/contacts" customer="${_id}"></a>
               <div class="col">
-                  <a class="name" href="/leads/cold/${ _id }">${ name }</a>
+                  <a class="name" href="/leads/cold/${ _id}">${name}</a>
                   <div class="row info wbrdr">
-                    <span>${ info }</span>
+                    <span>${ info}</span>
                   </div>
               </div>
-              <a href="/leads/cold/${ _id }" class="col saveButton"></a>
+              <a href="/leads/cold/${ _id}" class="col saveButton"></a>
           </div>   
         `
     }
@@ -25,12 +25,12 @@
             leadsList.classList.add('list__content');
 
             leadsList.innerHTML = items.length > 0 ?
-                items.map(leadHTML).join('') 
+                items.map(leadHTML).join('')
                 : `<div class="emptyList">
                     <p>Список пуст. Добавьте сюда клиентов, которых вы нашли самостоятельно.</p>
                 </div>`
 
-            registerCallbacks();                   
+            // registerCallbacks();
         })
         .catch(error => console.error('Error:', error.message));
 })();
