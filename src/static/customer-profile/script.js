@@ -37,21 +37,15 @@
             })).join('')
         }
 
+        const descriptionHTML = info ? `<h2 class="mobilePadding">${info}</h2>` : '';
+
         return `
             <h1 class="mobilePadding">
             <a href="/customers" class="backButton changelog"></a>
                 ${ name}
             </h1>
-            <h2 class="mobilePadding">
-                ${phones.join(', ')}
-            </h2>
-
-            <div class="card">  
-                <div class="label">Описание</div>
-                <div class="data">${info || 'нет'}</div>    
-                          
-                ${taskHTML}
-
+            ${descriptionHTML}
+            <div class="card">
                 <div class="label">Контакты</div>
                 <div class="data">     
                     <div id="ContactsListWidget" 
@@ -61,6 +55,8 @@
                         Добавить новый контакт 📒
                     </a>                        
                 </div> 
+
+                ${taskHTML}
             </div>
 
             <div class="optionsPanel onlyMobile">
