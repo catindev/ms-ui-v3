@@ -15,14 +15,20 @@
     `
   }
 
-  function customer({ name, info, _id, task }, next) {
+  function customer({ name, info, _id, task, contacts }, next) {
     const taskHTML = task.timestamp !== 0 ?
       `${task.what}<br/><small>${task.displayWhen}</small>`
       : `Нет задачи 😡 <a class="funnelSetTask" href="/customers/${_id}/set.task">Назначить</a>`;
 
+    const callbackButtonHTML = contacts.length > 1 ?
+      `<a class="col callbackButton" href="/customers/${_id}/contacts"></a>`
+      :
+      `<div class="col callbackButton" onclick="callbackNow(this);" customer="${_id}"></div>`
+      ;
+
     return `
           <div class="row lead" id="${ _id}">
-          <a class="col callbackButton" href="/customers/${_id}/contacts"></a>
+              ${callbackButtonHTML}
               <div class="col">
                   <a class="name" href="/customers/${ _id}">
                     ${ name}

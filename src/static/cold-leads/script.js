@@ -1,16 +1,22 @@
 (function () {
 
-    function leadHTML({ _id, name, info }) {
+    function leadHTML({ _id, name, info, contacts }) {
+        const callbackButtonHTML = contacts.length > 1 ?
+            `<a class="col callbackButton" href="/customers/${_id}/contacts"></a>`
+            :
+            `<div class="col callbackButton" onclick="callbackNow(this);" customer="${_id}"></div>`
+            ;
+
         return `
           <div class="row lead">
-              <a class="col callbackButton" href="/customers/${_id}/contacts" customer="${_id}"></a>
-              <div class="col">
-                  <a class="name" href="/leads/cold/${ _id}">${name}</a>
-                  <div class="row info wbrdr">
-                    <span>${ info}</span>
-                  </div>
-              </div>
-              <a href="/leads/cold/${ _id}" class="col saveButton"></a>
+            ${callbackButtonHTML}
+            <div class="col">
+                <a class="name" href="/leads/cold/${ _id}">${name}</a>
+                <div class="row info wbrdr">
+                <span>${ info}</span>
+                </div>
+            </div>
+            <a href="/leads/cold/${ _id}" class="col saveButton"></a>
           </div>   
         `
     }

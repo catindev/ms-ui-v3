@@ -1,7 +1,7 @@
 (function () {
 
     function customerHTML({
-        _id, missed, date, customer: { id, name, funnelStep }, contact, isCallback, owner
+        _id, missed, date, customer: { id, name, funnelStep }, contact, contacts, isCallback, owner
     }) {
 
         const mstyle = missed === true ? 'recentCall--missed' : '';
@@ -24,9 +24,15 @@
 
         const displayOwner = owner === 'lead' ? 'Новый клиент' : `Менеджер — ${owner}`;
 
+        const callbackButtonHTML = contacts > 1 ?
+            `<a class="col callbackButton" href="/customers/${id}/contacts"></a>`
+            :
+            `<div class="col callbackButton" onclick="callbackNow(this);" customer="${id}"></div>`
+            ;
+
         return `
           <div class="row lead">
-              <a class="col callbackButton" href="/customers/${id}/contacts"></a>
+              ${callbackButtonHTML}  
               <div class="col wbrdr">
                     <${container} class="name ${missed === true && 'recentCall--missed'}" 
                                 href="${profileURL(funnelStep, id)}">

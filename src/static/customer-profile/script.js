@@ -1,5 +1,10 @@
 (function () {
 
+    {
+        phones: [String]
+    }
+
+
     function template(customer) {
         const { _id, name, trunk, user, phones, params, info } = customer;
 
@@ -17,8 +22,18 @@
                 <p style="font-size: 13px; color: #999898;">
                     ${customer.task.displayWhen} ${customer.task.time ? 'в ' + customer.task.time : ''}
                 </p>
-            </div>        
-        ` : '';
+                <a class="optionsButton" href="/customers/${ _id}/set.task">
+                    Изменить задачу ✏️ ✅
+                </a>
+            </div>   
+        ` : `
+        <div class="label">Задача</div>
+        <div class="data">
+            <a class="optionsButton" href="/customers/${ _id}/set.task">
+                Поставить задачу ✅
+            </a>
+        </div>
+        `;
 
 
 
@@ -59,10 +74,7 @@
                 ${taskHTML}
             </div>
 
-            <div class="optionsPanel onlyMobile">
-                <a class="optionsButton" href="/customers/${ _id}/set.task">
-                    Поставить задачу ✅
-                </a>             
+            <div class="optionsPanel onlyMobile">            
                 <a class="optionsButton" href="/customers/${ _id}/profile">
                     Открыть профиль 📋
                 </a>                 
@@ -81,11 +93,7 @@
                 </a>            
                 <a class="sidebar__link" href="/customers/${ _id}/reject">
                     Оформить отказ 🚯
-                </a>
-                <div class="sidebar__divider"></div>
-                <a class="sidebar__link" href="/customers/${ _id}/set.task">
-                    Поставить задачу ✅
-                </a>                     
+                </a>                    
             </div>                      
         `
     }
