@@ -35,7 +35,7 @@ h1 {
 }
 
 .changelog--mobile a {
-  display: none;
+  /* display: none; */
   text-decoration: none;
   color: #fff;
   font-size: 14px;
@@ -45,7 +45,7 @@ h1 {
 }
 
 .changelog--desktop {
-  display: none !important;
+  /* display: none !important; */
   z-index: 9998;
   position: fixed;
   bottom: 0;
