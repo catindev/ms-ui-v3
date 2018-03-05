@@ -33,17 +33,15 @@
                 </div>    
             </div>`: '';
 
+        const descriptionHTML = info ? `<h2 class="mobilePadding">${info}</h2>` : '';
+
         return `
             <h1 class="mobilePadding">
                 <a href="/leads/cold" class="backButton"></a>
                 ${ name}
             </h1>
-            <h2 class="mobilePadding">${phones[0]}</h2>                
-
-            ${infoHTML}
-            ${notesHTML}
+            ${descriptionHTML}                
             ${noEditWarning(goodCalls)}
-
             <div class="label">Контакты</div>
             <div class="data">
                 <div id="ContactsListWidget" 
@@ -53,7 +51,7 @@
                     Добавить новый контакт 📒
                 </a>                     
             </div>
-
+            ${notesHTML}
             <div class="optionsPanel onlyMobile">
                 ${mobileEditBtn(goodCalls)}
                 <a class="optionsButton" href="/leads/cold/${ _id}/reject">
