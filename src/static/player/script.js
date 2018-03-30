@@ -154,7 +154,8 @@ function playerInit() {
 
   })
 
-  newBreadcrumbNoteForm.addEventListener("submit", onFormSubmit);
+  const frm = document.getElementById('newBreadcrumbNoteForm')
+  frm && frm.addEventListener("submit", onFormSubmit);
 }
 
 /* Form events */
