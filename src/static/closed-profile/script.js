@@ -71,7 +71,10 @@
         .then(checkResponse)
         .then(({ customer }) => {
             Profile.classList.remove('preloader');
-            Profile.innerHTML = template(customer) + createPlaylist(customer.calls);
+
+            // OLD: Profile.innerHTML = template(customer) + createPlaylist(customer.calls);
+            Profile.innerHTML = template(customer) + drawStory(customer.breadcrumbs)
+
             playerInit();
             loadScript('/static/common/contactsWidget/script.js');
             waitForComeback();

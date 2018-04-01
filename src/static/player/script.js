@@ -1,5 +1,5 @@
 
-
+// TODO: Отрефакторить сей пиздец 💩
 
 function createPlaylist(calls, emptyMessage) {
 
@@ -39,8 +39,30 @@ function createPlaylist(calls, emptyMessage) {
   `
 }
 
+// New breadcrumbs story
 
-function drawStory(breadcrumbs, emptyMessage) {
+var CustomerID = false;
+
+function breadcrumbHTML(date, manager, icon, text, isNew = false) {
+  const managerHTML = manager ?
+    ` <span class="breadcrumb__divider"></span> ${manager.name}`
+    :
+    ` <span class="breadcrumb__divider"></span> Майндсейлс`;
+
+  return `
+  <div class="breadcrumb ${isNew && 'breadcrumb--new'}">
+    <div class="breadcrumb__date">
+      ${date}${managerHTML}  ${icon}
+    </div>
+    <div class="breadcrumb__description">${text}</div>
+  </div> 
+`
+}
+
+function drawStory(breadcrumbs, cid = false) {
+  var emptyMessage = '';
+
+  CustomerID = cid; // 🙄 💩 🤮
 
   function call({ isCallback, date, record }) {
     const type = isCallback === true ?
@@ -62,23 +84,6 @@ function drawStory(breadcrumbs, emptyMessage) {
         </div> 
     `
   }
-
-  function breadcrumbHTML(date, manager, icon, text) {
-    const managerHTML = manager ?
-      ` <span class="breadcrumb__divider"></span> ${manager.name}`
-      :
-      ` <span class="breadcrumb__divider"></span> Майндсейлс`;
-
-    return `
-    <div class="breadcrumb">
-      <div class="breadcrumb__date">
-        ${date}${managerHTML}  ${icon}
-      </div>
-      <div class="breadcrumb__description">${text}</div>
-    </div> 
-`
-  }
-
 
   function drawBreadcrumb(breadcrumb) {
     if (breadcrumb.type === 'call' || breadcrumb.type === 'callback')
@@ -141,12 +146,14 @@ function drawStory(breadcrumbs, emptyMessage) {
           </div>
       </form>
 
+      <div id="BreadcrumbsList">
       ${ breadcrumbs && breadcrumbs.length > 0 ?
       (breadcrumbs.map(drawBreadcrumb)).join('')
       :
       `<span class="mobilePadding" style="font-size:13px;">
-            ${ emptyMessage || 'С клиентом пока ничего не происходило 👀'}
-      </span>` }      
+        ${ emptyMessage || 'С клиентом пока ничего не происходило 👀'}
+      </span>` }   
+      </div>   
     </div>
   `
 }
@@ -170,7 +177,6 @@ function playerInit() {
 
 /* Form events */
 
-// TODO: отрефакторить этот писдец 💩
 function onFocus() {
   bottomTabs.style.display = 'none';
 }
@@ -190,7 +196,7 @@ function onFormSubmit(event) {
 
   isRequest = true;
   const customerID = location.pathname.split('/')[2];
-  fetch(`${Config.API_HOST}/customers/${customerID}/breadcrumbs?token=${getCookie('msid')}`, {
+  fetch(`${Config.API_HOST}/customers/${CustomerID || customerID}/breadcrumbs?token=${getCookie('msid')}&df=human`, {
     method: "post",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({
@@ -200,9 +206,21 @@ function onFormSubmit(event) {
   })
     .then(response => response.json())
     .then(checkResponse)
-    .then((respp) => {
-      document.location.reload()
-      // console.log(respp)
+    .then(({ breadcrumb }) => {
+      comment.value = '';
+
+      const BreadcrumbsList = document.getElementById('BreadcrumbsList')
+      const newNote = document.createElement('div');
+      newNote.innerHTML = breadcrumbHTML(
+        breadcrumb.date, breadcrumb.user, '💬', breadcrumb.comment
+      );
+
+      BreadcrumbsList.insertBefore(newNote, BreadcrumbsList.firstChild);
+
+      newNote.className += ' breadcrumb--new';
+      setTimeout(function () {
+        newNote.className += ' breadcrumb--show';
+      }, 10);
     })
     .catch(error => {
       isRequest = false;

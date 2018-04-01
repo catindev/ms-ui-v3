@@ -13,11 +13,12 @@
   }
 
   function template({ _id, name, trunk, calls, phones, user, account: { targetQuestion } }) {
+
     // beta fix: разрешаем заполнять без менеджера
     const theQuestion =
       `<div class="card">
         <div class="data">
-          <h3>${ targetQuestion}</h3>
+          <h3>${targetQuestion}</h3>
           <div class="">
               <a href="/leads/hot/${ _id}/edit" class="button button--primary js-checkOwner">Да</a> 
               <a href="/leads/hot/${ _id}/reject" class="button js-checkOwner">Нет</a>              
@@ -84,7 +85,10 @@
     .then(checkResponse)
     .then(({ customer }) => {
       Profile.classList.remove('preloader');
-      Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
+
+      // OLD: Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
+      Profile.innerHTML = template(customer) + drawStory(customer.breadcrumbs, location.pathname.split('/')[3])
+
       loadScript('/static/common/contactsWidget/script.js');
       playerInit();
       listenAndCheckBeforeEdit();
