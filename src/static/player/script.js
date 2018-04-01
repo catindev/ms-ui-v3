@@ -136,13 +136,16 @@ function drawStory(breadcrumbs, cid = false) {
 
       <form id="newBreadcrumbNoteForm" class="mobilePadding">
           <div class="form__item">
-            <input type="text" id="comment" name="comment" 
+            <input class="bNewNote__input" type="text" 
+              id="comment" name="comment" 
               placeholder="Новая заметка"
               onfocus="onFocus()"
               onblur="onBlur()"/>
           </div>
           <div>
-            <button>Добавить</button>
+            <button class="bNewNote__button">
+              Добавить
+            </button>
           </div>
       </form>
 
