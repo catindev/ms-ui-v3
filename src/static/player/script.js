@@ -108,9 +108,19 @@ function drawStory(breadcrumbs, emptyMessage) {
       breadcrumb.date, breadcrumb.user, '💬', breadcrumb.comment
     )
 
+    if (breadcrumb.type === 'created') {
+      const commentText = 'Клиент зарегистрирован ' + (breadcrumb.user ?
+        'менеджером' : 'автоматически по звонку на источник «' + breadcrumb.trunk.name + '»'
+      )
+      return breadcrumbHTML(
+        breadcrumb.date, breadcrumb.user,
+        '🐣', commentText
+      )
+    }
+
     return breadcrumbHTML(
       breadcrumb.date, breadcrumb.user,
-      '👋', 'Клиент зарегистрирован в ЦРМ'
+      '😳', 'Неизвестное событие'
     )
   }
 
