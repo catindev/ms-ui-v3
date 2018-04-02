@@ -19,8 +19,10 @@
         <div class="data">
           <h3>${ targetQuestion}</h3>
           <div class="">
-              <a href="/leads/hot/${ _id}/edit" class="button button--primary js-checkOwner">Да</a> 
-              <a href="/leads/hot/${ _id}/reject" class="button js-checkOwner">Нет</a>              
+              <a href="/leads/hot/${ _id}/edit" data-type="Yeap"
+                 class="button button--primary js-checkOwner">Да</a> 
+              <a href="/leads/hot/${ _id}/reject" data-type="Nope"
+                 class="button js-checkOwner">Нет</a>              
           </div>           
         </div>
       </div>`;
@@ -55,14 +57,18 @@
         `
   }
 
-  function listenAndCheckBeforeEdit() {
+  function listenAndCheckBeforeEdit(calls) {
+    const callbacks = calls.filter(({ isCallback }) => isCallback === true);
     const btns = document.querySelectorAll('.js-checkOwner');
+
     for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener('click', function (e) {
         e.preventDefault();
         const target = e.target || e.srcElement,
-          href = target.getAttribute('href');
+          href = target.getAttribute('href'),
+          type = target.dataset.type;
 
+        if (type === 'Nope' && callbacks.length >= 3) return location.href = href;
 
         fetch(`${Config.API_HOST}/customers/${location.pathname.split('/')[3]}/isowner?token=${getCookie('msid')}`)
           .then(response => response.json())
@@ -87,7 +93,7 @@
       Profile.innerHTML = template(customer) + createPlaylist(customer.calls)
       loadScript('/static/common/contactsWidget/script.js');
       playerInit();
-      listenAndCheckBeforeEdit();
+      listenAndCheckBeforeEdit(customer.calls);
     })
     .catch(error => console.error('Error:', error.message));
 })();
