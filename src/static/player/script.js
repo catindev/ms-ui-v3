@@ -226,6 +226,8 @@ function onFormSubmit(event) {
       setTimeout(function () {
         newNote.className += ' breadcrumb--show';
       }, 10);
+
+      isRequest = false;
     })
     .catch(error => {
       isRequest = false;
