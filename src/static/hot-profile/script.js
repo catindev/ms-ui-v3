@@ -21,7 +21,7 @@
           <h3>${targetQuestion}</h3>
           <div class="">
               <a href="/leads/hot/${ _id}/edit" class="button button--primary js-checkOwner">Да</a> 
-              <a href="/leads/hot/${ _id}/reject" class="button js-checkOwner">Нет</a>              
+              <a href="/leads/hot/${ _id}/reject?badlead=1" class="button js-checkOwner">Нет</a>              
           </div>           
         </div>
       </div>`;

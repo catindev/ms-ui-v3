@@ -136,11 +136,11 @@ function drawStory(breadcrumbs, cid = false) {
 
       <form id="newBreadcrumbNoteForm" class="mobilePadding">
           <div class="form__item">
-            <input class="bNewNote__input" type="text" 
-              id="comment" name="comment" 
+            <textarea class="bNewNote__input" rows="1" 
+              id="NewNoteComment" name="comment" 
               placeholder="Новая заметка"
               onfocus="onFocus()"
-              onblur="onBlur()"/>
+              onblur="onBlur()"/></textarea>
           </div>
           <div>
             <button class="bNewNote__button">
@@ -176,6 +176,8 @@ function playerInit() {
 
   const frm = document.getElementById('newBreadcrumbNoteForm')
   frm && frm.addEventListener("submit", onFormSubmit);
+
+  autosize(document.getElementById('NewNoteComment'))
 }
 
 /* Form events */
