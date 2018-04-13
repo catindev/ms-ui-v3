@@ -94,15 +94,30 @@ function drawStory(breadcrumbs, cid = false) {
       '👥', 'Клиент назначен на менеджера'
     )
 
+    if (breadcrumb.type === 'task') {
+      const when = breadcrumb.task.time ?
+        breadcrumb.task.when + ' в ' + breadcrumb.task.time
+        :
+        breadcrumb.task.when
+      return breadcrumbHTML(
+        breadcrumb.date, breadcrumb.user,
+        '📝', 'Новая задача — ' + breadcrumb.comment + '</br>' + when
+      )
+    }
+
     if (breadcrumb.type === 'reopen') return breadcrumbHTML(
       breadcrumb.date, breadcrumb.user,
       '💫', 'Открыта новая сделка'
     )
 
-    if (breadcrumb.type === 'reject') return breadcrumbHTML(
-      breadcrumb.date, breadcrumb.user,
-      '🚽', 'Отказ от сделки:</br>— «' + breadcrumb.comment + '»'
-    )
+    if (breadcrumb.type === 'reject') {
+      let comment = 'Отказ от сделки'
+      breadcrumb.comment && (comment += ' - ' + breadcrumb.comment)
+      return breadcrumbHTML(
+        breadcrumb.date, breadcrumb.user,
+        '🚽', comment
+      )
+    }
 
     if (breadcrumb.type === 'deal') return breadcrumbHTML(
       breadcrumb.date, breadcrumb.user,
