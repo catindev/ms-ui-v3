@@ -85,7 +85,11 @@
         }
     ]
 
-    fetch(Config.API_HOST + "/recent.calls?token=" + getCookie('msid'))
+
+    let url = Config.API_HOST + "/recent.calls?token=" + getCookie('msid')
+    const fromDate = readQSParameter('from')
+    if (fromDate) url += '&fromDate=' + fromDate
+    fetch(url)
         .then(response => response.json())
         .then(checkResponse)
         .then(({ items }) => {
