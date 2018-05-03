@@ -111,8 +111,13 @@ function drawStory(breadcrumbs, cid = false) {
     )
 
     if (breadcrumb.type === 'reject') {
-      let comment = 'Отказ от сделки'
-      breadcrumb.comment && (comment += ' - ' + breadcrumb.comment)
+      const comment = 'Отказ от сделки. ' + (
+        breadcrumb.comment ?
+          (breadcrumb.reason + '. ' + breadcrumb.comment)
+          :
+          breadcrumb.reason
+      )
+
       return breadcrumbHTML(
         breadcrumb.date, breadcrumb.user,
         '🚽', comment

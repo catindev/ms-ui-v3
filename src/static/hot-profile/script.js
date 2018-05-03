@@ -14,41 +14,44 @@
 
   function template({ _id, name, trunk, calls, phones, user, account: { targetQuestion } }) {
 
-    // beta fix: разрешаем заполнять без менеджера
+    // если user, то вопрос, иначе кнопка списать
     const theQuestion =
       `<div class="card">
         <div class="data">
           <h3>${targetQuestion}</h3>
           <div class="">
-              <a href="/leads/hot/${ _id}/edit" data-type="Yeap"
+              <a href="/leads/hot/${_id}/edit" data-type="Yeap"
                  class="button button--primary js-checkOwner">Да</a> 
-              <a href="/leads/hot/${ _id}/reject" data-type="Nope"
+              <a href="/leads/hot/${_id}/reject" data-type="Nope"
                  class="button js-checkOwner">Нет</a>              
           </div>           
         </div>
       </div>`;
 
-    const needReject = (!user && isEnoughCalls(calls)) ?
-      `<div class="card">
+    const needReject =
+      `<div class="card">  
+          <div class="data" style="background:#FCF3AF">
+          Чтобы заполнить и взять лида в работу нужно дозвониться до него чтобы уточнить данные для профиля
+          </div>    
+      </div>      
+      <div class="card">
         <div class="data">
-          <h3>Клиент не отвечает?</h3>
+          <h3>Клиент не отвечает или есть другие проблемы?</h3>
           <div class="">
-              <a href="/leads/hot/${ _id}/reject" class="button">
-                Отправить в отказы 🔫
+              <a href="/leads/hot/${_id}/reject" class="button">
+                Заполнить причину и закрыть 🔫
               </a>              
           </div>           
         </div>
-      </div>` : '';
+      </div>`;
 
     return `
           <h1 class="mobilePadding">
             <a href="/leads/hot" class="backButton"></a>
-            ${ name}
+            ${name}
           </h1>
           <h2 class="mobilePadding">${trunk.name}</h2>
-
-          ${theQuestion}  
-
+          ${ user ? theQuestion : needReject}
           <div class="label">Контакты</div>
           <div class="data">     
               <div id="ContactsListWidget" 
@@ -97,7 +100,7 @@
 
       loadScript('/static/common/contactsWidget/script.js');
       playerInit();
-      listenAndCheckBeforeEdit(customer.calls);
+      // listenAndCheckBeforeEdit(customer.calls);
     })
     .catch(error => console.error('Error:', error.message));
 })();
