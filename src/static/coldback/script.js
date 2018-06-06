@@ -1,31 +1,21 @@
-var isCallbackInProgress = false;
+var isColdbackInProgress = false;
+function coldbackNow(elem) {
+    if (isColdbackInProgress === true) return false;
+    callbackLayout.style.display = 'block';
 
-function registerCallbacks() {
-    if (isCallbackInProgress === true) return false;
+    isColdbackInProgress = true;
+    const customer = elem.getAttribute('customer');
 
-    isCallbackInProgress = true;
-    const callButtons = document.getElementsByClassName('callbackButton');
-
-    const callHandler = function () {
-        callbackLayout.style.display = 'block';
-
-        const customer = this.getAttribute('customer');
-        fetch(`${Config.API_HOST}/customers/${customer}/cold.call?token=${getCookie('msid')}&client_timestamp=${new Date().getTime()}`)
-            .then(response => response.json())
-            .then(checkResponse)
-            .then(response => {
-                isCallbackInProgress = false;
-                callbackLayout.style.display = 'none';
-            })
-            .catch(error => {
-                isCallbackInProgress = false;
-                callbackLayout.style.display = 'none';
-                console.error('Ошибка. Вызов отклонён');
-            });
-    }
-
-    for (var i = 0; i < callButtons.length; i++) {
-        callButtons[i].addEventListener('click', callHandler, false)
-    }
-
+    fetch(`${Config.API_HOST}/customers/${customer}/call?token=${getCookie('msid')}&client_timestamp=${new Date().getTime()}`)
+        .then(response => response.json())
+        .then(checkResponse)
+        .then(response => {
+            isColdbackInProgress = false;
+            callbackLayout.style.display = 'none';
+        })
+        .catch(error => {
+            isColdbackInProgress = false;
+            callbackLayout.style.display = 'none';
+            console.error('Ошибка. Вызов отклонён');
+        });
 }

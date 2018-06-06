@@ -4,7 +4,7 @@
         const callbackButtonHTML = contacts.length > 1 ?
             `<a class="col callbackButton" href="/customers/${_id}/contacts"></a>`
             :
-            `<div class="col callbackButton" onclick="callbackNow(this);" customer="${_id}"></div>`
+            `<div class="col callbackButton" onclick="coldbackNow(this);" customer="${_id}"></div>`
             ;
 
         return `
